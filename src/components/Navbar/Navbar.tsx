@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
-import Logo from "../../images/logo.png"; 
+import Logo from "../../images/logodeneme.png"; 
 import { useState } from "react";
-import "./Navbar.css";
+import "./styles/_index.scss";
 
 type NavbarProps = {};
 
@@ -13,6 +13,7 @@ const Navbar: React.FC<NavbarProps> = () => {
   };
 
   return (
+    <>
     <nav>
     {/* mobile */}
     <div className={`mobile-navbar ${nav ? "open-nav" : ""}`}>
@@ -85,8 +86,8 @@ const Navbar: React.FC<NavbarProps> = () => {
             İletişim
           </Link>
         </li>
-      </ul>
-      <div className="navbar__buttons">
+        <li>
+        <div className="navbar__buttons">
         <Link className="navbar__buttons__sign-in" to="/">
           Giriş Yap
         </Link>
@@ -95,13 +96,16 @@ const Navbar: React.FC<NavbarProps> = () => {
         </Link>
       </div>
 
+        </li>
+      </ul>
+
       {/* mobile */}
       <div className="mobile-hamb" onClick={openNav}>
         <i className="fa-solid fa-bars"></i>
       </div>
     </div>
   </nav>
-</>
+  </>
   );
 };
 export default Navbar;
