@@ -1,0 +1,41 @@
+/* Navbar.css */
+
+.navbar-custom {
+  background-color: #0E1626; /* Dark blue color, change as needed */
+  color: #17ec2c; /* Red text color */
+}
+
+.navbar-custom .navbar-toggler-icon {
+  background-color: #0073ff; /* Red toggler icon color */
+}
+
+/* Add a class for the links to change their color */
+.navbar-custom .nav-link {
+  color: #266F8C; /* Red text color for the links */
+  font-size: 1.6em; /* Increase font size */
+}
+
+/* Change the color of active links */
+.navbar-custom .nav-link.active,
+.navbar-custom .nav-link:hover {
+  color: #9acc1d; /* Red text color for active and hover states */
+  font-size: 1.2em; /* Increase font size on hover */
+}
+
+.sign .nav-link{
+    color: #266F8C;
+    font-size: 1.6em;
+    margin-left: 5rem;
+    transition: font-size 0.3s ease-in-out;
+}
+
+.register .nav-link{
+    color: #266F8C;
+    font-size: 1.6em;
+    margin-left: 5rem;
+    transition: font-size 0.3s ease-in-out;
+}
+
+.navbar-toggler-icon{
+    color: #2d8c26;
+}

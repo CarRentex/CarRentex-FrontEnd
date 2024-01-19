@@ -1,7 +1,9 @@
+// Navbar.tsx
+
 import { Link } from "react-router-dom";
-import Logo from "../../images/logodeneme.png"; 
+import Logo from "../../images/logodeneme.png";
 import { useState } from "react";
-import "./styles/_index.scss";
+import "./Navbar.css";
 
 type NavbarProps = {};
 
@@ -13,99 +15,64 @@ const Navbar: React.FC<NavbarProps> = () => {
   };
 
   return (
-    <>
-    <nav>
-    {/* mobile */}
-    <div className={`mobile-navbar ${nav ? "open-nav" : ""}`}>
-      <div onClick={openNav} className="mobile-navbar__close">
-        <i className="fa-solid fa-xmark"></i>
-      </div>
-      <ul className="mobile-navbar__links">
-        <li>
-          <Link onClick={openNav} to="/">
-            Home
-          </Link>
-        </li>
-        <li>
-          <Link onClick={openNav} to="/about">
-            About
-          </Link>
-        </li>
-        <li>
-          <Link onClick={openNav} to="/models">
-            Models
-          </Link>
-        </li>
-        <li>
-          <Link onClick={openNav} to="/testimonials">
-            Testimonials
-          </Link>
-        </li>
-        <li>
-          <Link onClick={openNav} to="/team">
-            Our Team
-          </Link>
-        </li>
-        <li>
-          <Link onClick={openNav} to="/contact">
-            Contact
-          </Link>
-        </li>
-      </ul>
-    </div>
-
-    {/* desktop */}
-
-    <div className="navbar">
-      <div className="navbar__img">
-        <Link to="/" onClick={() => window.scrollTo(0, 0)}>
-          <img src={Logo} alt="logo-img" />
+    <nav className={`navbar navbar-expand-lg navbar-light navbar-custom`}>
+      <div className="container">
+        <Link className="navbar-brand" to="/" onClick={() => window.scrollTo(0, 0)}>
+          <img src={Logo} alt="logo-img" style={{ maxHeight: "50px" }} />
         </Link>
-      </div>
-      <ul className="navbar__links">
-        <li>
-          <Link className="home-link" to="/">
-            Anasayfa
-          </Link>
-        </li>
-        <li>
-          {" "}
-          <Link className="about-link" to="/about">
-            Hakkımızda
-          </Link>
-        </li>
-        <li>
-          {" "}
-          <Link className="models-link" to="/models">
-            Araçlar
-          </Link>
-        </li>
-        <li>
-          {" "}
-          <Link className="contact-link" to="/contact">
-            İletişim
-          </Link>
-        </li>
-        <li>
-        <div className="navbar__buttons">
-        <Link className="navbar__buttons__sign-in" to="/">
-          Giriş Yap
-        </Link>
-        <Link className="navbar__buttons__register" to="/">
-          Kayıt Ol
-        </Link>
-      </div>
 
-        </li>
-      </ul>
+        <button
+          className="navbar-toggler"
+          type="button"
+          onClick={openNav}
+        >
+          <span className="navbar-toggler-icon"></span>
+        </button>
 
-      {/* mobile */}
-      <div className="mobile-hamb" onClick={openNav}>
-        <i className="fa-solid fa-bars"></i>
+        <div className={`collapse navbar-collapse ${nav ? "show" : ""}`}>
+          <ul className="navbar-nav mx-auto"> {/* mx-auto for center alignment */}
+            <li className="nav-item">
+              <Link className="nav-link" onClick={openNav} to="/">
+                Anasayfa
+              </Link>
+            </li>
+            <li className="nav-item">
+              <Link className="nav-link" onClick={openNav} to="/about">
+                Hakkımızda
+              </Link>
+            </li>
+            <li className="nav-item">
+              <Link className="nav-link" onClick={openNav} to="/models">
+                Araçlar
+              </Link>
+            </li>
+            <li className="nav-item">
+              <Link className="nav-link" onClick={openNav} to="/contact">
+                İletişim
+              </Link>
+            </li>
+          </ul>
+          
+          <ul className="navbar-nav">
+            <li className="nav-item">
+              <div className="sign">
+              <Link className="nav-link" onClick={openNav} to="/">
+                Giriş Yap
+              </Link>
+              </div>
+              </li>
+            <li className="nav-item">
+            <div className="register">
+              <Link className="nav-link" onClick={openNav} to="/">
+                Kayıt Ol
+              </Link>
+            </div>
+            </li>
+          </ul>
+        </div>
       </div>
-    </div>
-  </nav>
-  </>
+    </nav>
   );
 };
+
 export default Navbar;
