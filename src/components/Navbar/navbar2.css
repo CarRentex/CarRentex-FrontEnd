@@ -1,0 +1,122 @@
+/* Navbar.css */
+
+.navbar {
+    padding: 10px 20px;
+    width: 100%;
+    position: relative;
+  }
+  
+  .navbar-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .navbar-logo {
+    font-size: 24px;
+    text-decoration: none;
+  }
+  
+  .navbar-toggle {
+    display: none;
+    cursor: pointer;
+  }
+  
+  .bar {
+    height: 5px;
+    width: 30px;
+    background-color: #38BDF2;
+    margin: 6px 0;
+    transition: background-color 0.3s;
+  }
+  
+  .navbar-menu {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 50%;
+    transition: max-height 0.3s ease;
+  
+    @media (max-width: 768px) {
+      position: absolute;
+      top: 60px;
+      left: 0;
+      width: 100%;
+      background-color: #0E1626;
+      flex-direction: column;
+      display: none;
+      overflow: hidden;
+    }
+  }
+  
+  .navbar-menu.active {
+    display: flex;
+  }
+  
+  .navbar-link {
+    text-decoration: none;
+    color: #F2F2F2;
+    margin: 0 15px;
+    transition: color 0.3s;
+  
+    &:hover {
+      color: #38BDF2;
+    }
+  }
+  
+  .navbar-actions {
+    display: flex;
+    align-items: center;
+  
+    @media (max-width: 768px) {
+      display: none;
+    }
+  }
+  
+  .action-btn {
+    padding: 10px 20px;
+    margin: 0 10px;
+    border: none;
+    border-radius: 5px;
+    color: #F2F2F2;
+    text-decoration: none;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  
+    &:hover {
+      background-color: #266F8C;
+    }
+  }
+  
+  .search-container {
+    display: flex;
+    align-items: center;
+    margin-left: auto;
+  }
+  
+  .search-input {
+    padding: 8px;
+    border: none;
+    border-radius: 5px 0 0 5px;
+    outline: none;
+  }
+  
+  .search-btn {
+    padding: 8px;
+    border: none;
+    border-radius: 0 5px 5px 0;
+    color: #F2F2F2;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  
+    &:hover {
+      background-color: #266F8C;
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .navbar-toggle {
+      display: flex;
+      flex-direction: column;
+    }
+  }
