@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
 // styles for this kit
 
 // pages for this kit
@@ -7,10 +6,10 @@ import { Link } from "react-router-dom";
 import {
   Button,
   Collapse,
-  DropdownToggle,
-  DropdownMenu,
-  DropdownItem,
-  UncontrolledDropdown,
+  // DropdownToggle,
+  // DropdownMenu,
+  // DropdownItem,
+  // UncontrolledDropdown,
   NavbarBrand,
   Navbar,
   NavItem,
@@ -29,7 +28,7 @@ function IndexNavbar() {
       const scrollTop =
         document.documentElement.scrollTop || document.body.scrollTop;
       if (scrollTop > 399) {
-        setNavbarColor("");
+        setNavbarColor("navbar-info");
       } else if (scrollTop < 400) {
         setNavbarColor("navbar-transparent");
       }
@@ -67,7 +66,7 @@ function IndexNavbar() {
               Designed by Invision. Coded by Creative Tim
             </UncontrolledTooltip>
             <button
-              className="navbar-toggler navbar-toggler"
+              className="navbar-toggler navbar-toggler position-absolute right-3"
               onClick={() => {
                 document.documentElement.classList.toggle("nav-open");
                 setCollapseOpen(!collapseOpen);
@@ -92,7 +91,13 @@ function IndexNavbar() {
                   <p>Download</p>
                 </NavLink>
               </NavItem>
-              <UncontrolledDropdown nav>
+              <NavItem>
+                <NavLink>
+                  <i className="now-ui-icons arrows-1_cloud-download-93"></i>
+                  <p>Download</p>
+                </NavLink>
+              </NavItem>
+              {/* <UncontrolledDropdown nav>
                 <DropdownToggle
                   caret
                   color="default"
@@ -116,7 +121,7 @@ function IndexNavbar() {
                     Documentation
                   </DropdownItem>
                 </DropdownMenu>
-              </UncontrolledDropdown>
+              </UncontrolledDropdown> */}
 
               {/* <NavItem>
                 <NavLink

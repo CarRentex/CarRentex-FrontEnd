@@ -4496,7 +4496,7 @@ Created using IcoMoon - icomoon.io
 .bg-primary {
   background-color: #f96332 !important;
 }
-
+/* navbar arka plan */
 .bg-info {
   background-color: #2ca8ff !important;
 }
@@ -7109,7 +7109,7 @@ img {
   .alert button.close {
     position: absolute;
     right: 11px;
-    top: 50%;
+    top: 90%;
     transform: translateY(-50%);
   }
 }
@@ -7942,38 +7942,7 @@ td.rdtYear:hover {
   opacity: 0.6;
 }
 
-.clear-filter[filter-color="blue"] {
-  background: rgba(44, 44, 44, 0.2);
-  /* For browsers that do not support gradients */
-  background: -webkit-linear-gradient(
-    90deg,
-    rgba(44, 44, 44, 0.2),
-    rgba(3, 161, 224, 0.6)
-  );
-  /* For Safari 5.1 to 6.0 */
-  background: -o-linear-gradient(
-    90deg,
-    rgba(44, 44, 44, 0.2),
-    rgba(3, 161, 224, 0.6)
-  );
-  /* For Opera 11.1 to 12.0 */
-  background: -moz-linear-gradient(
-    90deg,
-    rgba(44, 44, 44, 0.2),
-    rgba(3, 161, 224, 0.6)
-  );
-  /* For Firefox 3.6 to 15 */
-  background: linear-gradient(
-    0deg,
-    rgba(44, 44, 44, 0.2),
-    rgba(3, 161, 224, 0.6)
-  );
-  /* Standard syntax */
-}
 
-[data-background-color="blue"] {
-  background-color: #2ca8ff;
-}
 
 .section-nucleo-icons .icons-container i:nth-child(6) {
   color: #2ca8ff;
