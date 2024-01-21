@@ -9,14 +9,10 @@ function App() {
   return (
     <>
     <Navbar />
-    <div className="wrapper">
       <Header />
-    </div>
-    <div className="main">
       <Routes>
           <Route path="/" element={<Home />}></Route>
       </Routes>
-    </div>
     <Footer />
     </>
   );

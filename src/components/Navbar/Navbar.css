@@ -1,41 +1,20 @@
-/* Navbar.css */
-
-.navbar-custom {
-  background-color: #0E1626; /* Dark blue color, change as needed */
-  color: #17ec2c; /* Red text color */
+.nav{
+  font-size: 18px;
 }
 
-.navbar-custom .navbar-toggler-icon {
-  background-color: #0073ff; /* Red toggler icon color */
+.custom-nav-link {
+  display: inline-flex;
+  align-items: center;
+  border-radius: 20px; /* Yuvarlak köşeler için */
+  padding: 10px 15px;
+  transition: background-color 0.3s;
+
 }
 
-/* Add a class for the links to change their color */
-.navbar-custom .nav-link {
-  color: #266F8C; /* Red text color for the links */
-  font-size: 1.6em; /* Increase font size */
+.custom-nav-link:hover {
+  background-color: rgba(255, 255, 255, 0.1);
 }
 
-/* Change the color of active links */
-.navbar-custom .nav-link.active,
-.navbar-custom .nav-link:hover {
-  color: #9acc1d; /* Red text color for active and hover states */
-  font-size: 1.2em; /* Increase font size on hover */
-}
-
-.sign .nav-link{
-    color: #266F8C;
-    font-size: 1.6em;
-    margin-left: 5rem;
-    transition: font-size 0.3s ease-in-out;
-}
-
-.register .nav-link{
-    color: #266F8C;
-    font-size: 1.6em;
-    margin-left: 5rem;
-    transition: font-size 0.3s ease-in-out;
-}
-
-.navbar-toggler-icon{
-    color: #2d8c26;
+.custom-nav-link img {
+  margin-right: 8px; /* İsteğe bağlı: Metin ile resim arasında boşluk bırakır */
 }

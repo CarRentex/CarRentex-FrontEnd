@@ -1,0 +1,6 @@
+.page-header-image {
+    background-size: cover; /* Resmi div'e sığacak şekilde boyutlandırır */
+    background-position: center; /* Resmi div'in merkezine yerleştirir */
+    height: 100px; /* Div'in yüksekliğini ekranın yüksekliğine eşitler */
+    width: 100%; /* Div'in genişliğini parent elementin genişliğine eşitler */
+  }
