@@ -18,3 +18,31 @@
 .custom-nav-link img {
   margin-right: 8px; /* İsteğe bağlı: Metin ile resim arasında boşluk bırakır */
 }
+
+.clear-filter[filter-color="blue"] {
+  background: rgba(44, 44, 44, 0.2);
+  background: -webkit-linear-gradient(
+    30deg,
+    rgba(44, 44, 44, 0.2),
+    rgba(3, 161, 224, 0.6)
+  );
+  background: -o-linear-gradient(
+    30deg,
+    rgba(44, 44, 44, 0.2),
+    rgba(3, 161, 224, 0.6)
+  );
+  background: -moz-linear-gradient(
+    30deg,
+    rgba(44, 44, 44, 0.2),
+    rgba(3, 161, 224, 0.6)
+  );
+  background: linear-gradient(
+    0deg,
+    rgba(44, 44, 44, 0.2),
+    rgba(3, 161, 224, 0.6)
+  );
+}
+
+[data-background-color="blue"] {
+  background-color: #2ca8ff;
+}

@@ -31,7 +31,7 @@ function Header() {
         <div
           className="page-header-image"
           style={{
-            backgroundImage: "url(" + require("../../images/back.jpeg") + ")"
+            backgroundImage: "url(" + require("../../images/car/car4.jpeg") + ")"
           }}
           ref={pageHeader}
         ></div>
