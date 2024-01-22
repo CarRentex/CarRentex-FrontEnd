@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import {FaEnvelope, FaKey} from "react-icons/fa";
 import {
   Button,
   Card,
@@ -14,20 +14,21 @@ import {
   Container,
   Row
 } from "reactstrap";
+import AnimateReveal from "../Animation/AnimateReveal";
 
 interface SignUpProps {}
 
 const SignUp: React.FC<SignUpProps> = () => {
-  const [firstFocus, setFirstFocus] = useState(false);
   const [lastFocus, setLastFocus] = useState(false);
   const [emailFocus, setEmailFocus] = useState(false);
 
   return (
     <>
+    <AnimateReveal direction="from-left" delay={300}>
       <div
         className="section section-signup"
         style={{
-          backgroundImage: `url(${require("../../assets/img/bg11.jpg")})`,
+          backgroundImage: `url(${require("../../images/family.jpg")})`,
           backgroundSize: "cover",
           backgroundPosition: "top center",
           minHeight: "700px"
@@ -39,50 +40,23 @@ const SignUp: React.FC<SignUpProps> = () => {
               <Form action="" className="form" method="">
                 <CardHeader className="text-center">
                   <CardTitle className="title-up" tag="h3">
-                    Sign Up
+                    Giriş Yap
                   </CardTitle>
-                  <div className="social-line">
-                    <Button
-                      className="btn-neutral btn-icon btn-round"
-                      color="facebook"
-                      href="#pablo"
-                      onClick={(e) => e.preventDefault()}
-                    >
-                      <i className="fab fa-facebook-square"></i>
-                    </Button>
-                    <Button
-                      className="btn-neutral btn-icon btn-round"
-                      color="twitter"
-                      href="#pablo"
-                      onClick={(e) => e.preventDefault()}
-                      size="lg"
-                    >
-                      <i className="fab fa-twitter"></i>
-                    </Button>
-                    <Button
-                      className="btn-neutral btn-icon btn-round"
-                      color="google"
-                      href="#pablo"
-                      onClick={(e) => e.preventDefault()}
-                    >
-                      <i className="fab fa-google-plus"></i>
-                    </Button>
-                  </div>
                 </CardHeader>
                 <CardBody>
-                  <InputGroup
+                <InputGroup
                     className={
-                      "no-border" + (firstFocus ? " input-group-focus" : "")
+                      "no-border" + (emailFocus ? " input-group-focus" : "")
                     }
                   >
                     <InputGroupText>
-                      <i className="now-ui-icons users_circle-08"></i>
+                      <FaEnvelope/>
                     </InputGroupText>
                     <Input
-                      placeholder="First Name..."
+                      placeholder="Email..."
                       type="text"
-                      onFocus={() => setFirstFocus(true)}
-                      onBlur={() => setFirstFocus(false)}
+                      onFocus={() => setEmailFocus(true)}
+                      onBlur={() => setEmailFocus(false)}
                     />
                   </InputGroup>
                   <InputGroup
@@ -91,28 +65,13 @@ const SignUp: React.FC<SignUpProps> = () => {
                     }
                   >
                     <InputGroupText>
-                      <i className="now-ui-icons text_caps-small"></i>
+                      <FaKey/>
                     </InputGroupText>
                     <Input
-                      placeholder="Last Name..."
+                      placeholder="Şifre..."
                       type="text"
                       onFocus={() => setLastFocus(true)}
                       onBlur={() => setLastFocus(false)}
-                    />
-                  </InputGroup>
-                  <InputGroup
-                    className={
-                      "no-border" + (emailFocus ? " input-group-focus" : "")
-                    }
-                  >
-                    <InputGroupText>
-                      <i className="now-ui-icons ui-1_email-85"></i>
-                    </InputGroupText>
-                    <Input
-                      placeholder="Email..."
-                      type="text"
-                      onFocus={() => setEmailFocus(true)}
-                      onBlur={() => setEmailFocus(false)}
                     />
                   </InputGroup>
                 </CardBody>
@@ -124,26 +83,15 @@ const SignUp: React.FC<SignUpProps> = () => {
                     onClick={(e) => e.preventDefault()}
                     size="lg"
                   >
-                    Get Started
+                    Giriş Yap
                   </Button>
                 </CardFooter>
               </Form>
             </Card>
           </Row>
-          <div className="col text-center">
-            <Button
-              className="btn-round btn-white"
-              color="default"
-              to="/login-page"
-              outline
-              size="lg"
-              tag={Link}
-            >
-              View Login Page
-            </Button>
-          </div>
         </Container>
       </div>
+      </AnimateReveal>
     </>
   );
 };

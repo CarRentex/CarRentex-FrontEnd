@@ -4,17 +4,18 @@ import Navbar from "./components/Navbar/Navbar";
 import Footer from "./components/Footer/Footer";
 import "bootstrap/dist/css/bootstrap.css";
 import Header from "./components/Header/Header";
-import SignUp from "./components/SıgnUp/SıgnUp";
+import About from "./pages/About/About";
 
 function App() {
   return (
     <>
     <Navbar />
-      <Header />
-      <SignUp />
+    <div style={{minHeight: "100vh"}}>
       <Routes>
           <Route path="/" element={<Home />}></Route>
+          <Route path="/About" element={<About />}></Route>
       </Routes>
+    </div>
     <Footer />
     </>
   );

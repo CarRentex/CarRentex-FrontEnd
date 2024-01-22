@@ -1,32 +1,30 @@
-import { useEffect, useState } from 'react';
-import { Nav, Navbar } from 'react-bootstrap';
-import { FaHome, FaInfo, FaEnvelope } from 'react-icons/fa'; // Import icons from the FontAwesome icon set
-import './Navbar.css';
+import { useEffect, useState } from "react";
+import { Nav, Navbar } from "react-bootstrap";
+import { FaHome, FaInfo, FaEnvelope } from "react-icons/fa"; // Import icons from the FontAwesome icon set
+import "./Navbar.css";
 
 function IndexNavbar() {
-  const [navbarColor, setNavbarColor] = useState('transparent');
-
+  const [scrolled, setScrolled] = useState<boolean>(false);
   useEffect(() => {
-    const updateNavbarColor = () => {
-      if (
-        document.documentElement.scrollTop > 699 ||
-        document.body.scrollTop > 699
-      ) {
-        setNavbarColor('dark');
-      } else {
-        setNavbarColor('transparent');
-      }
+    setScrolled(window.scrollY > 0);
+    const onScroll = (): void => {
+      setScrolled(window.scrollY > 0);
     };
-
-    window.addEventListener('scroll', updateNavbarColor);
-
-    return function cleanup() {
-      window.removeEventListener('scroll', updateNavbarColor);
+    window.addEventListener("scroll", onScroll);
+    return (): void => {
+      window.removeEventListener("scroll", onScroll);
     };
   }, []);
 
   return (
-    <Navbar bg={navbarColor} variant="dark" expand="lg" fixed="top">
+    <Navbar
+      className={` transition-[background] transition-all duration-300 ${
+        scrolled
+          ? "bg-[#ffff] [@supports(backdrop-filter:blur(0))]:bg-white/60 [@supports(backdrop-filter:blur(0))]:backdrop-blur-md"
+          : ""
+      }`}
+      fixed="top"
+    >
       <Navbar.Brand href="#home">
         <img
           src="../../images/logodeneme.png"
@@ -36,27 +34,36 @@ function IndexNavbar() {
       </Navbar.Brand>
       <Navbar.Toggle aria-controls="basic-navbar-nav" />
       <Navbar.Collapse id="basic-navbar-nav" className="justify-content-center">
-  <Nav className="nav mx-auto mt-4">
-    <Nav.Link className="custom-nav-link" href="#home">
-      <FaHome /> Anasayfa
-    </Nav.Link>
-    <Nav.Link className="custom-nav-link" href="#link">
-      <FaInfo /> Hakkımızda
-    </Nav.Link>
-    <Nav.Link className="custom-nav-link" href="#link">
-      <FaEnvelope /> İletişim
-    </Nav.Link>
-  </Nav>
-  <Nav className="ml-auto">
-    <Nav.Link className="custom-nav-link" href="#link">
-      <FaEnvelope /> Giriş Yap
-    </Nav.Link>
-    <Nav.Link className="custom-nav-link" href="#link">
-      <FaEnvelope /> Kayıt Ol
-    </Nav.Link>
-  </Nav>
-</Navbar.Collapse>
-
+        <Nav className="nav mx-auto mt-4">
+          <Nav.Link className="custom-nav-link" href="#home">
+            <div className={`custom-nav-link gap-x-5 ${scrolled ? "text-[#000]" : ""}`}>
+              <FaHome /> Anasayfa
+            </div>
+          </Nav.Link>
+          <Nav.Link className="custom-nav-link" href="/About">
+            <div className={`custom-nav-link gap-x-5 ${scrolled ? "text-[#000]" : ""}`}>
+              <FaInfo /> Hakkımızda
+            </div>
+          </Nav.Link>
+          <Nav.Link className="custom-nav-link" href="#link">
+            <div className={`custom-nav-link gap-x-5 ${scrolled ? "text-[#000]" : ""}`}>
+              <FaEnvelope /> İletişim
+            </div>
+          </Nav.Link>
+        </Nav>
+        <Nav className="ml-auto">
+          <Nav.Link className="custom-nav-link" href="#link">
+            <div className={`custom-nav-link gap-x-5 ${scrolled ? "text-[#000]" : ""}`}>
+              <FaEnvelope /> Giriş Yap
+            </div>
+          </Nav.Link>
+          <Nav.Link className="custom-nav-link" href="#link">
+            <div className={`custom-nav-link gap-x-5 ${scrolled ? "text-[#000]" : ""}`}>
+              <FaEnvelope /> Kayıt Ol
+            </div>
+          </Nav.Link>
+        </Nav>
+      </Navbar.Collapse>
     </Navbar>
   );
 }
