@@ -1,7 +1,8 @@
 import { useEffect, useState } from "react";
 import { Nav, Navbar } from "react-bootstrap";
-import { FaHome, FaInfo, FaEnvelope } from "react-icons/fa"; // Import icons from the FontAwesome icon set
+import { FaHome, FaInfo, FaEnvelope, FaSignInAlt } from "react-icons/fa"; // Import icons from the FontAwesome icon set
 import "./Navbar.css";
+import { Button } from "reactstrap";
 
 function IndexNavbar() {
   const [scrolled, setScrolled] = useState<boolean>(false);
@@ -34,33 +35,57 @@ function IndexNavbar() {
       </Navbar.Brand>
       <Navbar.Toggle aria-controls="basic-navbar-nav" />
       <Navbar.Collapse id="basic-navbar-nav" className="justify-content-center">
-        <Nav className="nav mx-auto mt-4">
-          <Nav.Link className="custom-nav-link" href="#home">
-            <div className={`custom-nav-link gap-x-5 ${scrolled ? "text-[#000]" : ""}`}>
+        <Nav className="nav mx-auto mt-3">
+          <Nav.Link className="custom-nav-link" href="/Home">
+            <div
+              className={`custom-nav-link gap-x-5 ${
+                scrolled ? "text-[#000]" : ""
+              }`}
+            >
               <FaHome /> Anasayfa
             </div>
           </Nav.Link>
+          <Nav.Link className="custom-nav-link" href="/Home">
+            <div
+              className={`custom-nav-link gap-x-5 ${
+                scrolled ? "text-[#000]" : ""
+              }`}
+            >
+              <FaHome /> Araçlar
+            </div>
+          </Nav.Link>
           <Nav.Link className="custom-nav-link" href="/About">
-            <div className={`custom-nav-link gap-x-5 ${scrolled ? "text-[#000]" : ""}`}>
+            <div
+              className={`custom-nav-link gap-x-5 ${
+                scrolled ? "text-[#000]" : ""
+              }`}
+            >
               <FaInfo /> Hakkımızda
             </div>
           </Nav.Link>
-          <Nav.Link className="custom-nav-link" href="#link">
-            <div className={`custom-nav-link gap-x-5 ${scrolled ? "text-[#000]" : ""}`}>
+          <Nav.Link className="custom-nav-link" href="/Contact">
+            <div
+              className={`custom-nav-link gap-x-5 ${
+                scrolled ? "text-[#000]" : ""
+              }`}
+            >
               <FaEnvelope /> İletişim
             </div>
           </Nav.Link>
         </Nav>
         <Nav className="ml-auto">
           <Nav.Link className="custom-nav-link" href="#link">
-            <div className={`custom-nav-link gap-x-5 ${scrolled ? "text-[#000]" : ""}`}>
-              <FaEnvelope /> Giriş Yap
-            </div>
-          </Nav.Link>
-          <Nav.Link className="custom-nav-link" href="#link">
-            <div className={`custom-nav-link gap-x-5 ${scrolled ? "text-[#000]" : ""}`}>
-              <FaEnvelope /> Kayıt Ol
-            </div>
+            <Button
+              className="btn-neutral btn-round mt-1 mb-1"
+              color="info"
+              href="#pablo"
+              size="lg"
+            >
+              <span style={{ display: "flex", alignItems: "center" }}>
+                <FaSignInAlt style={{ marginRight: "8px" }} />
+                Giriş Yap
+              </span>
+            </Button>
           </Nav.Link>
         </Nav>
       </Navbar.Collapse>

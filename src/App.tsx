@@ -3,7 +3,6 @@ import Home from "./pages/Home/Home";
 import Navbar from "./components/Navbar/Navbar";
 import Footer from "./components/Footer/Footer";
 import "bootstrap/dist/css/bootstrap.css";
-import Header from "./components/Header/Header";
 import About from "./pages/About/About";
 
 function App() {

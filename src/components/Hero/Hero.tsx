@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { Link } from "react-router-dom";
 import "./Styles/_index.scss";
+import { FaArrowUp} from 'react-icons/fa';
 
 
 type Props = {}
@@ -70,7 +71,7 @@ const Hero = (props: Props) => {
             onClick={scrollToTop}
             className={`scroll-up ${goUp ? "show-scroll" : ""}`}
           >
-            <i className="fa-solid fa-angle-up"></i>
+            <FaArrowUp />
           </div>
         </section>
       </>
