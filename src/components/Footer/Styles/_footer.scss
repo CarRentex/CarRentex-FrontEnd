@@ -120,12 +120,12 @@ footer {
   text-decoration: none;
   color: white;
   font-weight: 700;
-  background-color: #ff4d30;
+  background-color: #38BDF2;
   padding: 1.5rem 2.5rem;
   border-radius: 0.3rem;
   box-shadow: 0 10px 15px 0 rgb(255 83 48 / 25%);
   transition: all 0.3s;
-  border: 2px solid #ff4d30;
+  border: 2px solid #38BDF2;
   font-size: 1.6rem;
   width: fit-content;
   cursor: pointer;
@@ -133,6 +133,6 @@ footer {
 
   &:hover {
     box-shadow: 0 10px 15px 0 rgb(255 83 48 / 40%);
-    background-color: #fa4226;
+    background-color: #38BDF2;
   }
 }

@@ -7,7 +7,7 @@ type Props = {}
 const Home = (props: Props) => {
   return (
     <>
-    <Header/>
+    <Header src = {require('../../images/car/car4.jpeg')}/>
     <SignUp />
     <Hero />
     </>

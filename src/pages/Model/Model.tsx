@@ -4,7 +4,23 @@ type Props = {}
 
 const Model = (props: Props) => {
   return (
-    <div>Model</div>
+    <>
+    <div className="page-header clear-filter" filter-color="blue">
+      <div
+        className="page-header-image"
+        style={{
+          backgroundImage: `url(${require('../../images/yol.jpeg')})`
+
+        }}
+      ></div>
+      <div
+        className="page-header-image"
+        style={{
+        }}
+      ></div>
+    </div>
+    
+    </>
   )
 }
 

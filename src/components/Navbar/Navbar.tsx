@@ -3,8 +3,10 @@ import { Nav, Navbar } from "react-bootstrap";
 import { FaHome, FaInfo, FaEnvelope, FaSignInAlt } from "react-icons/fa";
 import "./Navbar.css";
 import { Button } from "reactstrap";
+import { Link, useNavigate } from "react-router-dom";
 
 function IndexNavbar() {
+  const navigate = useNavigate();
   const [scrolled, setScrolled] = useState<boolean>(false);
   useEffect(() => {
     setScrolled(window.scrollY > 0);
@@ -18,6 +20,7 @@ function IndexNavbar() {
   }, []);
 
   const handleSignupClick = () => {
+    navigate("/");
     window.scrollTo({
       top: 701,
       behavior: "smooth",
@@ -46,7 +49,7 @@ function IndexNavbar() {
 
       <Navbar.Collapse id="basic-navbar-nav" className="justify-content-center">
         <Nav className="nav mx-auto mt-3">
-          <Nav.Link className="custom-nav-link" href="/Home">
+          <Nav.Link as={Link} className="custom-nav-link" to="/">
             <div
               className={`custom-nav-link gap-x-5 ${
                 scrolled ? "text-[#000]" : ""
@@ -55,7 +58,7 @@ function IndexNavbar() {
               <FaHome /> Anasayfa
             </div>
           </Nav.Link>
-          <Nav.Link className="custom-nav-link" href="/Home">
+          <Nav.Link as={Link} className="custom-nav-link" to="/model">
             <div
               className={`custom-nav-link gap-x-5 ${
                 scrolled ? "text-[#000]" : ""
@@ -64,7 +67,7 @@ function IndexNavbar() {
               <FaHome /> Araçlar
             </div>
           </Nav.Link>
-          <Nav.Link className="custom-nav-link" href="/About">
+          <Nav.Link as={Link} className="custom-nav-link" to="/about">
             <div
               className={`custom-nav-link gap-x-5 ${
                 scrolled ? "text-[#000]" : ""
@@ -73,7 +76,7 @@ function IndexNavbar() {
               <FaInfo /> Hakkımızda
             </div>
           </Nav.Link>
-          <Nav.Link className="custom-nav-link" href="/Contact">
+          <Nav.Link as={Link} className="custom-nav-link" to="/contact">
             <div
               className={`custom-nav-link gap-x-5 ${
                 scrolled ? "text-[#000]" : ""

@@ -57,7 +57,7 @@
       margin-bottom: 2.3rem;
 
       span {
-        color: $text-orange;
+        color: #38BDF2;
       }
     }
 
@@ -86,12 +86,12 @@
       }
 
       &__book-ride {
-        background-color: $text-orange;
+        background-color: #38BDF2;
         padding: 1.8rem 3rem;
         border-radius: 0.3rem;
         box-shadow: 0 10px 15px 0 rgb(255 83 48 / 35%);
         transition: all 0.3s;
-        border: 2px solid $text-orange;
+        border: 2px solid #38BDF2;
 
         @media (max-width: 450px) {
           padding: 1.8rem 8rem;
@@ -99,7 +99,7 @@
 
         &:hover {
           box-shadow: 0 10px 15px 0 rgb(255 83 48 / 60%);
-          background-color: #fa4226;
+          background-color: #38BDF2;
         }
       }
 
@@ -135,7 +135,7 @@
   position: fixed;
   font-size: 2.5rem;
   color: white;
-  background-color: $text-orange;
+  background-color: #38BDF2;
   border: 3px solid white;
   width: 2rem;
   height: 2rem;
