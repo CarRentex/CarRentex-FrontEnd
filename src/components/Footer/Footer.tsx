@@ -1,10 +1,9 @@
-import React from 'react'
 import "./Styles/_index.scss";
 type Props = {}
 
 const Footer = (props: Props) => {
   return (
-    <>
+    <div className='w-full h-auto'>
       <footer>
         <div className="container">
           <div className="footer-content">
@@ -60,7 +59,7 @@ const Footer = (props: Props) => {
           </div>
         </div>
       </footer>
-    </>
+    </div>
   );
 }
 
