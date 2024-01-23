@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { Nav, Navbar } from "react-bootstrap";
-import { FaHome, FaInfo, FaEnvelope, FaSignInAlt } from "react-icons/fa"; // Import icons from the FontAwesome icon set
+import { FaHome, FaInfo, FaEnvelope, FaSignInAlt } from "react-icons/fa";
 import "./Navbar.css";
 import { Button } from "reactstrap";
 
@@ -17,14 +17,23 @@ function IndexNavbar() {
     };
   }, []);
 
+  const handleSignupClick = () => {
+    window.scrollTo({
+      top: 701,
+      behavior: "smooth",
+    });
+  };
+
   return (
     <Navbar
-      className={` transition-[background] transition-all duration-300 ${
+      className={`transition-[background] transition-all duration-300 ${
         scrolled
           ? "bg-[#ffff] [@supports(backdrop-filter:blur(0))]:bg-white/60 [@supports(backdrop-filter:blur(0))]:backdrop-blur-md"
           : ""
       }`}
       fixed="top"
+      collapseOnSelect // Navbar'ın küçüldüğünde otomatik olarak kapanmasını sağlar
+      expand="lg"
     >
       <Navbar.Brand href="#home">
         <img
@@ -34,6 +43,7 @@ function IndexNavbar() {
         />
       </Navbar.Brand>
       <Navbar.Toggle aria-controls="basic-navbar-nav" />
+
       <Navbar.Collapse id="basic-navbar-nav" className="justify-content-center">
         <Nav className="nav mx-auto mt-3">
           <Nav.Link className="custom-nav-link" href="/Home">
@@ -73,20 +83,19 @@ function IndexNavbar() {
             </div>
           </Nav.Link>
         </Nav>
+
         <Nav className="ml-auto">
-          <Nav.Link className="custom-nav-link" href="#link">
-            <Button
-              className="btn-neutral btn-round mt-1 mb-1"
-              color="info"
-              href="#pablo"
-              size="lg"
-            >
-              <span style={{ display: "flex", alignItems: "center" }}>
-                <FaSignInAlt style={{ marginRight: "8px" }} />
-                Giriş Yap
-              </span>
-            </Button>
-          </Nav.Link>
+          <Button
+            className="btn-neutral btn-round mt-1 mb-1"
+            color="info"
+            onClick={handleSignupClick}
+            size="lg"
+          >
+            <span style={{ display: "flex", alignItems: "center" }}>
+              <FaSignInAlt style={{ marginRight: "8px" }} />
+              Giriş Yap
+            </span>
+          </Button>
         </Nav>
       </Navbar.Collapse>
     </Navbar>

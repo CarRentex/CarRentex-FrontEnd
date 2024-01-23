@@ -1,4 +1,4 @@
-import React, { ComponentPropsWithoutRef,useRef, useEffect } from "react";
+import { ComponentPropsWithoutRef,useRef, useEffect } from "react";
 import { twMerge } from "tailwind-merge";
 import useOnRevealed from "./useOnRevealed";
 

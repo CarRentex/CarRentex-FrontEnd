@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 import { Link } from "react-router-dom";
 import "./Styles/_index.scss";
 import { FaArrowUp} from 'react-icons/fa';
@@ -36,7 +36,7 @@ const Hero = (props: Props) => {
       <>
         <section id="home" className="hero-section">
           <div className="container">
-            {/* <img className="bg-shape" src={BgShape} alt="bg-shape" /> */}
+            {/* <img src="../../images/back.jpeg"/> */}
             <div className="hero-content">
               <div className="hero-content__text">
                 <h4>Plan your trip now</h4>
@@ -62,6 +62,11 @@ const Hero = (props: Props) => {
               </div>
   
               {/* img */}
+              {/* <img
+              src="../../images/car/car5.jpeg"
+              alt="car-img"
+              className="hero-content__car-img"
+            /> */}
              
             </div>
           </div>

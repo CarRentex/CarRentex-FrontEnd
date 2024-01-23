@@ -1,10 +1,8 @@
 import React, { useEffect, useRef } from "react";
 
-// reactstrap components
 
-// core components
 
-function Header() {
+function Header(){
   const pageHeader = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -31,7 +29,7 @@ function Header() {
         <div
           className="page-header-image"
           style={{
-            backgroundImage: "url(" + require("../../images/car/car4.jpeg") + ")"
+            backgroundImage: `url(${require("../../images/car/car4.jpeg")})`
           }}
           ref={pageHeader}
         ></div>

@@ -7,7 +7,7 @@ type Props = {}
 const Home = (props: Props) => {
   return (
     <>
-    <Header />
+    <Header/>
     <SignUp />
     <Hero />
     </>
