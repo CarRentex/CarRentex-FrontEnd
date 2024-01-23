@@ -1,5 +1,6 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { FaEnvelope, FaKey } from "react-icons/fa";
+import "./SıgnUp.css";
 import {
   Button,
   Card,
@@ -16,7 +17,6 @@ import {
 } from "reactstrap";
 import AnimateReveal from "../Animation/AnimateReveal";
 
-interface SignUpProps {}
 
 // const customStyle = {
 //   backgroundColor: 'rgba(255, 255, 255, 0.8)', // 0.8 şeffaflık
@@ -24,7 +24,7 @@ interface SignUpProps {}
 // };
 
 
-const SignUp: React.FC<SignUpProps> = () => {
+const SignUp =() => {
   const [lastFocus, setLastFocus] = useState(false);
   const [emailFocus, setEmailFocus] = useState(false);
 
@@ -34,7 +34,7 @@ const SignUp: React.FC<SignUpProps> = () => {
         <div
           className="section section-signup"
           style={{
-            backgroundImage: `url(${require("../../images/family.jpg")})`,
+            backgroundImage: `url("/images/family.jpg")`,
             backgroundSize: "cover",
             backgroundPosition: "top center",
             minHeight: "700px",
@@ -42,7 +42,7 @@ const SignUp: React.FC<SignUpProps> = () => {
         >
           <Container>
             <Row>
-              <Card className="card-signup" data-background-color="blue">
+              <Card className="card-signup" data-background-color="blue" style={{borderRadius: 25}}>
                 <Form action="" className="form" method="">
                   <CardHeader className="text-center">
                     <CardTitle className="title-up" tag="h3">

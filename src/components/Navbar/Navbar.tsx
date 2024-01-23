@@ -8,6 +8,7 @@ import { Link, useNavigate } from "react-router-dom";
 function IndexNavbar() {
   const navigate = useNavigate();
   const [scrolled, setScrolled] = useState<boolean>(false);
+  // const [navbarColor, setNavbarColor] = useState<string>("/logo2.png");
   useEffect(() => {
     setScrolled(window.scrollY > 0);
     const onScroll = (): void => {
@@ -38,11 +39,12 @@ function IndexNavbar() {
       collapseOnSelect // Navbar'ın küçüldüğünde otomatik olarak kapanmasını sağlar
       expand="lg"
     >
-      <Navbar.Brand href="#home">
+      <Navbar.Brand>
         <img
-          src="../../images/logodeneme.png"
-          alt="Car Rentex Logo"
-          className="d-inline-block align-top"
+          src="/logo.png"
+          className="mt-1 ml-14 pb-1"
+          alt="logo"
+          style={{ width: "60px", height: "40px" }}
         />
       </Navbar.Brand>
       <Navbar.Toggle aria-controls="basic-navbar-nav" />

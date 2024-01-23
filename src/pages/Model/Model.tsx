@@ -1,4 +1,3 @@
-import React from 'react'
 
 type Props = {}
 
@@ -9,19 +8,20 @@ const Model = (props: Props) => {
       <div
         className="page-header-image"
         style={{
-          backgroundImage: `url(${require('../../images/yol.jpeg')})`
+          backgroundImage: `url("/images/yol.jpeg")`
 
         }}
-      ></div>
+      >
+      </div>
       <div
         className="page-header-image"
         style={{
         }}
       ></div>
     </div>
-    
     </>
+    
   )
 }
 
-export default Model
+export default Model;
