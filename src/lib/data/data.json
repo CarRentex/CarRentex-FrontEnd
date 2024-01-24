@@ -1,11 +1,5 @@
 [
-    {
-      "category": "Ekonomik",
-      "marka": "Citroen",
-      "model": "AMI",
-      "fiyat": 700,
-      "yolcu": 1
-    },
+  
     {
       "category": "Ekonomik",
       "marka": "Citroen",

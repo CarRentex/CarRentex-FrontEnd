@@ -1,11 +1,14 @@
 import CarList from "../../lib/data/data.json";
 import VehliceCard from "../../components/VehliceCard/ VehliceCard";
 import CarFilterLink from "../../components/VehliceCard/CarFilterLink";
+import Header from "../../components/Header/Header";
 const RentACar = () => {
   return (
+    <>
+    <Header src = '/images/yol.jpeg'/>
     <div className="w-full mt-[150px]">
       <section className="container mx-auto flex flex-col">
-        <h1 className="text-center text-xl text-[#F46444]">Kiralık Araçlarımız</h1>
+        <h1 className="text-center text-xl text-[#38BDF2]">Kiralık Araçlarımız</h1>
         <div className="hidden w-full grid-cols-7 bg-white px-36 py-6 md:grid">
           <CarFilterLink text="Tüm" />
           <CarFilterLink text="Ekonomik" />
@@ -39,6 +42,8 @@ const RentACar = () => {
         </div>
       </section>
     </div>
+    </>
+
   );
 };
 
