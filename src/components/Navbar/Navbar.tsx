@@ -41,10 +41,10 @@ function IndexNavbar() {
     >
       <Navbar.Brand>
         <img
-          src="/logo.png"
+          src="/carlogo.png"
           className="mt-1 ml-14 pb-1"
           alt="logo"
-          style={{ width: "60px", height: "40px" }}
+          style={{ width: "150px", height: "50px" }}
         />
       </Navbar.Brand>
       <Navbar.Toggle aria-controls="basic-navbar-nav" />
