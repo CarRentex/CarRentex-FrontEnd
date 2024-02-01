@@ -1,5 +1,5 @@
 import CarList from "../../lib/data/data.json";
-import VehliceCard from "../../components/VehliceCard/ VehliceCard";
+import VehliceCard from "../../components/VehliceCard/VehliceCard";
 import CarFilterLink from "../../components/VehliceCard/CarFilterLink";
 import Header from "../../components/Header/Header";
 const RentACar = () => {

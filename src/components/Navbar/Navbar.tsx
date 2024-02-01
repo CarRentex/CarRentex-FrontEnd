@@ -50,7 +50,7 @@ function IndexNavbar() {
       <Navbar.Toggle aria-controls="basic-navbar-nav" />
 
       <Navbar.Collapse id="basic-navbar-nav" className="justify-content-center">
-        <Nav className="nav mx-auto mt-3">
+        <Nav className="nav  mt-3">
           <Nav.Link as={Link} className="custom-nav-link" to="/">
             <div
               className={`custom-nav-link gap-x-5 ${
@@ -89,18 +89,23 @@ function IndexNavbar() {
           </Nav.Link>
         </Nav>
 
-        <Nav className="ml-auto">
-          <Button
-            className="btn-neutral btn-round mt-1 mb-1"
+        <Nav className="">
+          <button
+            className="button"
             color="info"
             onClick={handleSignupClick}
-            size="lg"
           >
-            <span style={{ display: "flex", alignItems: "center" }}>
+        <div
+              className={`custom-nav-link gap-x-5 ${
+                scrolled ? "text-[#000]" : ""
+              }`}
+            >
+            <span style={{ display: "flex", alignItems: "center"}}>
               <FaSignInAlt style={{ marginRight: "8px" }} />
-              Giriş Yap
+              GİRİŞ YAP
             </span>
-          </Button>
+            </div>
+          </button>
         </Nav>
       </Navbar.Collapse>
     </Navbar>

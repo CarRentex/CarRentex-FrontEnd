@@ -10,6 +10,18 @@
   transition: background-color 0.3s;
 
 }
+.button{
+  background-color: #2ca8ff;
+  border-radius: 20px;
+  transition: background-color 0.3s;
+  color: white;
+  font-size: 13px;
+  margin-left: 45px;
+  margin-right: 5px;
+  margin-top: 15px;
+  margin-bottom: 5px;
+  
+}
 
 .custom-nav-link:hover {
   background-color: rgba(255, 255, 255, 0.1);
