@@ -12,48 +12,55 @@ const Footer = (props: Props) => {
                 <span>CAR</span> Rentex
               </li>
               <li>
-                We offers a big range of vehicles for all your driving needs. We
-                have the perfect car to meet your needs.
-              </li>
-
-            </ul>
-
-            <ul className="footer-content__2">
-              <li>Company</li>
-              <li>
-                <a href="#home">New York</a>
-              </li>
-              <li>
-                <a href="#home">Careers</a>
-              </li>
-              <li>
-                <a href="#home">Mobile</a>
-              </li>
-              <li>
-                <a href="#home">Blog</a>
-              </li>
-              <li>
-                <a href="#home">How we work</a>
+              Tüm sürüş ihtiyaçlarınız için geniş bir araç yelpazesi sunuyoruz. İhtiyaçlarınızı karşılayacak mükemmel bir araca sahibiz.
               </li>
             </ul>
 
             <ul className="footer-content__2">
-              <li>Working Hours</li>
-              <li>Mon - Fri: 9:00AM - 9:00PM</li>
-              <li>Sat: 9:00AM - 19:00PM</li>
-              <li>Sun: Closed</li>
+              <li>Ofisler</li>
+              <li>
+                <a href="#home">Sabiha Gökçen Havalimanı</a>
+              </li>
+              <li>
+                <a href="#home">İstanbul Havalimanı</a>
+              </li>
+              <li>
+                <a href="#home">Beşiktaş Ofis</a>
+              </li>
+              <li>
+                <a href="#home">Vadi İstanbul Ofis</a>
+              </li>
+              <li>
+                <a href="#home">Kadıköy Ofis</a>
+              </li>
+              <li>
+                <a href="#home">Yenikapı Ofis</a>
+              </li>
+              <li>
+                <a href="#home">Ataşehir Ofis</a>
+              </li>
+              <li>
+                <a href="#home">Beykoz Ofis</a>
+              </li>
             </ul>
 
             <ul className="footer-content__2">
-              <li>Subscription</li>
+              <li>Çalışma Saatlerimiz</li>
+              <li>Pzt - Cuma: 9:00 - 19:00</li>
+              <li>Cmt: 9:00AM - 16:00</li>
+              <li>Pazar: Kapalı</li>
+            </ul>
+
+            <ul className="footer-content__2">
+              <li>Abone Ol</li>
               <li>
-                <p>Subscribe your Email address for latest news & updates.</p>
+                <p>Güncel Kampanyalardan haberdar olmak için abone olun.</p>
               </li>
               <li>
-                <input type="email" placeholder="Enter Email Address"></input>
+                <input type="email" placeholder="Email"></input>
               </li>
               <li>
-                <button className="submit-email">Submit</button>
+                <button className="submit-email">Abone ol</button>
               </li>
             </ul>
           </div>

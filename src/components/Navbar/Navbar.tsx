@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { Nav, Navbar } from "react-bootstrap";
-import { FaHome, FaInfo, FaEnvelope, FaSignInAlt } from "react-icons/fa";
+import { FaHome, FaInfo, FaEnvelope, FaSignInAlt, FaUserPlus } from "react-icons/fa";
 import "./Navbar.css";
 import { Button } from "reactstrap";
 import { Link, useNavigate } from "react-router-dom";
@@ -29,6 +29,8 @@ function IndexNavbar() {
   };
 
   return (
+
+
     <Navbar
       className={`transition-[background] transition-all duration-300 ${
         scrolled
@@ -49,7 +51,8 @@ function IndexNavbar() {
       </Navbar.Brand>
       <Navbar.Toggle aria-controls="basic-navbar-nav" />
 
-      <Navbar.Collapse id="basic-navbar-nav" className="justify-content-center">
+      <Navbar.Collapse id="basic-navbar-nav" className="justify-content-center" style={{backgroundColor: scrolled ? 'transparent' : 'rgba(255, 255, 255, 0.6)',
+  transition: 'background-color 0.8s ease',}}>
         <Nav className="nav  mt-3">
           <Nav.Link as={Link} className="custom-nav-link" to="/">
             <div
@@ -90,19 +93,19 @@ function IndexNavbar() {
         </Nav>
 
         <Nav className="">
-          <button
-            className="button"
-            color="info"
-            onClick={handleSignupClick}
-          >
-        <div
-              className={`custom-nav-link gap-x-5 ${
-                scrolled ? "text-[#000]" : ""
-              }`}
-            >
+          <button className="button" color="info" onClick={handleSignupClick}>
+        <div className={`custom-nav-link gap-x-5 ${scrolled ? "text-[#000]" : ""}`}>
             <span style={{ display: "flex", alignItems: "center"}}>
               <FaSignInAlt style={{ marginRight: "8px" }} />
               GİRİŞ YAP
+            </span>
+            </div>
+          </button>
+          <button className="button" color="info">
+        <div className={`custom-nav-link gap-x-5 ${scrolled ? "text-[#000]" : ""}`}>
+            <span style={{ display: "flex", alignItems: "center"}}>
+              <FaUserPlus style={{ marginRight: "8px" }} />
+              KAYIT OL
             </span>
             </div>
           </button>

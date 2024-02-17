@@ -2,6 +2,8 @@ import { useEffect, useState } from 'react'
 import { Link } from "react-router-dom";
 import "./Styles/_index.scss";
 import { FaArrowUp} from 'react-icons/fa';
+import AnimateReveal from '../Animation/AnimateReveal';
+
 
 
 type Props = {}
@@ -34,18 +36,25 @@ const Hero = (props: Props) => {
     }, []);
     return (
       <>
-        <section id="home" className="hero-section">
+              <section
+        id="home"
+        className="hero-section"
+        style={{
+          background: `url("/images/car/car4.jpeg") center/cover no-repeat`,
+        }}
+      >
+      <AnimateReveal direction="from-left" delay={100}>
+
           <div className="container">
             {/* <img src="../../images/back.jpeg"/> */}
             <div className="hero-content">
               <div className="hero-content__text">
-                <h4>Plan your trip now</h4>
+                <h4>Seyahatinizi Şimdi Planlayın</h4>
                 <h1>
-                  Save <span>big</span> with our car rental
+                  Hey! <span>CarRentex</span> ile eşsiz bir yolculuğa hazır mısın?
                 </h1>
-                <p>
-                  Rent the car of your dreams. Unbeatable prices, unlimited miles,
-                  flexible pick-up options and much more.
+                <p >
+                Hayalinizdeki arabayı kiralayın. Rakipsiz fiyatlar, sınırsız mil, esnek teslim alma seçenekleri ve çok daha fazlası.
                 </p>
                 <div className="hero-content__text__btns">
                   <Link
@@ -53,10 +62,10 @@ const Hero = (props: Props) => {
                     className="hero-content__text__btns__book-ride"
                     to="/"
                   >
-                    Book Ride &nbsp; <i className="fa-solid fa-circle-check"></i>
+                    Başla &nbsp; <i className="fa-solid fa-circle-check"></i>
                   </Link>
                   <Link className="hero-content__text__btns__learn-more" to="/">
-                    Learn More &nbsp; <i className="fa-solid fa-angle-right"></i>
+                    Detaylar &nbsp; <i className="fa-solid fa-angle-right"></i>
                   </Link>
                 </div>
               </div>
@@ -78,6 +87,7 @@ const Hero = (props: Props) => {
           >
             <FaArrowUp />
           </div>
+        </AnimateReveal>
         </section>
       </>
     );
