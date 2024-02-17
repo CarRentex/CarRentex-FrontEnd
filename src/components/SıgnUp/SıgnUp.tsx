@@ -2,7 +2,6 @@ import { useState } from "react";
 import { FaEnvelope, FaKey } from "react-icons/fa";
 import "./SıgnUp.css";
 import {
-  Button,
   Card,
   CardHeader,
   CardBody,
@@ -16,23 +15,39 @@ import {
   Row,
 } from "reactstrap";
 import AnimateReveal from "../Animation/AnimateReveal";
+import { FormGroupContainer } from "../common/Containers";
+import { PasswordInput, TextInput } from "../common/Inputs";
+import Button from "../common/Button";
+import { useForm, SubmitHandler } from "react-hook-form";
+import { login } from "../../services/auth";
+import { toast } from "react-toastify";
+import { AxiosError } from "axios";
 
+type InputType = {
+  email: string;
+  password: string;
+};
 
-// const customStyle = {
-//   backgroundColor: 'rgba(255, 255, 255, 0.8)', // 0.8 şeffaflık
-//   opcity: '1.6',
-// };
+const SignUp = () => {
+  const { register, handleSubmit, reset } = useForm<InputType>();
 
+  const onSubmit: SubmitHandler<InputType> = (data) => {
+    login(data.email, data.password)
+      .then(() => {
+        toast.success("Giriş Başarılı");
+      })
+      .catch(() => {
+        toast.error("Giriş Başarısız");
+      });
+    reset();
 
-const SignUp =() => {
-  const [lastFocus, setLastFocus] = useState(false);
-  const [emailFocus, setEmailFocus] = useState(false);
-
+    console.log(data);
+  };
   return (
     <>
       <AnimateReveal direction="from-left" delay={300}>
         <div
-          className="section section-signup"
+          className=" "
           style={{
             backgroundImage: `url("/images/family.jpg")`,
             backgroundSize: "cover",
@@ -41,60 +56,41 @@ const SignUp =() => {
           }}
         >
           <Container>
-            <Row>
-              <Card className="card-signup" data-background-color="blue" style={{borderRadius: 25}}>
-                <Form action="" className="form" method="">
-                  <CardHeader className="text-center">
-                    <CardTitle className="title-up" tag="h3">
-                      Giriş Yap
-                    </CardTitle>
-                  </CardHeader>
-                  <CardBody>
-                    <InputGroup
-                      className={
-                        "no-border" + (emailFocus ? " input-group-focus" : "")
-                      }
-                    >
-                      <InputGroupText>
-                        <FaEnvelope />
-                      </InputGroupText>
-                      <Input
-                        placeholder="Email..."
-                        type="text"
-                        onFocus={() => setEmailFocus(true)}
-                        onBlur={() => setEmailFocus(false)}
-                      />
-                    </InputGroup>
-                    <InputGroup
-                      className={
-                        "no-border" + (lastFocus ? " input-group-focus" : "")
-                      }
-                    >
-                      <InputGroupText>
-                        <FaKey />
-                      </InputGroupText>
-                      <Input
-                        placeholder="Şifre..."
-                        type="text"
-                        onFocus={() => setLastFocus(true)}
-                        onBlur={() => setLastFocus(false)}
-                      />
-                    </InputGroup>
-                  </CardBody>
-                  <CardFooter className="text-center">
-                    <Button
-                      className="btn-neutral btn-round"
-                      color="info"
-                      href="#pablo"
-                      onClick={(e) => e.preventDefault()}
-                      size="lg"
-                    >
-                      Giriş Yap
-                    </Button>
-                  </CardFooter>
-                </Form>
-              </Card>
-            </Row>
+            <Card className="card-signup">
+            <div className="pt-20 text-white">
+              <Form
+               action=""
+                className="bg-zinc-600 " 
+                onSubmit={handleSubmit(onSubmit)}
+                >
+                <h1> Giriş Yap</h1>
+
+                <FormGroupContainer className="mt-14">
+                  <label htmlFor="email" className="font-normal text-white">
+                    Email
+                  </label>
+                  <TextInput
+                   id="email"
+                    className="text-black"
+                    {...register("email", { required: true })}
+                     />
+                </FormGroupContainer>
+                <FormGroupContainer className="mt-8">
+                  <label htmlFor="password" className="font-normal text-white">
+                    Şifre
+                  </label>
+                  <PasswordInput
+                   id="password" 
+                   className="text-black"
+                    {...register("password", { required: true })}
+                    />
+                </FormGroupContainer>
+                <button type="submit" className="mt-10 flex w-48 items-center justify-center rounded-3xl bg-neutral-950 p-2 text-white">
+                  Giriş Yap
+                </button>
+              </Form>
+            </div>
+          </Card>
           </Container>
         </div>
       </AnimateReveal>
