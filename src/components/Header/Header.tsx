@@ -5,25 +5,7 @@ type Props = {
 }
 
 function Header(props: Props){
-  const pageHeader = useRef<HTMLDivElement>(null);
 
-  useEffect(() => {
-    if (window.innerWidth > 991) {
-      const updateScroll = () => {
-        const windowScrollTop = window.pageYOffset / 3;
-        if (pageHeader.current) {
-          pageHeader.current.style.transform =
-            "translate3d(0," + windowScrollTop + "px,0)";
-        }
-      };
-
-      window.addEventListener("scroll", updateScroll);
-
-      return function cleanup() {
-        window.removeEventListener("scroll", updateScroll);
-      };
-    }
-  }, []);
 
   return (
     <>
@@ -34,13 +16,11 @@ function Header(props: Props){
             backgroundImage: `url(${props.src})`
 
           }}
-          ref={pageHeader}
         ></div>
         <div
           className="page-header-image"
           style={{
           }}
-          ref={pageHeader}
         ></div>
       </div>
     </>

@@ -41,6 +41,7 @@ const Hero = (props: Props) => {
         className="hero-section"
         style={{
           background: `url("/images/car/car4.jpeg") center/cover no-repeat`,
+          height: "100vh",
         }}
       >
       <AnimateReveal direction="from-left" delay={100}>

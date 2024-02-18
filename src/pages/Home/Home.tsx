@@ -9,8 +9,9 @@ const Home = (props: Props) => {
   return (
     <>
     <Hero />
-    <Header src = '/images/car/car4.jpeg'/>
+    {/* <Header src = '/images/car/car4.jpeg'/> */}
     <SignUp />
+    <Banner />
     </>
 
   )

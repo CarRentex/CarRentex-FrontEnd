@@ -1,4 +1,4 @@
-import "./_Banner.scss";
+import "./Styles/_index.scss"
 type Props = {}
 
 const Banner = (props: Props) => {
@@ -8,9 +8,9 @@ const Banner = (props: Props) => {
       <div className="container">
         <div className="banner-content">
           <div className="banner-content__text" >
-            <h2>CarRentex İle Eşsiz Araç Kiralama Deneyimi</h2>
+            <h2>CarRentex İle Bütçe Dostu Kiralama</h2>
             <p>
-              Top Airports. Local Suppliers. <span>24/7</span> Support.
+                En İyi Havalimanları. Yerel Tedarikçiler. <span>7/24</span> Destek.
             </p>
           </div>
         </div>
