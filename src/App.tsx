@@ -3,7 +3,6 @@ import Home from "./pages/Home/Home";
 import "bootstrap/dist/css/bootstrap.css";
 import About from "./pages/About/About";
 import Model from "./pages/Model/Model";
-import Login from "./pages/Login/login";
 import Footer from "./components/Footer/Footer";
 import IndexNavbar from "./components/Navbar/Navbar";
 import Payment from "./pages/Payment/Payment";
@@ -12,6 +11,7 @@ import "react-toastify/dist/ReactToastify.css";
 import Contact from "./pages/Contact/Contact";
 import "./index.css";
 import ReduxProvider from "./redux/providers/ReduxProvider";
+import Login from "./pages/Login/Login";
 function App() {
   return (
     // <Layout>
@@ -26,7 +26,7 @@ function App() {
             <Route path="/contact" element={<Contact />}></Route>
             <Route path="/model" element={<Model />}></Route>
             <Route path="/payment" element={<Payment />}></Route>
-            <Route path="/login" element={<Login />}></Route>
+            <Route path="/login" element={<Login  scrolled />}></Route>
           </Routes>
         </div>
         <Footer />

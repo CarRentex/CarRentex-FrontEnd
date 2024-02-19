@@ -2,6 +2,8 @@ import Hero from '../../components/Hero/Hero'
 import SignUp from '../../components/SıgnUp/SıgnUp'
 import Header from '../../components/Header/Header'
 import Banner from '../../components/Banner/Banner'
+import RentalConditions from '../../components/RentalConditions/RentalConditions'
+import Login from '../Login/Login'
 
 type Props = {}
 
@@ -12,6 +14,8 @@ const Home = (props: Props) => {
     {/* <Header src = '/images/car/car4.jpeg'/> */}
     <SignUp />
     <Banner />
+    <RentalConditions />
+    {/* <Login scrolled/>   test için yazıldı düzenlenecek*/} 
     </>
 
   )
