@@ -1,11 +1,11 @@
 import CarList from "../../lib/data/data.json";
 import VehliceCard from "../../components/VehliceCard/VehliceCard";
 import CarFilterLink from "../../components/VehliceCard/CarFilterLink";
-import Header from "../../components/Header/Header";
+import HeroPages from "../../components/HeroPages/HeroPages";
 const RentACar = () => {
   return (
     <>
-    <Header src = '/images/yol.jpeg'/>
+    <HeroPages path="/images/car/yol.jpeg" />
     <div className="w-full mt-[150px]">
       <section className="container mx-auto flex flex-col">
         <h1 className="text-center text-xl text-[#38BDF2]">Kiralık Araçlarımız</h1>

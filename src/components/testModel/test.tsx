@@ -1,7 +1,17 @@
-import { useState } from "react";
-import { FaEnvelope, FaKey } from "react-icons/fa";
-import "./SıgnUp.css";
-import {
+import React from 'react'
+
+type Props = {}
+
+const test = (props: Props) => {
+  return (
+    <div>test</div>
+  )
+}
+
+export default test
+
+
+/* import {
   Card,
   CardHeader,
   CardBody,
@@ -17,18 +27,16 @@ import {
 import AnimateReveal from "../Animation/AnimateReveal";
 import { FormGroupContainer } from "../common/Containers";
 import { PasswordInput, TextInput } from "../common/Inputs";
-import Button from "../common/Button";
 import { useForm, SubmitHandler } from "react-hook-form";
 import { login } from "../../services/auth";
 import { toast } from "react-toastify";
-import { AxiosError } from "axios";
 
 type InputType = {
   email: string;
   password: string;
 };
 
-const SignUp = () => {
+const testt = () => {
   const { register, handleSubmit, reset } = useForm<InputType>();
 
   const onSubmit: SubmitHandler<InputType> = (data) => {
@@ -98,4 +106,5 @@ const SignUp = () => {
   );
 };
 
-export default SignUp;
+export default testt;
+ */

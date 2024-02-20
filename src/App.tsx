@@ -11,7 +11,7 @@ import "react-toastify/dist/ReactToastify.css";
 import Contact from "./pages/Contact/Contact";
 import "./index.css";
 import ReduxProvider from "./redux/providers/ReduxProvider";
-import Login from "./pages/Login/Login";
+import Register from "./pages/Register/Register";
 function App() {
   return (
     // <Layout>
@@ -26,7 +26,7 @@ function App() {
             <Route path="/contact" element={<Contact />}></Route>
             <Route path="/model" element={<Model />}></Route>
             <Route path="/payment" element={<Payment />}></Route>
-            <Route path="/login" element={<Login/>}></Route>
+            <Route path="/register" element={<Register/>}></Route>
           </Routes>
         </div>
         <Footer />

@@ -1,14 +1,13 @@
-import { Link } from "react-router-dom";
 import "./HeroPages.scss";
 
 interface HeroPagesProps {
-  name: string;
+  path: string;
 }
 
-const HeroPages: React.FC<HeroPagesProps> = ({ name }) => {
+const HeroPages: React.FC<HeroPagesProps> = ({path }) => {
   return (
     <>
-      <section className="hero-pages">
+      <section className="hero-pages" style={{backgroundImage: `url(${path})`}}>
         <div className="hero-pages__overlay"></div>
         <div className="container">
           <div className="hero-pages__text">

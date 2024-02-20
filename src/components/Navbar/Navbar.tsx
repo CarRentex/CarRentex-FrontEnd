@@ -20,13 +20,19 @@ function IndexNavbar() {
     };
   }, []);
 
-  const handleSignupClick = () => {
+  const handleSignInClick = () => {
     navigate("/");
     window.scrollTo({
       top: 701,
       behavior: "smooth",
     });
   };
+
+  const handleSignUpClick = () => {
+    navigate("/register");
+  };
+
+
 
   return (
 
@@ -94,7 +100,7 @@ function IndexNavbar() {
         </Nav>
 
         <Nav className="">
-          <button className="button" color="info" onClick={handleSignupClick}>
+          <button className="button" color="info" onClick={handleSignInClick}>
         <div className={`custom-nav-link gap-x-5 ${scrolled ? "text-[#000]" : ""}`}>
             <span style={{ display: "flex", alignItems: "center"}}>
               <FaSignInAlt style={{ marginRight: "8px" }} />
@@ -102,7 +108,7 @@ function IndexNavbar() {
             </span>
             </div>
           </button>
-          <button className="button" color="info">
+          <button className="button" color="info" onClick={handleSignUpClick} >
         <div className={`custom-nav-link gap-x-5 ${scrolled ? "text-[#000]" : ""}`}>
             <span style={{ display: "flex", alignItems: "center"}}>
               <FaUserPlus style={{ marginRight: "8px" }} />

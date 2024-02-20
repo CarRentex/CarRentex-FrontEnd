@@ -5,7 +5,7 @@ function Contact() {
   return (
     <>
       <section className="contact-page">
-        <HeroPages name="Contact" />
+        <HeroPages path= '/images/sahil.jpeg' />
         <div className="container">
           <div className="contact-div">
             <div className="contact-div__text">

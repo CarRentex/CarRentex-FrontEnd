@@ -2,11 +2,19 @@
 
 
 .faq-section {
-  //background-image: url("./../../../../public/images/car/car6.jpeg");
+  background-image: url("./../../../../public/images/whitecars.webp");
   padding: 10rem 0;
-  background-size: auto;
+  background-size: cover;
   background-repeat: no-repeat;
-  background-position: 0 70%;
+  background-position: 0 30%;
+  background-position-x: center;
+
+
+  @media (max-width: 850px) {
+    width: 100%;
+    background-image: none;
+  }
+  
 }
 
 .faq-content {
@@ -93,7 +101,8 @@
 .active-answer {
   max-height: 20rem;
   padding: 2.8rem 4.5rem;
-  transition: 0.4s ease;
+
+  
 
   @media (max-width: 550px) {
     max-height: 30rem;
