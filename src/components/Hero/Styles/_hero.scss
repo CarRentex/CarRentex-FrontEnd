@@ -51,6 +51,7 @@
   align-items: center;
   position: relative;
 
+
   @media (max-width: 800px) {
     justify-content: center;
   }
@@ -61,6 +62,7 @@
     z-index: 3;
     max-width: 50rem;
     margin-top: 5rem;
+
 
     @media (max-width: 800px) {
       text-align: center;
@@ -180,3 +182,9 @@
 .show-scroll {
   display: flex;
 }
+
+/* .container{
+  background-color: rgba(255, 255, 255, 0.);
+  backdrop-filter: blur(10px);
+
+} */

@@ -59,7 +59,7 @@ const SignUp = () => {
             <Card className="card-signup">
             <div className="pt-20 text-white">
               <Form
-               action=""
+                action=""
                 className="bg-zinc-600 " 
                 onSubmit={handleSubmit(onSubmit)}
                 >
@@ -70,7 +70,7 @@ const SignUp = () => {
                     Email
                   </label>
                   <TextInput
-                   id="email"
+                    id="email"
                     className="text-black"
                     {...register("email", { required: true })}
                      />

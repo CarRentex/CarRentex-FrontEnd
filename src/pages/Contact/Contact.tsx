@@ -1,4 +1,118 @@
-import React from 'react'
+import HeroPages from "../../components/HeroPages/HeroPages";
+import "./Contact.scss";
+
+function Contact() {
+  return (
+    <>
+      <section className="contact-page">
+        <HeroPages name="Contact" />
+        <div className="container">
+          <div className="contact-div">
+            <div className="contact-div__text">
+              <h2>CarRentex </h2>
+              <p>
+                -------------Yazılacak-----------
+              </p>
+              <a href="/">
+                <i className="fa-solid fa-phone"></i>&nbsp; (531) 561-0569
+              </a>
+              <a href="/">
+                <i className="fa-solid fa-envelope"></i>&nbsp;
+                carRentex@gmail.com
+              </a>
+              <a href="/">
+                <i className="fa-solid fa-location-dot"></i>&nbsp; İstanbul
+              </a>
+            </div>
+            <div className="contact-div__form">
+              <form>
+                <label>
+                  İsim Soyisim <b>*</b>
+                </label>
+                <input type="text" placeholder='"İsim Soyisim"' />
+
+                <label>
+                  Email <b>*</b>
+                </label>
+                <input type="email" placeholder="carRentex@gmail.com" />
+
+                <label>
+                  Açıklama <b>*</b>
+                </label>
+                <textarea placeholder="Yazınız..."></textarea>
+
+                <button type="submit">
+                  <i className="fa-solid fa-envelope-open-text"></i>&nbsp; Mesaj
+                  Gönder
+                </button>
+              </form>
+            </div>
+          </div>
+        </div>
+        <div className="book-banner">
+          <div className="book-banner__overlay"></div>
+          <div className="container">
+            <div className="text-content">
+              <h2>Buradan Ulaşabilirsiniz</h2>
+              <span>
+                <i className="fa-solid fa-phone"></i>
+                <h3>(531) 562-0569</h3>
+              </span>
+            </div>
+          </div>
+        </div>
+      </section>
+    </>
+  );
+}
+
+export default Contact;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* import React from 'react'
 import AnimateReveal from '../../components/Animation/AnimateReveal'
 import { useForm, SubmitHandler } from "react-hook-form";
 import { FaMapMarker } from "react-icons/fa";
@@ -79,4 +193,4 @@ const Contact = () => {
   )
 }
 
-export default Contact
+export default Contact */

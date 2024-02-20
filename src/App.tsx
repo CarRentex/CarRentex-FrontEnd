@@ -26,7 +26,7 @@ function App() {
             <Route path="/contact" element={<Contact />}></Route>
             <Route path="/model" element={<Model />}></Route>
             <Route path="/payment" element={<Payment />}></Route>
-            <Route path="/login" element={<Login  scrolled />}></Route>
+            <Route path="/login" element={<Login/>}></Route>
           </Routes>
         </div>
         <Footer />

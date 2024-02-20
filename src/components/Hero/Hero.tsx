@@ -1,7 +1,6 @@
 import { useEffect, useState } from 'react'
 import { Link } from "react-router-dom";
-import "./Styles/_index.scss";
-import { FaArrowUp} from 'react-icons/fa';
+import "./Styles/_hero.scss";
 import AnimateReveal from '../Animation/AnimateReveal';
 
 
@@ -11,9 +10,9 @@ type Props = {}
 const Hero = (props: Props) => {
     const [goUp, setGoUp] = useState(false);
 
-    const scrollToTop = () => {
+/*     const scrollToTop = () => {
       window.scrollTo({ top: (0), behavior: "smooth" });
-    };
+    }; */
   
     const bookBtn = () => {
         // tuşa basıldığında kullanışacak redux fonksiyonu
@@ -45,9 +44,7 @@ const Hero = (props: Props) => {
         }}
       >
       <AnimateReveal direction="from-left" delay={100}>
-
           <div className="container">
-            {/* <img src="../../images/back.jpeg"/> */}
             <div className="hero-content">
               <div className="hero-content__text">
                 <h4>Seyahatinizi Şimdi Planlayın</h4>
@@ -70,24 +67,15 @@ const Hero = (props: Props) => {
                   </Link>
                 </div>
               </div>
-  
-              {/* img */}
-              {/* <img
-              src="../../images/car/car5.jpeg"
-              alt="car-img"
-              className="hero-content__car-img"
-            /> */}
-             
             </div>
           </div>
   
-          {/* page up */}
-          <div
+          {/* <div
             onClick={scrollToTop}
             className={`scroll-up ${goUp ? "show-scroll" : ""}`}
           >
             <FaArrowUp />
-          </div>
+          </div> */}
         </AnimateReveal>
         </section>
       </>

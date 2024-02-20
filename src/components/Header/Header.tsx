@@ -9,7 +9,7 @@ function Header(props: Props){
 
   return (
     <>
-      <div className="page-header clear-filter" filter-color="blue">
+      <div className="page-header  ">
         <div
           className="page-header-image"
           style={{

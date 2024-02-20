@@ -4,7 +4,7 @@ type Props = {}
 const Banner = (props: Props) => {
   return (
     <>
-    <section className="banner-section">
+    <section className="banner-section clear-filter" filter-color="blue">
       <div className="container">
         <div className="banner-content">
           <div className="banner-content__text" >

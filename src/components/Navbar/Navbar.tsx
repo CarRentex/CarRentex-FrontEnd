@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { Nav, Navbar } from "react-bootstrap";
-import { FaHome, FaInfo, FaEnvelope, FaSignInAlt, FaUserPlus } from "react-icons/fa";
+import { FaHome, FaInfo, FaEnvelope, FaSignInAlt, FaUserPlus, FaCar, FaBrain, FaBook } from "react-icons/fa";
 import "./Navbar.css";
 import { Button } from "reactstrap";
 import { Link, useNavigate } from "react-router-dom";
@@ -32,14 +32,15 @@ function IndexNavbar() {
 
 
     <Navbar
-      className={`transition-[background] transition-all duration-300 ${
+      className={`transition-[background] transition-all duration-300  ${
         scrolled
           ? "bg-[#ffff] [@supports(backdrop-filter:blur(0))]:bg-white/60 [@supports(backdrop-filter:blur(0))]:backdrop-blur-md"
-          : ""
+          : "clear-filter"
       }`}
       fixed="top"
       collapseOnSelect // Navbar'ın küçüldüğünde otomatik olarak kapanmasını sağlar
       expand="lg"
+      filter-color="blue"
     >
       <Navbar.Brand>
         <img
@@ -53,7 +54,7 @@ function IndexNavbar() {
 
       <Navbar.Collapse id="basic-navbar-nav" className="justify-content-center" style={{backgroundColor: scrolled ? 'transparent' : 'rgba(255, 255, 255, 0.6)',
   transition: 'background-color 0.8s ease',}}>
-        <Nav className="nav  mt-3">
+        <Nav className="nav  mt-3 ">
           <Nav.Link as={Link} className="custom-nav-link" to="/">
             <div
               className={`custom-nav-link gap-x-5 ${
@@ -69,7 +70,7 @@ function IndexNavbar() {
                 scrolled ? "text-[#000]" : ""
               }`}
             >
-              <FaHome /> Araçlar
+              <FaCar /> Araçlar
             </div>
           </Nav.Link>
           <Nav.Link as={Link} className="custom-nav-link" to="/about">
@@ -78,7 +79,7 @@ function IndexNavbar() {
                 scrolled ? "text-[#000]" : ""
               }`}
             >
-              <FaInfo /> Hakkımızda
+              <FaBook /> Hakkımızda
             </div>
           </Nav.Link>
           <Nav.Link as={Link} className="custom-nav-link" to="/contact">
