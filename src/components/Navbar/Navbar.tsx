@@ -23,7 +23,7 @@ function IndexNavbar() {
   const handleSignInClick = () => {
     navigate("/");
     window.scrollTo({
-      top: 701,
+      top: 1568,
       behavior: "smooth",
     });
   };

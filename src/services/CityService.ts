@@ -1,5 +1,5 @@
+import { axiosInstance } from './../lib/axios';
 import { AxiosResponse } from "axios";
-import { axios } from "../lib/axios";
 import { GetAllCityAndDistrictResponse, GetAllCityResponse } from "../models/City/City";
 
 class CityService {
@@ -8,19 +8,19 @@ class CityService {
 
 
     getAll(): Promise<AxiosResponse<GetAllCityResponse, any>> {
-		return axios.get<GetAllCityResponse>(this.apiUrl + "/getAll");
+		return axiosInstance.get<GetAllCityResponse>(this.apiUrl + "/getAll");
 	}
 
 /* 	getById(id: number): Promise<AxiosResponse<GetById, any>> {
-		return axios.get<GetByIdType>(this.apiUrl +`/getById?id=${id}`); // düzelt
+		return axiosInstance.get<GetByIdType>(this.apiUrl +`/getById?id=${id}`); // düzelt
 	}
  */
 	getAllCities(): Promise<AxiosResponse<GetAllCityAndDistrictResponse, any>> {
-		return axios.get<GetAllCityAndDistrictResponse>(this.apiUrl + "getAllCities"); // düzelt
+		return axiosInstance.get<GetAllCityAndDistrictResponse>(this.apiUrl + "getAllCities"); // düzelt
 	}
 
 	delete(id: number) {
-		return axios.delete(this.apiUrl + "/" + id);
+		return axiosInstance.delete(this.apiUrl + "/" + id);
 	}
 }
 

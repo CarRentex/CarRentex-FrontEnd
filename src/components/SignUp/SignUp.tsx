@@ -1,7 +1,7 @@
 import { FaEnvelope, FaKey } from "react-icons/fa";
 import { Button, Form, Input, InputGroup, InputGroupText, Container, Row, CardHeader, CardTitle, Card } from "reactstrap";
 
-const SignIn = () => {
+const SignUp = () => {
   
 
   return (
@@ -56,4 +56,4 @@ const SignIn = () => {
   );
 };
 
-export default SignIn;
+export default SignUp;

@@ -5,7 +5,7 @@ export const baseApi = process.env.NEXT_PUBLIC_API_URL + "/";
 const test = "http://localhost:8080/api";
 
 
-export const axios = getAxiosInstance();
+export const axiosInstance = getAxiosInstance();
 
 function getAxiosInstance() {
   const instance = Axios.create({
@@ -40,11 +40,11 @@ function getAxiosInstance() {
 }
 
 export const updateAuthHeader = ({ token }: { token: string }) => {
-  axios.defaults.headers.common["Authorization"] = `Bearer ${token}`;
+  axiosInstance.defaults.headers.common["Authorization"] = `Bearer ${token}`;
 };
 
 export const removeAuthHeader = () => {
-  delete axios.defaults.headers.common["Authorization"];
+  delete axiosInstance.defaults.headers.common["Authorization"];
 };
 
 export const logErrorResponse = (error: AxiosError) => {

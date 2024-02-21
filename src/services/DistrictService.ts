@@ -1,5 +1,5 @@
+import { axiosInstance } from './../lib/axios';
 import { AxiosResponse } from "axios";
-import { axios } from "../lib/axios";
 import { GetAllDistrictResponse, GetByIdDistrictResponse } from "../models/District/District";
 
 class DistrictService {
@@ -8,16 +8,16 @@ class DistrictService {
 
 
     getAll(): Promise<AxiosResponse<GetAllDistrictResponse, any>> {
-		return axios.get<GetAllDistrictResponse>(this.apiUrl + "/getAll");
+		return axiosInstance.get<GetAllDistrictResponse>(this.apiUrl + "/getAll");
 	}
 
 	getById(id: number): Promise<AxiosResponse<GetByIdDistrictResponse, any>> {
-		return axios.get<GetByIdDistrictResponse>(this.apiUrl +`/getById?id=${id}`); // düzelt
+		return axiosInstance.get<GetByIdDistrictResponse>(this.apiUrl +`/getById?id=${id}`); // düzelt
 	}
 
 
 	delete(id: number) {
-		return axios.delete(this.apiUrl + "/" + id);
+		return axiosInstance.delete(this.apiUrl + "/" + id);
 	}
 }
 

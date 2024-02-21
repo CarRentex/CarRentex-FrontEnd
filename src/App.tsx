@@ -12,6 +12,7 @@ import Contact from "./pages/Contact/Contact";
 import "./index.css";
 import ReduxProvider from "./store/providers/ReduxProvider";
 import Register from "./pages/Register/Register";
+import SignIn from "./components/SıgnIn/SıgnIn";
 function App() {
   return (
     // <Layout>
@@ -27,6 +28,7 @@ function App() {
             <Route path="/model" element={<Model />}></Route>
             <Route path="/payment" element={<Payment />}></Route>
             <Route path="/register" element={<Register/>}></Route>
+            <Route path="/login" element={<SignIn/>}></Route>
           </Routes>
         </div>
         <Footer />
