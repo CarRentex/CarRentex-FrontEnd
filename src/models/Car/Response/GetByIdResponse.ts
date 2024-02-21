@@ -1,5 +1,5 @@
 import { GetAllColorResponse } from "../../Color/Color";
-import { GetAllModelResponse } from "../../Model/Response/GetModelResponse";
+import { GetAllModelResponse } from "../../Model/Response/GetAllModelResponse";
 
 export interface GetByIdCarResponse {
     id: number;

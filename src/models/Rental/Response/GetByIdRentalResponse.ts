@@ -1,6 +1,6 @@
 import { GetAllCarResponse } from "../../Car/Response/GetAllCarResponse";
 import { GetAllLocationResponse } from "../../Location/Response/GetAllLocationResponse";
-import { GetAllUserResponse } from "../../User/Response/GetUserResponse";
+import { GetAllUserResponse } from "../../User/Response/GetAllUserResponse";
 
 export interface GetByIdRentalResponse {
     id: number;

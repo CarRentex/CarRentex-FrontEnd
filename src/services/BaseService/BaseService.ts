@@ -16,21 +16,21 @@ export class BaseService<
 	}
 
 	getAll(): Promise<AxiosResponse<GetAllType, any>> {
-		return axios.get<GetAllType>(this.apiUrl);
+		return axios.get<GetAllType>(this.apiUrl + "/getAll");
 	}
 
 	getById(id: number): Promise<AxiosResponse<GetByIdType, any>> {
-		return axios.get<GetByIdType>(this.apiUrl +`/getById?id=${id}`);
+		return axios.get<GetByIdType>(this.apiUrl +`/getById?id=${id}`); // düzelt
 	}
 
 	add(request: AddRequestType): Promise<AxiosResponse<AddResponseType, any>> {
-		return axios.post<AddResponseType>(this.apiUrl, request);
+		return axios.post<AddResponseType>(this.apiUrl + "/create", request);
 	}
 
 	update(
 		request: UpdateRequestType,
 	): Promise<AxiosResponse<UpdateResponseType, any>> {
-		return axios.put<UpdateResponseType>(this.apiUrl, request);
+		return axios.put<UpdateResponseType>(this.apiUrl + "/update", request);
 	}
 
 	delete(id: number) {

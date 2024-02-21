@@ -3,7 +3,3 @@ export interface GetAllLocationResponse {
     name: string;
 }
 
-export interface GetByIdLocationResponse {
-    id: number;
-    name: string;
-}
