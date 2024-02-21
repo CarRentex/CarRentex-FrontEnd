@@ -5,6 +5,7 @@ import * as Yup from "yup";
 import { login } from "../../services/AuthService/auth";
 import { toast } from "react-toastify";
 import AnimateReveal from "../Animation/AnimateReveal";
+import "./SıgnIn.css";
 
 const SignIn = () => {
 
@@ -31,7 +32,6 @@ const SignIn = () => {
   });
 
   return (
-    <AnimateReveal direction="from-left" delay={300}>
     <div
       className="section section-signup"
       style={{
@@ -41,6 +41,7 @@ const SignIn = () => {
         minHeight: "700px",
       }}
     >
+      <AnimateReveal direction="from-bottom" delay={300}>
     <Container>
       <Row>
       <Card className="card-signup" data-background-color="blue" style={{borderRadius: 24}}>
@@ -87,8 +88,8 @@ const SignIn = () => {
             </Card>
       </Row>
     </Container>
-  </div>
   </AnimateReveal>
+  </div>
   );
 };
 
