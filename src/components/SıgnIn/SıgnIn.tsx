@@ -1,15 +1,12 @@
-import { useState } from "react";
 import { FaEnvelope, FaKey } from "react-icons/fa";
 import { Button, Form, Input, InputGroup, InputGroupText, Container, Row, CardHeader, CardTitle, Card } from "reactstrap";
 import { useFormik } from "formik";
 import * as Yup from "yup";
-import { login } from "../../services/auth";
+import { login } from "../../services/AuthService/auth";
 import { toast } from "react-toastify";
 import AnimateReveal from "../Animation/AnimateReveal";
 
 const SignIn = () => {
-  const [emailFocus, setEmailFocus] = useState(false);
-  const [passwordFocus, setPasswordFocus] = useState(false);
 
   const formik = useFormik({
     initialValues: {
@@ -21,7 +18,8 @@ const SignIn = () => {
       password: Yup.string().required("Şifre gerekli"),
     }),
     onSubmit: (values) => {
-      login(values.email, values.password)
+      console.log(values);
+      login(values)
         .then(() => {
           toast.success("Giriş Başarılı");
         })
@@ -52,7 +50,7 @@ const SignIn = () => {
                     </CardTitle>
                   </CardHeader>
               <Form onSubmit={formik.handleSubmit}>
-                <InputGroup className={"mb-3" + (emailFocus ? " input-group-focus" : "")}>
+                <InputGroup className="mb-3">
                   <InputGroupText>
                     <FaEnvelope />
                   </InputGroupText>
@@ -60,15 +58,13 @@ const SignIn = () => {
                     id="email"
                     placeholder="Email..."
                     type="email"
-                    //onFocus={() => setEmailFocus(true)}
-                    //onBlur={() => setEmailFocus(false)}
                     {...formik.getFieldProps("email")}
                   />
                 </InputGroup>
                 {formik.touched.email && formik.errors.email ? (
                   <div className="text-danger">{formik.errors.email}</div>
                 ) : null}
-                <InputGroup className={"mb-3" + (passwordFocus ? " input-group-focus" : "")}>
+                <InputGroup className="mb-3">
                   <InputGroupText>
                     <FaKey />
                   </InputGroupText>
@@ -76,8 +72,6 @@ const SignIn = () => {
                     id="password"
                     placeholder="Şifre..."
                     type="password"
-                   // onFocus={() => setPasswordFocus(true)}
-                    //onBlur={() => setPasswordFocus(false)}
                     {...formik.getFieldProps("password")}
                   />
                 </InputGroup>

@@ -10,7 +10,7 @@ import { ToastContainer} from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Contact from "./pages/Contact/Contact";
 import "./index.css";
-import ReduxProvider from "./redux/providers/ReduxProvider";
+import ReduxProvider from "./store/providers/ReduxProvider";
 import Register from "./pages/Register/Register";
 function App() {
   return (
