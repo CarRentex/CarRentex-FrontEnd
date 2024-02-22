@@ -1,10 +1,21 @@
-import {configureStore } from '@reduxjs/toolkit'
+import { signInReducer } from './signInSlice';
+import {combineReducers, configureStore } from '@reduxjs/toolkit'
+
+
+const rootReducer = combineReducers({
+  signIn:signInReducer,
+
+});
+
+
+
+
+
+
 
 
 export const store = configureStore({
-  reducer: {
-    
-  },
+  reducer: rootReducer
 })
 
 // Infer the `RootState` and `AppDispatch` types from the store itself

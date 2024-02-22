@@ -13,6 +13,8 @@ import "./index.css";
 import ReduxProvider from "./store/providers/ReduxProvider";
 import Register from "./pages/Register/Register";
 import SignIn from "./components/SıgnIn/SıgnIn";
+import testbrand from "./pages/test";
+import Testbrand from "./pages/test";
 function App() {
   return (
     // <Layout>
@@ -29,6 +31,7 @@ function App() {
             <Route path="/payment" element={<Payment />}></Route>
             <Route path="/register" element={<Register/>}></Route>
             <Route path="/login" element={<SignIn/>}></Route>
+            <Route path="/test" element={<Testbrand/>}></Route>
           </Routes>
         </div>
         <Footer />

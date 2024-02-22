@@ -24,7 +24,7 @@ export class BaseService<
 	}
 
 	add(request: AddRequestType): Promise<AxiosResponse<AddResponseType, any>> {
-		return axiosInstance.post<AddResponseType>(this.apiUrl + "/create", request);
+		return axiosInstance.post<AddResponseType>(this.apiUrl + "/create",request);
 	}
 
 	update(

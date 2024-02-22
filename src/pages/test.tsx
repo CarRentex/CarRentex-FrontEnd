@@ -18,9 +18,9 @@ const testbrand = (props: Props) => {
 
   return (
     <div>
-<button type='submit' className='btn btn-success mt-5 pt-5' onClick={handleSubmit}>Kirala</button>
+<button type='submit' className=' mt-40 ml-[50px] pt-5' onClick={handleSubmit}>Kirala</button>
     </div>
   )
 }
 
-export default testbrand
+export default testbrand;
