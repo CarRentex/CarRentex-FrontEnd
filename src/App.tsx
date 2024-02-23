@@ -2,7 +2,6 @@ import { Route, Routes } from "react-router-dom";
 import Home from "./pages/Home/Home";
 import "bootstrap/dist/css/bootstrap.css";
 import About from "./pages/About/About";
-import Model from "./pages/Model/Model";
 import Footer from "./components/Footer/Footer";
 import IndexNavbar from "./components/Navbar/Navbar";
 import Payment from "./pages/Payment/Payment";
@@ -13,8 +12,10 @@ import "./index.css";
 import ReduxProvider from "./store/providers/ReduxProvider";
 import Register from "./pages/Register/Register";
 import SignIn from "./components/SıgnIn/SıgnIn";
-import testbrand from "./pages/test";
-import Testbrand from "./pages/test";
+import TestBrand from "./pages/test";
+import Model from "./pages/Model/Model";
+import SignedOut from "./components/SıgnIn/SignOut";
+import ProfilePage from "./components/User/UserSettings";
 function App() {
   return (
     // <Layout>
@@ -27,11 +28,12 @@ function App() {
             <Route path="/" element={<Home />}></Route>
             <Route path="/about" element={<About />}></Route>
             <Route path="/contact" element={<Contact />}></Route>
-            <Route path="/model" element={<Model />}></Route>
+            <Route path="/model" element={<Model/>}></Route>
             <Route path="/payment" element={<Payment />}></Route>
             <Route path="/register" element={<Register/>}></Route>
             <Route path="/login" element={<SignIn/>}></Route>
-            <Route path="/test" element={<Testbrand/>}></Route>
+            <Route path="/test" element={<TestBrand/>}></Route>
+            <Route path="/user" element={<ProfilePage/>}></Route>
           </Routes>
         </div>
         <Footer />

@@ -5,42 +5,36 @@ import Fuel from "../../assets/icons/Fuel.jpeg";
 import Passangers from "../../assets/icons/Passangers.jpeg";
 import Vites from "../../assets/icons/Vites.jpeg";
 import { useNavigate } from "react-router-dom";
+import { GetAllCarResponse } from "../../models/Car/Response/GetAllCarResponse";
 
-type Props = {
-  category: string;
-  marka: string;
-  model: string;
-  additive?: string;
-  fiyat: number;
-  yolcu: number;
-};
 
-const VehliceCard = (props: Props) => {
+
+const VehliceCard = (  {item}: {item: GetAllCarResponse}) => {
 const navigate = useNavigate();
-  const { category, marka, model, fiyat, yolcu, additive } = props;
+  
   let categoryTextClass = "flex items-center text-[.6rem] md:text-base gap-2";
   return (
     <section className="flex flex-col justify-between bg-white p-2 shadow-lg md:h-[50rem] md:p-5">
       <header className="grid grid-cols-2">
         <h3 className="col-span-2 text-[.5rem] font-bold text-primary-color md:col-span-1 md:text-xs">
-          {category} Kiralık Araçlar
+          {item.category} Kiralık Araçlar
         </h3>
         <h2 className="row-span-2 text-left text-sm font-bold md:text-lg">
-          {marka} {model} {additive && additive}
+          {item.model?.brand?.name} {item.model?.name} {item.year}
         </h2>
         <h1 className="test-xs text-right font-bold md:text-base lg:text-2xl ">
-          {fiyat} TL/ gün
+          {item.dailyPrice} TL/ gün
         </h1>
       </header>
-      <Image
-        className="w-full h-[150px] md:h-[170px]"
-        src={require(`/public/images/araçlar/${category}/${marka} ${model}.png`)}
-        alt=""
-      />
+       <Image
+         className="w-full h-[150px] rounded-t-lg"
+         src={item.imagePath}
+         alt=""
+       />
       <div className="grid grid-cols-2 gap-1 md:gap-6">
         <h1 className={categoryTextClass}>
           <img className="w-[20px] md:w-[30px]" src={Passangers} alt="" />
-          {yolcu}
+          {item.passengerCapacity}
         </h1>
         <h1 className={categoryTextClass}>
           <img className="w-[20px] md:w-[30px]" src={Airbag} alt="" />
@@ -52,11 +46,11 @@ const navigate = useNavigate();
         </h1>
         <h1 className={categoryTextClass}>
           <img className="w-[20px] md:w-[30px]" src={Fuel} alt="" />
-          Dizel, Benzin
+          {item.fuelType}
         </h1>
         <h1 className={categoryTextClass}>
           <img className="w-[20px] md:w-[30px]" src={Vites} alt="" />
-          Otomatik, Manuel
+          {item.gearType}
         </h1>
         <button
           onClick={()=>navigate("/")}
@@ -66,7 +60,7 @@ const navigate = useNavigate();
         </button>
       </div>
     </section>
-  );
+  ); 
 };
 
 export default VehliceCard;

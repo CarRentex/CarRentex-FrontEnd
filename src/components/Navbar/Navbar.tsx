@@ -1,14 +1,17 @@
-import { useEffect, useState } from "react";
+// IndexNavbar.tsx
+import React, { useState, useEffect } from "react";
 import { Nav, Navbar } from "react-bootstrap";
 import { FaHome, FaInfo, FaEnvelope, FaSignInAlt, FaUserPlus, FaCar, FaBrain, FaBook } from "react-icons/fa";
 import "./Navbar.css";
 import { Button } from "reactstrap";
 import { Link, useNavigate } from "react-router-dom";
+import UserDropdown from "../User/UserDropdown";
 
 function IndexNavbar() {
   const navigate = useNavigate();
   const [scrolled, setScrolled] = useState<boolean>(false);
-  // const [navbarColor, setNavbarColor] = useState<string>("/logo2.png");
+  const [isLoggedIn, setIsLoggedIn] = useState<boolean>(false); // Track user login state
+
   useEffect(() => {
     setScrolled(window.scrollY > 0);
     const onScroll = (): void => {
@@ -21,22 +24,21 @@ function IndexNavbar() {
   }, []);
 
   const handleSignInClick = () => {
-    navigate("/");
-    window.scrollTo({
-      top: 1568,
-      behavior: "smooth",
-    });
+    // Giriş yap butonuna tıklandığında hedef bileşenin id'sine odaklan
+    
   };
 
   const handleSignUpClick = () => {
     navigate("/register");
   };
 
-
+  // Check if user is logged in on component mount
+  useEffect(() => {
+    const storedToken = localStorage.getItem('token');
+    setIsLoggedIn(!!storedToken);
+  }, []);
 
   return (
-
-
     <Navbar
       className={`transition-[background] transition-all duration-300  ${
         scrolled
@@ -44,7 +46,7 @@ function IndexNavbar() {
           : "clear-filter"
       }`}
       fixed="top"
-      collapseOnSelect // Navbar'ın küçüldüğünde otomatik olarak kapanmasını sağlar
+      collapseOnSelect
       expand="lg"
       filter-color="blue"
     >
@@ -100,22 +102,28 @@ function IndexNavbar() {
         </Nav>
 
         <Nav className="">
-          <button className="button" color="info" onClick={handleSignInClick}>
-        <div className={`custom-nav-link gap-x-5 ${scrolled ? "text-[#000]" : ""}`}>
-            <span style={{ display: "flex", alignItems: "center"}}>
-              <FaSignInAlt style={{ marginRight: "8px" }} />
-              GİRİŞ YAP
-            </span>
-            </div>
-          </button>
-          <button className="button" color="info" onClick={handleSignUpClick} >
-        <div className={`custom-nav-link gap-x-5 ${scrolled ? "text-[#000]" : ""}`}>
-            <span style={{ display: "flex", alignItems: "center"}}>
-              <FaUserPlus style={{ marginRight: "8px" }} />
-              KAYIT OL
-            </span>
-            </div>
-          </button>
+          {isLoggedIn ? (
+            <UserDropdown /> // Show UserDropdown if logged in
+          ) : (
+            <>
+              <button className="button" color="info" onClick={handleSignInClick}>
+                <div className={`custom-nav-link gap-x-5 ${scrolled ? "text-[#000]" : ""}`}>
+                  <span style={{ display: "flex", alignItems: "center"}}>
+                    <FaSignInAlt style={{ marginRight: "8px" }} />
+                    GİRİŞ YAP
+                  </span>
+                </div>
+              </button>
+              <button className="button" color="info" onClick={handleSignUpClick} >
+                <div className={`custom-nav-link gap-x-5 ${scrolled ? "text-[#000]" : ""}`}>
+                  <span style={{ display: "flex", alignItems: "center"}}>
+                    <FaUserPlus style={{ marginRight: "8px" }} />
+                    KAYIT OL
+                  </span>
+                </div>
+              </button>
+            </>
+          )}
         </Nav>
       </Navbar.Collapse>
     </Navbar>

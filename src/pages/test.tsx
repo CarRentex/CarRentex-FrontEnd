@@ -1,10 +1,13 @@
-import React from 'react'
-import { Button } from 'reactstrap'
 import { brandGetAll } from '../services/AuthService/auth';
+import useToken from '../lib/useToken';
 
 type Props = {}
 
-const testbrand = (props: Props) => {
+const TestBrand = (props: Props) => {
+
+  const { token, decodedToken, clearToken } = useToken();
+  console.log(decodedToken);
+
 
   const handleSubmit = async (event: any) => {
     event.preventDefault();
@@ -15,6 +18,7 @@ const testbrand = (props: Props) => {
       console.error(error);
     }
   };
+        
 
   return (
     <div>
@@ -23,4 +27,4 @@ const testbrand = (props: Props) => {
   )
 }
 
-export default testbrand;
+export default TestBrand;
