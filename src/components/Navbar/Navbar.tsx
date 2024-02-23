@@ -1,4 +1,3 @@
-// IndexNavbar.tsx
 import React, { useState, useEffect } from "react";
 import { Nav, Navbar } from "react-bootstrap";
 import { FaHome, FaInfo, FaEnvelope, FaSignInAlt, FaUserPlus, FaCar, FaBrain, FaBook } from "react-icons/fa";
@@ -10,7 +9,7 @@ import UserDropdown from "../User/UserDropdown";
 function IndexNavbar() {
   const navigate = useNavigate();
   const [scrolled, setScrolled] = useState<boolean>(false);
-  const [isLoggedIn, setIsLoggedIn] = useState<boolean>(false); // Track user login state
+  const [isLoggedIn, setIsLoggedIn] = useState<boolean>(false);
 
   useEffect(() => {
     setScrolled(window.scrollY > 0);
@@ -25,6 +24,7 @@ function IndexNavbar() {
 
   const handleSignInClick = () => {
     // Giriş yap butonuna tıklandığında hedef bileşenin id'sine odaklan
+    navigate("/login");
     
   };
 

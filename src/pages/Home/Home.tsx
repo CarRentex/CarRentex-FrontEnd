@@ -12,7 +12,7 @@ const Home = (props: Props) => {
     <Hero />
     {/* <Header src = '/images/car/car4.jpeg'/> */}
     <Campaign />
-    <SignIn />
+    {/* <SignIn /> */}
     <Banner />
     <RentalConditions />
     </>

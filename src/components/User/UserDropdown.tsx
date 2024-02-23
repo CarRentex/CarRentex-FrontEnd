@@ -37,13 +37,13 @@ export default function UserDropdown() {
         <Tooltip title="Kullanıcı Ayarları">
           <IconButton
             onClick={handleClick}
-            size="small"
-            sx={{ ml: 3 }}
+            size="large"
+            sx={{ ml: 5 }}
             aria-controls={open ? 'account-menu' : undefined}
             aria-haspopup="true"
             aria-expanded={open ? 'true' : undefined}
           >
-            <Avatar sx={{ width: 32, height: 32 }}>M</Avatar>
+            <Avatar sx={{ width: 45, height: 44 }} style={{backgroundColor: "#38BDF2"}}>K</Avatar>
           </IconButton>
         </Tooltip>
       </Box>
@@ -85,8 +85,10 @@ export default function UserDropdown() {
         
         <MenuItem onClick={handleClose}>
           <Avatar />
-          <Link to='/account'>
+          <Link to='/user'>
+              < i>
               Hesabım
+              </i>
           </Link>
         </MenuItem>
         <Divider />

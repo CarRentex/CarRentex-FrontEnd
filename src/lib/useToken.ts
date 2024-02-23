@@ -1,6 +1,11 @@
 import { useState, useEffect, useRef } from 'react';
+import { useDispatch } from 'react-redux';
+import { loginSuccess } from '../store/signInSlice';
+import { AppDispatch } from '../store/store';
 interface TokenModel {
     emailAddress: string;
+    address: string;
+    phoneNumber: string;
     role: string;
     id: number;
     sub: string;
@@ -12,13 +17,9 @@ const useToken = () => {
   const [token, setToken] = useState('');
   const [decodedToken, setDecodedToken] = useState<TokenModel | null>(null);
 
-
-  const storedTokenRef = useRef<string | null>(null);
-
   useEffect(() => {
     const storedToken = localStorage.getItem('token');
-    storedTokenRef.current = storedToken ?? '';
-    setToken(storedTokenRef.current);
+    setToken(storedToken ?? '');
 
     if (storedToken) {
       const decodedToken = parseJwt(storedToken);
@@ -26,18 +27,20 @@ const useToken = () => {
     }
   }, []);
 
+  const dispatch = useDispatch<AppDispatch>();
+
   useEffect(() => {
-    const token = storedTokenRef.current;
+    const token = localStorage.getItem('token');
     if (token) {
       const decodedToken = parseJwt(token);
       setDecodedToken(decodedToken);
+      // Redux'a token'ı set et
+      dispatch(loginSuccess(decodedToken));
     }
-  }, [storedTokenRef]);
-
+  }, [dispatch]);
 
   const clearToken = () => {
     localStorage.removeItem('token');
-    storedTokenRef.current = '';
     setToken('');
     setDecodedToken(null);
   };
@@ -54,5 +57,6 @@ const useToken = () => {
 
   return { token, decodedToken, clearToken };
 };
+
 
 export default useToken;

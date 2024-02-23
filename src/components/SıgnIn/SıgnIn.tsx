@@ -19,12 +19,15 @@ import { useDispatch } from "react-redux";
 import { addSignIn, loginSuccess } from "../../store/signInSlice";
 import { AppDispatch } from "../../store/store";
 import useToken from "../../lib/useToken";
+import "./SıgnIn.css";
+import { Navigate, useNavigate } from "react-router-dom";
 
 const SignIn: React.FC = () => {
   const dispatch = useDispatch<AppDispatch>();
   const [successMessage, setSuccessMessage] = useState<string>("");
   const [errorMessage, setErrorMessage] = useState<string>("");
   const { decodedToken } = useToken();
+  const navigate = useNavigate();
 
   const handleSubmit = async (values: { email: string; password: string }) => {
     try {
@@ -32,7 +35,7 @@ const SignIn: React.FC = () => {
         addSignIn({ email: values.email, password: values.password })
       );
       if ("error" in response) {
-        // Handle error logic
+        // handle error
       } else {
         const userPayload = {
           id: decodedToken?.id || 0,
@@ -41,19 +44,13 @@ const SignIn: React.FC = () => {
         };
         dispatch(loginSuccess(userPayload));
 
-        setSuccessMessage("Hoşgeldiniz! Giriş başarılı.");
-        
-        setTimeout(() => {
-          window.scrollTo(0, 0);
-
-          setTimeout(() => {
-            setSuccessMessage("");
-          }, 2000);
-        }, 100);
+        // setSuccessMessage("Hoşgeldiniz! Giriş başarılı.");
+        navigate("/"); // Redirect to home page
+        window.location.reload(); // Reload the page
       }
     } catch (error) {
       console.error("Redux action dispatch hatası:", error);
-      setErrorMessage("Giriş başarısız. Lütfen tekrar deneyin.");
+      // setErrorMessage("Giriş başarısız. Lütfen tekrar deneyin.");
     }
   };
 
@@ -78,7 +75,7 @@ const SignIn: React.FC = () => {
         backgroundImage: `url("/images/family.jpg")`,
         backgroundSize: "cover",
         backgroundPosition: "top center",
-        minHeight: "700px",
+        minHeight: "800px",
       }}
     >
       <Container id="sign">
@@ -88,8 +85,9 @@ const SignIn: React.FC = () => {
             data-background-color="blue"
             style={{ borderRadius: 24 }}
           >
+            <p className="text-center"> CarRentex</p>
             <CardHeader className="text-center">
-              <CardTitle className="title-up" tag="h3">
+              <CardTitle className="title-in" tag="h2">
                 Giriş Yap
               </CardTitle>
             </CardHeader>

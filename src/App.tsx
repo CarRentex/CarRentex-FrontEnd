@@ -14,7 +14,6 @@ import Register from "./pages/Register/Register";
 import SignIn from "./components/SıgnIn/SıgnIn";
 import TestBrand from "./pages/test";
 import Model from "./pages/Model/Model";
-import SignedOut from "./components/SıgnIn/SignOut";
 import ProfilePage from "./components/User/UserSettings";
 function App() {
   return (

@@ -4,7 +4,10 @@ type Props = {}
 const Footer = (props: Props) => {
   return (
     <div className='w-full h-auto'>
-      <footer>
+      <footer style={{
+      background: `url("/images/backfooter.jpeg") center/cover no-repeat`,
+      }}>
+
         <div className="container">
           <div className="footer-content">
             <ul className="footer-content__1">

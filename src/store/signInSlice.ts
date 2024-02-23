@@ -25,6 +25,8 @@ export const addSignIn = createAsyncThunk(
     id: 0,
     email: "",
     role: "", 
+    address: "",
+    phoneNumber: "",
     isauthenticated: false,   
   };
   
@@ -38,6 +40,8 @@ export const addSignIn = createAsyncThunk(
             state.id = action.payload.id;
             state.email = action.payload.email;
             state.role = action.payload.role;
+            state.address = action.payload.address;
+            state.phoneNumber = action.payload.phoneNumber;
             state.isauthenticated = true;
           }
         },
