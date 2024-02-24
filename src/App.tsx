@@ -33,6 +33,7 @@ function App() {
             <Route path="/login" element={<SignIn/>}></Route>
             <Route path="/test" element={<TestBrand/>}></Route>
             <Route path="/user" element={<ProfilePage/>}></Route>
+            {/* <Route path="/admin" element={<AdminLayout/>}></Route> */}
           </Routes>
         </div>
         <Footer />

@@ -3,7 +3,7 @@ import Banner from '../../components/Banner/Banner'
 import RentalConditions from '../../components/RentalConditions/RentalConditions'
 import Campaign from '../../components/Campaign/Campaign'
 import SignIn from '../../components/SıgnIn/SıgnIn'
-import BookingSection from '../../components/BookCar/BookCar'
+import BookingSection from '../../components/FilterCars/FilterCar'
 
 type Props = {}
 

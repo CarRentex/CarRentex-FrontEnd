@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "./BookCar.scss";
+import "./FilterCar.scss";
 
 interface BookingSectionProps {
   // Gerekirse props ekleyebilirsiniz

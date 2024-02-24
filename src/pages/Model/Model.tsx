@@ -5,7 +5,7 @@ import CarFilterLink from "../../components/VehliceCard/CarFilterLink";
 import HeroPages from "../../components/HeroPages/HeroPages";
 import VehliceCard from "../../components/VehliceCard/VehliceCard";
 import BaseFetcher from "../../lib/BaseFetcher";
-import BookingSection from "../../components/BookCar/BookCar";
+import BookingSection from "../../components/FilterCars/FilterCar";
 
 const Model = () => {
   const [cars, setCars] = useState<GetAllCarResponse[]>([]);
