@@ -1,36 +1,29 @@
 import React, { useState } from "react";
 import "./Style/_campaign.scss";
 
-interface Car {
-  img: string;
-  price: number;
-  model: string;
-  mark: string;
-  year: number;
-  doors: number;
-  air: string;
-  transmission: string;
-  fuel: string;
-}
+
+
 
 interface CarBoxProps {
   data: any;
-  carID: number;
 }
 
-const CarBox: React.FC<CarBoxProps> = ({ data, carID }: CarBoxProps): JSX.Element => {
+const CarBox: React.FC<CarBoxProps> = ({ data }: CarBoxProps): JSX.Element => {
   const [carLoad, setCarLoad] = useState(true);
+
+  // data undefined değilse devam et, aksi halde boş bir dizi kullan
+  const carsArray = Array.isArray(data) ? data : [data];
 
   return (
     <>
-      {data[carID].map((car: any, id: any) => (
+     {carsArray.map((car: any, id: any) => (
         <div key={id} className="box-cars">
           {/* car */}
           <div className="pick-car">
             {carLoad && <span className="loader"></span>}
             <img
               style={{ display: carLoad ? "none" : "block" }}
-              src={car.img}
+              src={car.imagePath}
               alt="car_img"
               onLoad={() => setCarLoad(false)}
             />
@@ -38,18 +31,20 @@ const CarBox: React.FC<CarBoxProps> = ({ data, carID }: CarBoxProps): JSX.Elemen
           {/* description */}
           <div className="pick-description">
             <div className="pick-description__price">
-              <span>₺{car.price}</span>/ Günlük ücret
+              <span>₺{car.dailyPrice}</span>/ Günlük ücret
             </div>
             <div className="pick-description__table">
-              <div className="pick-description__table__col">
-                <span>Model</span>
-                <span>{car.model}</span>
-              </div>
 
               <div className="pick-description__table__col">
                 <span>Marka</span>
-                <span>{car.mark}</span>
+                <span>{car.model.brand.name}</span>
               </div>
+
+              <div className="pick-description__table__col">
+                <span>Model</span>
+                <span>{car.model.name}</span>
+              </div>
+
 
               <div className="pick-description__table__col">
                 <span>Yıl</span>
@@ -57,23 +52,18 @@ const CarBox: React.FC<CarBoxProps> = ({ data, carID }: CarBoxProps): JSX.Elemen
               </div>
 
               <div className="pick-description__table__col">
-                <span>Doors</span>
-                <span>{car.doors}</span>
+                <span>Yolcu</span>
+                <span>{car.passengerCapacity}</span>
               </div>
 
               <div className="pick-description__table__col">
-                <span>AC</span>
-                <span>{car.air}</span>
+                <span>Vites</span>
+                <span>{car.gearType}</span>
               </div>
 
               <div className="pick-description__table__col">
-                <span>Transmission</span>
-                <span>{car.transmission}</span>
-              </div>
-
-              <div className="pick-description__table__col">
-                <span>Fuel</span>
-                <span>{car.fuel}</span>
+                <span>Yakıt</span>
+                <span>{car.fuelType}</span>
               </div>
             </div>
             {/* btn cta */}

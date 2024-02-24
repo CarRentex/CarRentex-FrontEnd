@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { Link } from "react-router-dom";
+import { Link, Navigate, useNavigate } from "react-router-dom";
 import "./Styles/_hero.scss";
 import AnimateReveal from '../Animation/AnimateReveal';
 
@@ -14,9 +14,8 @@ const Hero = (props: Props) => {
       window.scrollTo({ top: (0), behavior: "smooth" });
     }; */
   
-    const bookBtn = () => {
-        // tuşa basıldığında kullanışacak redux fonksiyonu
-      
+    const details = () => {
+      window.scrollTo({ top: (2600), behavior: "smooth" });
     };
   
     useEffect(() => {
@@ -56,13 +55,12 @@ const Hero = (props: Props) => {
                 </p>
                 <div className="hero-content__text__btns">
                   <Link
-                    onClick={bookBtn}
                     className="hero-content__text__btns__book-ride"
-                    to="/"
+                    to="/model"
                   >
                     Başla &nbsp; <i className="fa-solid fa-circle-check"></i>
                   </Link>
-                  <Link className="hero-content__text__btns__learn-more" to="/">
+                  <Link className="hero-content__text__btns__learn-more" onClick={details} to="">
                     Detaylar &nbsp; <i className="fa-solid fa-angle-right"></i>
                   </Link>
                 </div>
