@@ -1,7 +1,7 @@
 import { FaEnvelope, FaKey } from "react-icons/fa";
 import { Button, Form, Input, InputGroup, InputGroupText, Container, Row, CardHeader, CardTitle, Card } from "reactstrap";
 
-const SignUp = () => {
+const InstitutionalSignUp = () => {
   
 
   return (
@@ -19,7 +19,7 @@ const SignUp = () => {
       <Card className="card-signup" data-background-color="blue" style={{borderRadius: 24}}>
                   <CardHeader className="text-center">
                     <CardTitle className="title-up" tag="h3">
-                      Kayıt Ol
+                     Kurumsal Kayıt Ol
                     </CardTitle>
                   </CardHeader>
               <Form>
@@ -31,7 +31,6 @@ const SignUp = () => {
                     id="email"
                     placeholder="Email..."
                     type="email"
-                    
                   />
                 </InputGroup>
                 <InputGroup className="mb-3">
@@ -57,4 +56,4 @@ const SignUp = () => {
   );
 };
 
-export default SignUp;
+export default InstitutionalSignUp

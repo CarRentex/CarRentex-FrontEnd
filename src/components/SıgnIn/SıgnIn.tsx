@@ -37,13 +37,6 @@ const SignIn: React.FC = () => {
       if ("error" in response) {
         // handle error
       } else {
-        const userPayload = {
-          id: decodedToken?.id || 0,
-          email: decodedToken?.emailAddress || "",
-          role: decodedToken?.role || "",
-        };
-        dispatch(loginSuccess(userPayload));
-
         // setSuccessMessage("Hoşgeldiniz! Giriş başarılı.");
         navigate("/"); // Redirect to home page
         window.location.reload(); // Reload the page

@@ -7,30 +7,34 @@ import { GetByIdUserResponse } from "../models/User/Response/GetByIdUserResponse
 import { CreateUserResponseType } from '../models/User/Response/CreateUserResponse';
 import { UpdateUserResponseType } from '../models/User/Response/UpdateUserResponseType';
 
-class UserService{
-    public apiUrl = "users";
+class UserService {
+    apiUrl = "users";
 
-getAll(): Promise<AxiosResponse<GetAllUserResponse, any>> {
-    return axiosInstance.get<GetAllUserResponse>(this.apiUrl + "/getAll");
-}
+    constructor() {
+        this.getById = this.getById.bind(this);
+    }
 
-getById(id: number): Promise<AxiosResponse<GetByIdUserResponse, any>> {
-    return axiosInstance.get<GetByIdUserResponse>(this.apiUrl +`/getById?id=${id}`); // düzelt
-}
+    getAll(): Promise<AxiosResponse<GetAllUserResponse, any>> {
+        return axiosInstance.get<GetAllUserResponse>(this.apiUrl + "/getAll");
+    }
 
-resetPassword(request: ResetPassword): Promise<AxiosResponse<CreateUserResponseType, any>> {
-    return axiosInstance.put<CreateUserResponseType>(this.apiUrl + "/resetPassword", request);
-}
+    getById(id: number): Promise<AxiosResponse<GetByIdUserResponse, any>> {
+        return axiosInstance.get<GetByIdUserResponse>(this.apiUrl + `/getById?id=${id}`);
+    }
+    
+    resetPassword(request: ResetPassword): Promise<AxiosResponse<CreateUserResponseType, any>> {
+        return axiosInstance.put<CreateUserResponseType>(this.apiUrl + "/resetPassword", request);
+    }
 
-UpdatePassword(
-    request: UpdatePassword,
-): Promise<AxiosResponse<UpdateUserResponseType, any>> {
-    return axiosInstance.put<UpdateUserResponseType>(this.apiUrl + "/updatePassword", request);
-}
+    UpdatePassword(
+        request: UpdatePassword,
+    ): Promise<AxiosResponse<UpdateUserResponseType, any>> {
+        return axiosInstance.put<UpdateUserResponseType>(this.apiUrl + "/updatePassword", request);
+    }
 
-delete(id: number) {
-    return axiosInstance.delete(this.apiUrl + "/" + id);
-}
+    delete(id: number) {
+        return axiosInstance.delete(this.apiUrl + "/" + id);
+    }
 }
 
 export default new UserService();

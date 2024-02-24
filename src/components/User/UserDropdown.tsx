@@ -15,7 +15,7 @@ import { Link } from 'react-router-dom';
 import useToken from '../../lib/useToken';
 
 
-export default function UserDropdown() {
+export default function UserDropdown(props: { name?: string }) {
   const { token, decodedToken, clearToken } = useToken();
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
   const open = Boolean(anchorEl);
@@ -43,7 +43,7 @@ export default function UserDropdown() {
             aria-haspopup="true"
             aria-expanded={open ? 'true' : undefined}
           >
-            <Avatar sx={{ width: 45, height: 44 }} style={{backgroundColor: "#38BDF2"}}>K</Avatar>
+            <Avatar sx={{ width: 45, height: 44 }} style={{backgroundColor: "#38BDF2"}}>{props.name}</Avatar>
           </IconButton>
         </Tooltip>
       </Box>

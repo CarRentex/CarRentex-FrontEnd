@@ -3,7 +3,7 @@ import { CreateLogin } from "../models/Auth/CreateLogin";
 import { login } from "../services/AuthService/auth";
 
 export const addSignIn = createAsyncThunk(
-  "signin/addSignIn",
+  "name/addSignIn",
   async (addSignInData: CreateLogin, thunkAPI) => {
       try {
           //console.log("addSignInData", addSignInData);
@@ -23,7 +23,7 @@ export const addSignIn = createAsyncThunk(
 
   const initialState = {
     id: 0,
-    email: "",
+    emailAddress: "",
     role: "", 
     address: "",
     phoneNumber: "",
@@ -36,19 +36,19 @@ export const addSignIn = createAsyncThunk(
       initialState: initialState,
       reducers: {
         loginSuccess: (state, action) => {
-          if (action.payload) {
             state.id = action.payload.id;
-            state.email = action.payload.email;
+            state.emailAddress = action.payload.emailAddress;
             state.role = action.payload.role;
             state.address = action.payload.address;
             state.phoneNumber = action.payload.phoneNumber;
             state.isauthenticated = true;
-          }
         },
         logoutSuccess: (state) => {
           state.id = 0;
-          state.email = "";
+          state.emailAddress = "";
           state.role = "";
+          state.address = "";
+          state.phoneNumber = "";
           state.isauthenticated = false;
         }
       },

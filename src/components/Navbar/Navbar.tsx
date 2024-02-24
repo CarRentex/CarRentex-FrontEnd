@@ -5,11 +5,16 @@ import "./Navbar.css";
 import { Button } from "reactstrap";
 import { Link, useNavigate } from "react-router-dom";
 import UserDropdown from "../User/UserDropdown";
+import { useSelector } from "react-redux";
+import useToken from "../../lib/useToken";
+import UserService from "../../services/UserService";
 
 function IndexNavbar() {
   const navigate = useNavigate();
   const [scrolled, setScrolled] = useState<boolean>(false);
-  const [isLoggedIn, setIsLoggedIn] = useState<boolean>(false);
+  const { token, decodedToken, clearToken } = useToken();
+
+
 
   useEffect(() => {
     setScrolled(window.scrollY > 0);
@@ -28,15 +33,13 @@ function IndexNavbar() {
     
   };
 
+
   const handleSignUpClick = () => {
     navigate("/register");
   };
 
   // Check if user is logged in on component mount
-  useEffect(() => {
-    const storedToken = localStorage.getItem('token');
-    setIsLoggedIn(!!storedToken);
-  }, []);
+
 
   return (
     <Navbar
@@ -102,7 +105,7 @@ function IndexNavbar() {
         </Nav>
 
         <Nav className="">
-          {isLoggedIn ? (
+          {decodedToken?.id ? (
             <UserDropdown /> // Show UserDropdown if logged in
           ) : (
             <>

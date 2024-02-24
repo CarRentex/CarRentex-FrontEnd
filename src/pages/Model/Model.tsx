@@ -5,6 +5,7 @@ import CarFilterLink from "../../components/VehliceCard/CarFilterLink";
 import HeroPages from "../../components/HeroPages/HeroPages";
 import VehliceCard from "../../components/VehliceCard/VehliceCard";
 import BaseFetcher from "../../lib/BaseFetcher";
+import BookingSection from "../../components/BookCar/BookCar";
 
 const Model = () => {
   const [cars, setCars] = useState<GetAllCarResponse[]>([]);
@@ -19,6 +20,7 @@ const Model = () => {
       )}
 
       <HeroPages path="/images/car/yol.jpeg" />
+      <BookingSection />
       <div className="w-full mt-[150px]">
         <section className="container mx-auto flex flex-col">
           <h1 className="text-center text-xl text-[#38BDF2]">
