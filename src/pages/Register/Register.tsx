@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import { FaEnvelope, FaKey } from "react-icons/fa";
 import {
   Button,
   Form,
@@ -13,41 +12,22 @@ import {
   Card,
 } from "reactstrap";
 import "./Register.css";
-
-const PersonalCustomerCard: React.FC = () => (
-  <div className="card-body card-front">
-    <InputGroup className="mb-3">
-      <InputGroupText>
-        <FaEnvelope />
-      </InputGroupText>
-      <Input id="email" placeholder="Email..." type="email" />
-    </InputGroup>
-    <InputGroup className="mb-3">
-      <InputGroupText>
-        <FaKey />
-      </InputGroupText>
-      <Input id="password" placeholder="Şifre..." type="password" />
-    </InputGroup>
-    <div className="text-center">
-      <Button className="btn-neutral btn-round" color="info" type="submit">
-        Giriş Yap
-      </Button>
-    </div>
-  </div>
-);
-
-const CorporateCustomerCard: React.FC = () => (
-  <div className="card-body card-back">
-    {/* Kurumsal müşteri için özel içerik buraya eklenebilir */}
-    <p>Bu kart kurumsal müşteri içeriğini temsil eder.</p>
-  </div>
-);
+import CustomerCard from "../../components/SignUp/CustomerCard";
+import CorporateCustomerCard from "../../components/SignUp/CorporateCustomerCard";
 
 const Register: React.FC = () => {
   const [isFlipped, setIsFlipped] = useState(false);
 
   const handleFlip = () => {
     setIsFlipped(!isFlipped);
+  };
+
+  const getTitleText = () => {
+    return isFlipped ? "Kurumsal Kayıt Ol" : "Bireysel Kayıt Ol";
+  };
+
+  const getButtonText = () => {
+    return isFlipped ? "Kurumsal'a Kayıt Ol" : "Bireysel'e Kayıt Ol";
   };
 
   return (
@@ -70,15 +50,8 @@ const Register: React.FC = () => {
             <p className="text-center"> CarRentex</p>
             <CardHeader className="text-center">
               <CardTitle className="title-in" tag="h2">
-                Kayıt ol
+                {getTitleText()}
               </CardTitle>
-              <Button
-                className="btn-neutral btn-round"
-                color="info"
-                onClick={handleFlip}
-              >
-                Döndür
-              </Button>
             </CardHeader>
             <Form>
               {isFlipped ? (
@@ -86,9 +59,20 @@ const Register: React.FC = () => {
                 <CorporateCustomerCard />
               ) : (
                 /* Bireysel müşteri kartı */
-                <PersonalCustomerCard />
+                <CustomerCard />
               )}
             </Form>
+
+            <div className="text-center">
+              <Button
+                className="btn-neutral btn-round"
+                color="info"
+                onClick={handleFlip}
+                type="submit"
+              >
+                {getButtonText()}
+              </Button>
+            </div>
           </Card>
         </Row>
       </Container>
