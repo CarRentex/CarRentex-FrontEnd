@@ -15,44 +15,73 @@ const SignUp = () => {
       }}
     >
     <Container>
-      <Row>
-      <Card className="card-signup" data-background-color="blue" style={{borderRadius: 24}}>
-                  <CardHeader className="text-center">
-                    <CardTitle className="title-up" tag="h3">
-                      Kayıt Ol
-                    </CardTitle>
-                  </CardHeader>
-              <Form>
-                <InputGroup className="mb-3">
-                  <InputGroupText>
-                    <FaEnvelope />
-                  </InputGroupText>
-                  <Input
-                    id="email"
-                    placeholder="Email..."
-                    type="email"
-                    
-                  />
-                </InputGroup>
-                <InputGroup className="mb-3">
-                  <InputGroupText>
-                    <FaKey />
-                  </InputGroupText>
-                  <Input
-                    id="password"
-                    placeholder="Şifre..."
-                    type="password"
-                  />
-                </InputGroup>
-                <div className="text-center">
-                  <Button className="btn-neutral btn-round" color="info" type="submit">
-                    Giriş Yap
-                  </Button>
-                </div>
-              </Form>
-            </Card>
-      </Row>
-    </Container>
+  <Row>
+    <Card className="card-signup" data-background-color="blue" style={{ borderRadius: 24 }}>
+      <CardHeader className="text-center">
+        <CardTitle className="title-up" tag="h3">
+          Kurumsal Kayıt Ol
+        </CardTitle>
+      </CardHeader>
+      <Form className="d-flex flex-column align-items-center">
+        <InputGroup className="mb-3">
+          <InputGroupText>
+            <FaEnvelope />
+          </InputGroupText>
+          <Input
+            id="email"
+            placeholder="Email..."
+            type="email"
+          />
+        </InputGroup>
+        <InputGroup className="mb-3">
+          <InputGroupText>
+            <FaKey />
+          </InputGroupText>
+          <Input
+            id="password"
+            placeholder="Şifre..."
+            type="password"
+          />
+        </InputGroup>
+        <InputGroup className="mb-3">
+          <InputGroupText>
+            <FaKey />
+          </InputGroupText>
+          <Input
+            id="confirmPassword"
+            placeholder="Şifreyi Onayla..."
+            type="password"
+          />
+        </InputGroup>
+        <InputGroup className="mb-3">
+          <InputGroupText>
+            <FaKey />
+          </InputGroupText>
+          <Input
+            id="firstName"
+            placeholder="Adınız..."
+            type="text"
+          />
+        </InputGroup>
+        <InputGroup className="mb-3">
+          <InputGroupText>
+            <FaKey />
+          </InputGroupText>
+          <Input
+            id="lastName"
+            placeholder="Soyadınız..."
+            type="text"
+          />
+        </InputGroup>
+        <div className="text-center">
+          <Button className="btn-neutral btn-round" color="info" type="submit">
+            Kayıt Ol
+          </Button>
+        </div>
+      </Form>
+    </Card>
+  </Row>
+</Container>
   </div>
   );
 };
