@@ -1,0 +1,10 @@
+/* styles.css veya istediğiniz dosya adı */
+.vehlice-card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .vehlice-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0px 0px 10px 2px rgba(0, 0, 0, 0.2);
+  }
+  

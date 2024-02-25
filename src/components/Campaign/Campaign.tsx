@@ -22,10 +22,19 @@ const Campaign: React.FC<CampaignProps> = (
     return colorBtn === id ? "colored-button" : "";
   };
 
-  useBaseFetcher({
-    service: () => CarService.getAll(),
-    onBaseFetched: setData,
-  });
+  useEffect(() => {
+    // Veriyi sadece bir kere çek
+    const fetchData = async () => {
+      try {
+        const response = await CarService.getCampaignCars();
+        setData(response.data);
+      } catch (error) {
+        console.error("Error fetching campaign cars:", error);
+      }
+    };
+
+    fetchData();
+  }, []); 
 
   return (
     <>
@@ -50,7 +59,7 @@ const Campaign: React.FC<CampaignProps> = (
                       btnID(index + 1);
                     }}
                   >
-                    {car.model && car.model.name}
+                    {car.model.brand.name}   {car.model.name}
                   </button>
                 ))}
               </div>

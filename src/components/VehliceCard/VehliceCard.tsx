@@ -6,7 +6,7 @@ import Passangers from "../../assets/icons/Passangers.jpeg";
 import Vites from "../../assets/icons/Vites.jpeg";
 import { useNavigate } from "react-router-dom";
 import { GetAllCarResponse } from "../../models/Car/Response/GetAllCarResponse";
-
+import "./VehliceCard.css";
 
 
 const VehliceCard = (  {item}: {item: GetAllCarResponse}) => {
@@ -14,7 +14,7 @@ const navigate = useNavigate();
   
   let categoryTextClass = "flex items-center text-[.6rem] md:text-base gap-6";
   return (
-    <section className="flex flex-col justify-between bg-white p-2 shadow-lg md:h-[50rem] md:p-5">
+    <section className={`vehlice-card flex flex-col justify-between bg-white p-2 shadow-lg md:h-[50rem] md:p-5`}>
       <header className="grid grid-cols-2">
         <h3 className="col-span-2 text-[.5rem] font-bold text-primary-color md:col-span-1 md:text-xs">
           {item.category} Kiralık Araçlar

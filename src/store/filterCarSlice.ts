@@ -11,6 +11,7 @@ const filterCarSlice = createSlice({
   },
   reducers: {
     filterSuccess: (state, action) => {
+      console.log("action.payload", action.payload);
       return {
         ...state,
         isfilterCar: true,

@@ -9,21 +9,16 @@ import { filterSuccess } from "../../store/filterCarSlice";
 import { on } from "events";
 
 interface BookingSectionProps {
-  onFilter: ( 
-    minPrice: number | null,
-    maxPrice: number | null,
-    brand: string | number,
-    model: string | number
-  ) => void;
+  
 }
 
-const FilterSection: React.FC<BookingSectionProps> = ({ onFilter }) => {
-  const [carType, setCarType] = useState<number | string>("");
-  const [dropOff, setDropOff] = useState<number | string>("");
+const FilterSection: React.FC<BookingSectionProps> = () => {
+  const [carType, setCarType] = useState<any>("");
+  const [dropOff, setDropOff] = useState<any>("");
   const [brands, setBrands] = useState<any[]>([]);
   const [models, setModels] = useState<any[]>([]);
-  const [minPrice, setMinPrice] = useState<number | null>(null);
-  const [maxPrice, setMaxPrice] = useState<number | null>(null);
+  const [minPrice, setMinPrice] = useState<any>(null);
+  const [maxPrice, setMaxPrice] = useState<any>(null);
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -77,7 +72,7 @@ const FilterSection: React.FC<BookingSectionProps> = ({ onFilter }) => {
     setMaxPrice(Number(event.target.value));
   };
 
-  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit =  (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
 
     console.log({
@@ -86,7 +81,6 @@ const FilterSection: React.FC<BookingSectionProps> = ({ onFilter }) => {
       minPrice,
       maxPrice,
     });
-    onFilter(minPrice, maxPrice, dropOff, carType);
     dispatch(filterSuccess({ minPrice, maxPrice, brand: dropOff, model: carType }));
   };
 

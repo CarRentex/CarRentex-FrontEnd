@@ -1,0 +1,13 @@
+.cart {
+    position: relative;
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    background-color: white;
+    padding: 16px;
+    margin: 0 auto;
+    transition: box-shadow 0.3s;
+  }
+  
+  .cart:hover {
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+  }

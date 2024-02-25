@@ -9,29 +9,22 @@ import BookingSection from "../../components/FilterCars/FilterCar";
 import FilterSection from "../../components/FilterCars/FilterCar";
 import { useSelector } from "react-redux";
 import FetchFilterCars from "../../lib/FetchFilter";
+import { RootState } from "../../store/store";
 
 const Model = () => {
-  const [cars, setCars] = useState<GetAllCarResponse[]>([]);
+  const [cars, setCars] = useState<any[]>([]);
   const [category, setCategory] = useState<string>("ALL");
-  const [filterData, setFilterData] = useState({
-    minPrice: 0,
-    maxPrice: 0,
-    brand: 0,
-    model: 0,
-    isfilterCar: false  // isfilterCar eklenmiş gibi varsayalım
-  });
 
-  const handleFilter = (filterValues : any) => {
-    setFilterData({ ...filterValues, isfilterCar: true });
-  };
+  const filterCar = useSelector((state: RootState) => state.filter);
+
   return (
     <>
-      {1 ? (
+      {filterCar.isfilterCar ? (
         <FetchFilterCars
-          minPrice={filterData.minPrice}
-          maxPrice={filterData.maxPrice}
-          brand={filterData.brand}
-          model={filterData.model}
+          minPrice={filterCar.minPrice}
+          maxPrice={filterCar.maxPrice}
+          brand={filterCar.brand}
+          model={filterCar.model}
           setState={setCars}
         />
       ) : category === "ALL" ? (
@@ -48,10 +41,10 @@ const Model = () => {
       )}
 
       <HeroPages path="/images/car/yol.jpeg" />
-      <FilterSection onFilter={handleFilter} />
-      <div className="w-full mt-[100px]">
+      <FilterSection/>
+      <div className="w-full mt-[90px]">
         <section className="container mx-auto flex flex-col">
-          <div className="hidden w-full grid-cols-7 bg-white px-36 py-6 md:grid">
+          <div className="hidden w-full grid-cols-7 bg-white px-56 py-16 md:grid">
             <CarFilterLink
               text="Tümü"
               category="ALL"

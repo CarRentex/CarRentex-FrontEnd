@@ -10,8 +10,8 @@ const CarFilterLink = ({ text, category, setCategory }: { text: string; category
   return (
     <button
       className={twMerge(
-        `mx-1 rounded-full px-2 py-2 text-center text-primary transition-all`,
-        `text-[#fff] bg-[#38BDF2]`,
+        `mx-1 rounded-full px-6 py-6 text-center text-primary transition-all`,
+        `text-[#fff] bg-[#38BDF2] hover:bg-[#60C6FC] hover:shadow-md hover:scale-105 hover:z-10`, // Hover efektleri ekledik
       )}
       onClick={handleCategory}
     >

@@ -2,7 +2,6 @@
 
 .book-section {
   position: relative;
-
   background: linear-gradient(to bottom, $bg-gray 20%, $bg-white 80%);
 }
 
@@ -20,10 +19,6 @@
     z-index: 4;
     color: white;
     border-radius: 5px;
-    //background-image: url("/images/");
-    background-position: center center;
-    background-repeat: no-repeat;
-    background-size: cover;
     display: flex;
     flex-direction: column;
     color: $text-black;
@@ -70,7 +65,8 @@
           }
         }
 
-        select {
+        select,
+        input {
           font-size: 1.5rem;
           color: #ababab;
           font-family: $text-font;
@@ -96,7 +92,7 @@
 
         label {
           font-size: 1.6rem;
-          font-weight: 600;
+          font-weight: 500;
           margin-bottom: 1.2rem;
 
           i {
@@ -135,6 +131,3 @@
     }
   }
 }
-
-
-
