@@ -12,7 +12,7 @@ import { GetAllCarResponse } from "../../models/Car/Response/GetAllCarResponse";
 const VehliceCard = (  {item}: {item: GetAllCarResponse}) => {
 const navigate = useNavigate();
   
-  let categoryTextClass = "flex items-center text-[.6rem] md:text-base gap-2";
+  let categoryTextClass = "flex items-center text-[.6rem] md:text-base gap-6";
   return (
     <section className="flex flex-col justify-between bg-white p-2 shadow-lg md:h-[50rem] md:p-5">
       <header className="grid grid-cols-2">

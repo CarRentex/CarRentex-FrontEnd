@@ -1,7 +1,7 @@
 import React from "react";
 import SignUp from "../../components/SignUp/SignUp";
 import Button from "../../components/common/Button";
-import InstitutionalSignUp from "../../components/SignUp/InstitutionalSignUp";
+import InstitutionalSignUp from "../../components/SignUp/CorporateSignUp";
 
 type Props = {};
 

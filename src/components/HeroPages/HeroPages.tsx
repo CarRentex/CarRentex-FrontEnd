@@ -11,6 +11,7 @@ const HeroPages: React.FC<HeroPagesProps> = ({path }) => {
         <div className="hero-pages__overlay"></div>
         <div className="container">
           <div className="hero-pages__text">
+            {/* <h1>Kiralık Araçlarımız</h1> */}
             {/* <h3>CarRentex İletişim</h3> */}
           </div>
         </div>

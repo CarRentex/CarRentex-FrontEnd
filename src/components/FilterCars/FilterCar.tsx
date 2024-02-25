@@ -95,7 +95,7 @@ const FilterSection: React.FC<BookingSectionProps> = ({ onFilter }) => {
       <div className="container">
         <div className="book-content">
           <div className="book-content__box">
-            <h2>Filtre</h2>
+            <h2>Filtrele</h2>
             <form className="box-form" onSubmit={handleSubmit}>
               <div className="box-form__car-type">
                 <label>
@@ -103,7 +103,6 @@ const FilterSection: React.FC<BookingSectionProps> = ({ onFilter }) => {
                   <b>*</b>
                 </label>
                 <select value={dropOff} onChange={handleBrandChange}>
-                  <option>Boş</option>
                   {brands.map((brand) => (
                     <option key={brand.id} value={brand.id}>
                       {brand.name}

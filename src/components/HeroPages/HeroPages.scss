@@ -9,6 +9,21 @@
     background-repeat: no-repeat;
     background-size: cover;
     position: relative;
+
+    h1 {
+      font-size: $h1-size;
+      font-family: $titles-font;
+      font-weight: 700;
+      color: whitesmoke;
+      line-height: 1.2;
+      margin-top: 1rem;
+      margin-bottom: 2.3rem;
+      text-align: center;
+
+      @media (max-width: 400px) {
+        font-size: 3.6rem;
+      }
+    }
   
     &__overlay {
       width: 100%;
@@ -17,6 +32,7 @@
       top: 0;
       right: 0;
     }
+    
   
     &__text {
       display: flex;

@@ -2,6 +2,7 @@ import { GetAllColorResponse } from "../../Color/Color";
 import { GetAllModelResponse } from "../../Model/Response/GetAllModelResponse";
 
 export type GetAllCarResponse = {
+    slice(arg0: number, arg1: number): unknown;
     id?: number;
     kilometer?: number;
     year?: number;
