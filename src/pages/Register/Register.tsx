@@ -27,7 +27,7 @@ const Register: React.FC = () => {
   };
 
   const getButtonText = () => {
-    return isFlipped ? "Kurumsal'a Kayıt Ol" : "Bireysel'e Kayıt Ol";
+    return isFlipped ?   "Bireysel'e Kayıt Ol" : "Kurumsal'a Kayıt Ol";
   };
 
   return (
@@ -40,12 +40,12 @@ const Register: React.FC = () => {
         minHeight: "800px",
       }}
     >
-      <Container id="sign">
+      <Container id="sign" className="signUp">
         <Row>
           <Card
             className={`card-signup ${isFlipped ? "is-flipped" : ""}`}
             data-background-color="blue"
-            style={{ borderRadius: 24 }}
+            style={{ borderRadius: 24 , padding : 10.9 }}
           >
             <p className="text-center"> CarRentex</p>
             <CardHeader className="text-center">
