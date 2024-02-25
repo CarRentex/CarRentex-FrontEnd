@@ -31,6 +31,24 @@ UpdateCarResponseType
           throw new Error('An error occurred while fetching cars by category.');
         }
       }
+
+      async getFilterCars(minPrice: number, maxPrice: number, brandId:number, modelId:number): Promise<AxiosResponse<GetAllCarResponse[]>> {
+        try {
+          const response =  await axiosInstance.get('/cars/filter', {
+            params: {
+              minPrice,
+              maxPrice,
+              brandId,
+              modelId,
+            },
+          });
+          return response;
+        } catch (error) {
+          console.error('An error occurred while fetching cars by category.', error);
+          throw new Error('An error occurred while fetching cars by category.');
+        }
+      }
+
 }
 
 export default new CarService();

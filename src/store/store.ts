@@ -1,9 +1,11 @@
+import filterCarSlice from './filterCarSlice';
 import { signInReducer } from './signInSlice';
 import {combineReducers, configureStore } from '@reduxjs/toolkit'
 
 
 const rootReducer = combineReducers({
   user:signInReducer,
+  filter:filterCarSlice
 
 });
 

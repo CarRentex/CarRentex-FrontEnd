@@ -1,149 +1,157 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./FilterCar.scss";
+import CarService from "../../services/CarService";
+import BrandService from "../../services/BrandService";
+import ModelService from "../../services/ModelService";
+import FetchFilterCars from "../../lib/FetchFilter";
+import { useDispatch } from "react-redux";
+import { filterSuccess } from "../../store/filterCarSlice";
+import { on } from "events";
 
 interface BookingSectionProps {
-  // Gerekirse props ekleyebilirsiniz
+  onFilter: ( 
+    minPrice: number | null,
+    maxPrice: number | null,
+    brand: string | number,
+    model: string | number
+  ) => void;
 }
 
-const BookingSection: React.FC<BookingSectionProps> = ({}) => {
-  const [modal, setModal] = useState<boolean>(false);
-  const [carType, setCarType] = useState<string>("");
-  const [pickUp, setPickUp] = useState<string>("");
-  const [dropOff, setDropOff] = useState<string>("");
-  const [pickTime, setPickTime] = useState<string>("");
-  const [dropTime, setDropTime] = useState<string>("");
+const FilterSection: React.FC<BookingSectionProps> = ({ onFilter }) => {
+  const [carType, setCarType] = useState<number | string>("");
+  const [dropOff, setDropOff] = useState<number | string>("");
+  const [brands, setBrands] = useState<any[]>([]);
+  const [models, setModels] = useState<any[]>([]);
+  const [minPrice, setMinPrice] = useState<number | null>(null);
+  const [maxPrice, setMaxPrice] = useState<number | null>(null);
+  const dispatch = useDispatch();
 
-  const openModal = () => {
-    setModal(true);
-    // Modal açma işlemleri ekleyebilirsiniz
+  useEffect(() => {
+    // Markaları getir
+    fetchBrands();
+  }, []);
+
+  const fetchBrands = async () => {
+    try {
+      const response = await BrandService.getAll();
+      setBrands(response.data as any[]);
+    } catch (error) {
+      console.error("Error fetching brands:", error);
+    }
+  };
+
+  const fetchModels = async (brandId: number) => {
+    try {
+      const response = await ModelService.getModelByBrandId(brandId);
+      setModels(response.data);
+    } catch (error) {
+      console.error("Error fetching models:", error);
+    }
+  };
+
+  const open = () => {
+    window.scrollTo(0, 1000);
   };
 
   const handleCar = (event: React.ChangeEvent<HTMLSelectElement>) => {
-    setCarType(event.target.value);
+    setCarType(Number(event.target.value));
   };
 
-  const handlePick = (event: React.ChangeEvent<HTMLSelectElement>) => {
-    setPickUp(event.target.value);
+  const handleBrandChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
+    const selectedBrandId = Number(event.target.value);
+    const selectedBrand = brands.find((brand) => brand.id === selectedBrandId);
+  
+    if (selectedBrand) {
+      setDropOff(String(selectedBrandId));
+      setCarType("");
+      // Marka değiştiğinde modelleri getir
+      fetchModels(selectedBrandId);
+    }
   };
 
-  const handleDrop = (event: React.ChangeEvent<HTMLSelectElement>) => {
-    setDropOff(event.target.value);
+  const handleMinPrice = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setMinPrice(Number(event.target.value));
   };
 
-  const handlePickTime = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setPickTime(event.target.value);
-  };
-
-  const handleDropTime = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setDropTime(event.target.value);
-  };
-
-  const hideMessage = () => {
-    // Mesaj gizleme işlemleri ekleyebilirsiniz
+  const handleMaxPrice = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setMaxPrice(Number(event.target.value));
   };
 
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    // Form submit işlemleri ekleyebilirsiniz
+
+    console.log({
+      carType,
+      dropOff,
+      minPrice,
+      maxPrice,
+    });
+    onFilter(minPrice, maxPrice, dropOff, carType);
+    dispatch(filterSuccess({ minPrice, maxPrice, brand: dropOff, model: carType }));
   };
 
   return (
     <section id="booking-section" className="book-section">
-      {/* overlay */}
-      <div
-        onClick={openModal}
-        className={`modal-overlay ${modal ? "active-modal" : ""}`}
-      ></div>
-
       <div className="container">
         <div className="book-content">
           <div className="book-content__box">
-            <h2>Book a car</h2>
-
-            <p className="error-message">
-              All fields required! <i className="fa-solid fa-xmark"></i>
-            </p>
-
-            <p className="booking-done">
-              Check your email to confirm an order.{" "}
-              <i onClick={hideMessage} className="fa-solid fa-xmark"></i>
-            </p>
-
+            <h2>Filtre</h2>
             <form className="box-form" onSubmit={handleSubmit}>
               <div className="box-form__car-type">
                 <label>
-                  <i className="fa-solid fa-car"></i> &nbsp; Select Your Car
-                  Type <b>*</b>
+                  <i className="fa-solid fa-location-dot"></i> &nbsp; Marka{" "}
+                  <b>*</b>
+                </label>
+                <select value={dropOff} onChange={handleBrandChange}>
+                  <option>Boş</option>
+                  {brands.map((brand) => (
+                    <option key={brand.id} value={brand.id}>
+                      {brand.name}
+                    </option>
+                  ))}
+                </select>
+              </div>
+
+              <div className="box-form__car-type">
+                <label>
+                  <i className="fa-solid fa-car"></i> &nbsp; Model <b>*</b>
                 </label>
                 <select value={carType} onChange={handleCar}>
-                  <option>Select your car type</option>
-                  <option value="Audi A1 S-Line">Audi A1 S-Line</option>
-                  <option value="VW Golf 6">VW Golf 6</option>
-                  <option value="Toyota Camry">Toyota Camry</option>
-                  <option value="BMW 320 ModernLine">BMW 320 ModernLine</option>
-                  <option value="Mercedes-Benz GLK">Mercedes-Benz GLK</option>
-                  <option value="VW Passat CC">VW Passat CC</option>
+                  <option>Boş</option>
+                  {models.map((model) => (
+                    <option key={model.id} value={model.id}>
+                      {model.name}
+                    </option>
+                  ))}
                 </select>
               </div>
 
               <div className="box-form__car-type">
                 <label>
-                  <i className="fa-solid fa-location-dot"></i> &nbsp; Pick-up{" "}
-                  <b>*</b>
+                  <i className="fa-solid fa-location-dot"></i> &nbsp; Minimum
+                  Price <b>*</b>
                 </label>
-                <select value={pickUp} onChange={handlePick}>
-                  <option>Select pick up location</option>
-                  <option>Belgrade</option>
-                  <option>Novi Sad</option>
-                  <option>Nis</option>
-                  <option>Kragujevac</option>
-                  <option>Subotica</option>
-                </select>
+                <input
+                  type="number"
+                  value={minPrice || ""}
+                  onChange={handleMinPrice}
+                />
               </div>
 
               <div className="box-form__car-type">
                 <label>
-                  <i className="fa-solid fa-location-dot"></i> &nbsp; Drop-of{" "}
-                  <b>*</b>
-                </label>
-                <select value={dropOff} onChange={handleDrop}>
-                  <option>Select drop off location</option>
-                  <option>Novi Sad</option>
-                  <option>Belgrade</option>
-                  <option>Nis</option>
-                  <option>Kragujevac</option>
-                  <option>Subotica</option>
-                </select>
-              </div>
-
-              <div className="box-form__car-time">
-                <label htmlFor="picktime">
-                  <i className="fa-regular fa-calendar-days "></i> &nbsp; Pick-up{" "}
-                  <b>*</b>
+                  <i className="fa-solid fa-location-dot"></i> &nbsp; Maximum
+                  Price <b>*</b>
                 </label>
                 <input
-                  id="picktime"
-                  value={pickTime}
-                  onChange={handlePickTime}
-                  type="date"
-                ></input>
+                  type="number"
+                  value={maxPrice || ""}
+                  onChange={handleMaxPrice}
+                />
               </div>
 
-              <div className="box-form__car-time">
-                <label htmlFor="droptime">
-                  <i className="fa-regular fa-calendar-days "></i> &nbsp; Drop-of{" "}
-                  <b>*</b>
-                </label>
-                <input
-                  id="droptime"
-                  value={dropTime}
-                  onChange={handleDropTime}
-                  type="date"
-                ></input>
-              </div>
-
-              <button onClick={openModal} type="submit">
-                Search
+              <button onClick={open} type="submit">
+                Filtrele
               </button>
             </form>
           </div>
@@ -153,4 +161,4 @@ const BookingSection: React.FC<BookingSectionProps> = ({}) => {
   );
 };
 
-export default BookingSection;
+export default FilterSection;

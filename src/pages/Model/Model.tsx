@@ -6,21 +6,49 @@ import HeroPages from "../../components/HeroPages/HeroPages";
 import VehliceCard from "../../components/VehliceCard/VehliceCard";
 import BaseFetcher from "../../lib/BaseFetcher";
 import BookingSection from "../../components/FilterCars/FilterCar";
+import FilterSection from "../../components/FilterCars/FilterCar";
+import { useSelector } from "react-redux";
+import FetchFilterCars from "../../lib/FetchFilter";
 
 const Model = () => {
   const [cars, setCars] = useState<GetAllCarResponse[]>([]);
   const [category, setCategory] = useState<string>("ALL");
+  const [filterData, setFilterData] = useState({
+    minPrice: 0,
+    maxPrice: 0,
+    brand: 0,
+    model: 0,
+    isfilterCar: false  // isfilterCar eklenmiş gibi varsayalım
+  });
 
+  const handleFilter = (filterValues : any) => {
+    setFilterData({ ...filterValues, isfilterCar: true });
+  };
   return (
     <>
-      {category === "ALL" ? (
-        <BaseFetcher service={() => CarService.getAll()} onBaseFetched={setCars} />
+      {filterData.isfilterCar ? (
+        <FetchFilterCars
+          minPrice={filterData.minPrice}
+          maxPrice={filterData.maxPrice}
+          brand={filterData.brand}
+          model={filterData.model}
+          setState={setCars}
+        />
+      ) : category === "ALL" ? (
+        <BaseFetcher
+          service={() => CarService.getAll()}
+          onBaseFetched={setCars}
+        />
       ) : (
-        <BaseFetcher service={CarService.getCarsByCategory} onBaseFetched={setCars} params={category} />
+        <BaseFetcher
+          service={CarService.getCarsByCategory}
+          onBaseFetched={setCars}
+          params={category}
+        />
       )}
 
       <HeroPages path="/images/car/yol.jpeg" />
-      <BookingSection />
+      <FilterSection onFilter={handleFilter} />
       <div className="w-full mt-[150px]">
         <section className="container mx-auto flex flex-col">
           <h1 className="text-center text-xl text-[#38BDF2]">
@@ -70,9 +98,9 @@ const Model = () => {
             </label>
           </div>
           <div className="grid grid-cols-1 gap-4 md:grid-cols-3">
-          {cars.map((model, index) => (
-          <VehliceCard key={index} item={model} />
-))}
+            {cars.map((model, index) => (
+              <VehliceCard key={index} item={model} />
+            ))}
           </div>
         </section>
       </div>

@@ -11,7 +11,7 @@ const Home = (props: Props) => {
   return (
     <>
     <Hero />
-    <BookingSection />
+    {/* <BookingSection /> */}
     {/* <Header src = '/images/car/car4.jpeg'/> */}
     <Campaign />
     {/* <SignIn /> */}

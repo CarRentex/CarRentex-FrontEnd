@@ -27,7 +27,7 @@ export const addSignIn = createAsyncThunk(
     role: "", 
     address: "",
     phoneNumber: "",
-    isauthenticated: false,   
+    isauthenticated: false,
   };
   
 
