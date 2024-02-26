@@ -67,7 +67,7 @@ const CarBox: React.FC<CarBoxProps> = ({ data }: CarBoxProps): JSX.Element => {
               </div>
             </div>
             {/* btn cta */}
-            <a className="cta-btn" href="#booking-section">
+            <a className="cta-btn" href="/model">
               Şimdi Kirala
             </a>
           </div>

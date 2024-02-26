@@ -13,5 +13,3 @@ export  interface CreateRegister{
 	address: string;
 	role: string;
 }
-
-// düzenlenecek kullanma şuanlık kullanılmıyor

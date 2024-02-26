@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import CarBox from "./CarBox";
 import "./Style/_index.scss";
 import AnimateReveal from "../Animation/AnimateReveal";
-import useBaseFetcher from "../../lib/BaseFetcherV2";
 import CarService from "../../services/CarService";
 
 interface CampaignProps {}

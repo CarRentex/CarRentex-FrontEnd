@@ -53,7 +53,6 @@ const Register: React.FC = () => {
                 {getTitleText()}
               </CardTitle>
             </CardHeader>
-            <Form>
               {isFlipped ? (
                 /* Kurumsal müşteri kartı */
                 <CorporateCustomerCard />
@@ -61,7 +60,6 @@ const Register: React.FC = () => {
                 /* Bireysel müşteri kartı */
                 <CustomerCard />
               )}
-            </Form>
 
             <div className="text-center">
               <Button
