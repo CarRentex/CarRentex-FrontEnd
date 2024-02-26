@@ -97,6 +97,7 @@ const FilterSection: React.FC<BookingSectionProps> = () => {
                   <b>*</b>
                 </label>
                 <select value={dropOff} onChange={handleBrandChange}>
+                <option>Seçiniz</option>
                   {brands.map((brand) => (
                     <option key={brand.id} value={brand.id}>
                       {brand.name}
@@ -110,7 +111,7 @@ const FilterSection: React.FC<BookingSectionProps> = () => {
                   <i className="fa-solid fa-car"></i> &nbsp; Model <b>*</b>
                 </label>
                 <select value={carType} onChange={handleCar}>
-                  <option>Boş</option>
+                  <option>Seçiniz</option>
                   {models.map((model) => (
                     <option key={model.id} value={model.id}>
                       {model.name}
@@ -122,7 +123,7 @@ const FilterSection: React.FC<BookingSectionProps> = () => {
               <div className="box-form__car-type">
                 <label>
                   <i className="fa-solid fa-location-dot"></i> &nbsp; Minimum
-                  Price <b>*</b>
+                  Fiyat <b>*</b>
                 </label>
                 <input
                   type="number"
@@ -133,8 +134,8 @@ const FilterSection: React.FC<BookingSectionProps> = () => {
 
               <div className="box-form__car-type">
                 <label>
-                  <i className="fa-solid fa-location-dot"></i> &nbsp; Maximum
-                  Price <b>*</b>
+                  <i className="fa-solid fa-location-dot"></i> &nbsp; Maksimum
+                  Fiyat <b>*</b>
                 </label>
                 <input
                   type="number"

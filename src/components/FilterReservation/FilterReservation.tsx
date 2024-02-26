@@ -1,14 +1,19 @@
 import React, { useEffect, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import './FilterReservation.scss';
 import LocationService from '../../services/LocationService';
+import { RootState } from '../../store/store';
+import { handleDropLocationId, handleEndDate, handlePickLocationId, handleStartDate } from '../../store/rentalSlice';
 
 const FilterReservation = () => {
-  const [locOne, setLocOne] = useState('');
-  const [locTwo, setLocTwo] = useState('');
-  const [selectedDate, setSelectedDate] = useState(null);
-  const [pickTime, setPickTime] = useState('');
-  const [dropTime, setDropTime] = useState('');
-  const [locations, setLocations] = useState<any []>([]); // Yeni eklenen state
+  const dispatch = useDispatch();
+  const rentalState = useSelector((state: RootState) => state.rental); // Replace with the correct slice name
+
+  const [locOne, setLocOne] = useState<any>('');
+  const [locTwo, setLocTwo] = useState<any>('');
+  const [pickTime, setPickTime] = useState<any>('');
+  const [dropTime, setDropTime] = useState<any>('');
+  const [locations, setLocations] = useState<any[]>([]);
 
   useEffect(() => {
     // Markaları getir
@@ -25,29 +30,31 @@ const FilterReservation = () => {
     }
   };
 
-  const handleLocationChange = (e:any) => {
+  const handleLocationChange = (e: any) => {
     setLocOne(e.target.value);
   };
 
-  const handleloctwoChange = (e:any) => {
+  const handleloctwoChange = (e: any) => {
     setLocTwo(e.target.value);
   };
 
-  const handleDateChange = (date:any) => {
-    setSelectedDate(date);
-  };
 
-  const handlePickTime = (e:any) => {
+  const handlePickTime = (e: any) => {
     setPickTime(e.target.value);
   };
 
-  const handleDropTime = (e:any) => {
+  const handleDropTime = (e: any) => {
     setDropTime(e.target.value);
   };
 
-  const handleSubmit = (e:any) => {
+  const handleSubmit = (e: any) => {
     e.preventDefault();
-    // Filtreleme işlemlerini burada gerçekleştirebilirsiniz
+
+    // Redux state'e filtreleme değerlerini dispatch et
+    dispatch(handleStartDate(pickTime));
+    dispatch(handleEndDate(dropTime));
+    dispatch(handlePickLocationId(locOne));
+    dispatch(handleDropLocationId(locTwo));
   };
 
   return (
@@ -76,7 +83,7 @@ const FilterReservation = () => {
                   <i className="fa-solid fa-car"></i> &nbsp; Teslim Noktası <b>*</b>
                 </label>
                 <select value={locTwo} onChange={handleloctwoChange}>
-                  <option value="">Boş</option>
+                  <option value="">Seçiniz</option>
                   {locations.map((location) => (
                     <option key={location.id} value={location.id}>
                       {location.name}
