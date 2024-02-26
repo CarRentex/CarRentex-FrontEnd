@@ -4,8 +4,6 @@ const translate = (data: any) => {
             return 'Otomatik';
         case 'MANUAL':
             return 'Manuel';
-    }
-    switch (data) {
         case 'DIESEL':
             return 'Dizel';
         case 'GASOLINE':
@@ -16,9 +14,6 @@ const translate = (data: any) => {
             return 'Hibrit';
         case 'LPG':
             return 'LPG';
-    };
-
-    switch (data) {
         case 'ECONOMY':
             return 'Ekonomik';
         case 'MIDRANGE':
@@ -31,8 +26,7 @@ const translate = (data: any) => {
             return 'Ticari';
         case 'COMFORT':
             return 'Konfor';
-    };
-
+    }
 };
 
 

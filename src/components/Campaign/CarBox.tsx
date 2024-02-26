@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import "./Style/_campaign.scss";
+import translate from "../../lib/translate";
 
 
 
@@ -58,12 +59,12 @@ const CarBox: React.FC<CarBoxProps> = ({ data }: CarBoxProps): JSX.Element => {
 
               <div className="pick-description__table__col">
                 <span>Vites</span>
-                <span>{car.gearType}</span>
+                <span>{translate(car.gearType)} </span>
               </div>
 
               <div className="pick-description__table__col">
                 <span>Yakıt</span>
-                <span>{car.fuelType}</span>
+                <span>{translate(car.fuelType)}</span>
               </div>
             </div>
             {/* btn cta */}

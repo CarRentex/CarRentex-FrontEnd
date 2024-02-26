@@ -20,6 +20,7 @@ export default function UserDropdown(props: { name?: string }) {
   const navigate = useNavigate();
   const open = Boolean(anchorEl);
 
+  
   const handleClick = (event: React.MouseEvent<HTMLElement>) => {
     setAnchorEl(event.currentTarget);
   };
