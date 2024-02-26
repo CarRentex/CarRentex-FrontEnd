@@ -1,12 +1,13 @@
 import filterCarSlice from './filterCarSlice';
+import { rentalReducer, rentalSlice } from './rentalSlice';
 import { signInReducer } from './signInSlice';
 import {combineReducers, configureStore } from '@reduxjs/toolkit'
 
 
 const rootReducer = combineReducers({
   user:signInReducer,
-  filter:filterCarSlice
-
+  filter:filterCarSlice,
+  rental:rentalReducer
 });
 
 

@@ -1,0 +1,16 @@
+.phone-input-wrapper .react-phone-number-input__input > input {
+
+    background-color: transparent; 
+    
+  }
+  .phone-input-wrapper .react-phone-number-input__input > input:focus {
+    outline: none;
+  }
+  
+  .react-phone-number-input__input:focus-within {
+    /* Odaklanıldığında uygulanacak stiller */
+    background-color: #f7fafc; /* focus:bg-gray-100 için */
+    border-color: rgb(172 148 250 / var(--tw-border-opacity));
+    box-shadow: 0 0 0 1px #1C64F2; /* Border genişliğini değiştirmek yerine box-shadow kullanın */
+    /* Diğer stil değişikliklerini buraya ekleyebilirsiniz */
+  }

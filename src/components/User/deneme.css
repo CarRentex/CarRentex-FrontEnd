@@ -1,12 +1,4 @@
 
-:root {
-    --primary-color: #dbdfe2; /* Belize Hole */
-    --secondary-color: #e74c3c; /* Alizarin */
-    --heading-color: #e70000; /* Midnight Blue */
-    --small-text-color: #666; /* Dim Gray */
-    --background-color: #f1edec; /* Clouds */
-    --button-hover-color: #2980b9; /* Belize Hole (Darkened) */
-  }
   
   * {
     padding: 0;
