@@ -45,7 +45,7 @@ const Register: React.FC = () => {
           <Card
             className={`card-signup ${isFlipped ? "is-flipped" : ""}`}
             data-background-color="blue"
-            style={{ borderRadius: 24 , padding : 10.9 }}
+            style={{ borderRadius: 24 , padding : '12.9px' , opacity : '0.9'}}
           >
             <p className="text-center"> CarRentex</p>
             <CardHeader className="text-center">

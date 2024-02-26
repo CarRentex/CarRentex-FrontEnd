@@ -35,7 +35,7 @@ const CustomerCard: React.FC = () => {
             <InputGroupText>
               <FaKey />
             </InputGroupText>
-            <Input id="confirmPassword" placeholder="Şifreyi Onayla" type="password" />
+            <Input id="phoneNumber" placeholder="Telefon Numarası" type="text" />
           </InputGroup>
           {/* Second column for name, surname, and other personal information */}
           <InputGroup className="mb-3">
@@ -50,13 +50,14 @@ const CustomerCard: React.FC = () => {
             <InputGroupText>
               <FaEnvelope />
             </InputGroupText>
-            <Input id="surname" placeholder="Soyad" type="text" />
+            <Input id="confirmPassword" placeholder="Şifreyi Onayla" type="password" />
           </InputGroup>
           <InputGroup className="mb-3">
             <InputGroupText>
               <FaKey />
             </InputGroupText>
-            <Input id="tcKimlik" placeholder="Kimlik No" type="text" />
+            <Input id="il" placeholder="İl" type="text" />
+            
           </InputGroup>
           </Col>
           <Col md="6">
@@ -64,13 +65,13 @@ const CustomerCard: React.FC = () => {
             <InputGroupText>
               <FaKey />
             </InputGroupText>
-            <Input id="phoneNumber" placeholder="Telefon Numarası" type="text" />
+            <Input id="surname" placeholder="Soyad" type="text" />
           </InputGroup>
           <InputGroup className="mb-3">
             <InputGroupText>
               <FaEnvelope />
             </InputGroupText>
-            <Input id="il" placeholder="İl" type="text" />
+            <Input id="tcKimlik" placeholder="Kimlik No" type="text" />
           </InputGroup>
           </Col>
           <Col md="6">
