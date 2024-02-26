@@ -21,6 +21,8 @@ import { AppDispatch } from "../../store/store";
 import useToken from "../../lib/useToken";
 import "./SıgnIn.css";
 import { Navigate, useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
+import { error } from "console";
 
 const SignIn: React.FC = () => {
   const dispatch = useDispatch<AppDispatch>();
@@ -35,15 +37,17 @@ const SignIn: React.FC = () => {
         addSignIn({ email: values.email, password: values.password })
       );
       if ("error" in response) {
-        // handle error
-      } else {
-        // setSuccessMessage("Hoşgeldiniz! Giriş başarılı.");
-        navigate("/"); // Redirect to home page
-        window.location.reload(); // Reload the page
+        toast.error("Giriş başarısız. Lütfen tekrar deneyin.");
+      }
+
+      else {
+        toast.success("Hoşgeldiniz! Giriş başarılı.");
+        navigate("/");
+        window.location.reload();
       }
     } catch (error) {
+      toast.error("Sunucu hatası. Lütfen Bekleyin ve tekrar deneyin.");
       console.error("Redux action dispatch hatası:", error);
-      // setErrorMessage("Giriş başarısız. Lütfen tekrar deneyin.");
     }
   };
 

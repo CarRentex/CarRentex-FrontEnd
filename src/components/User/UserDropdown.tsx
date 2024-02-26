@@ -1,4 +1,3 @@
-
 import * as React from 'react';
 import Box from '@mui/material/Box';
 import Avatar from '@mui/material/Avatar';
@@ -13,26 +12,30 @@ import Settings from '@mui/icons-material/Settings';
 import Logout from '@mui/icons-material/Logout';
 import { Link, useNavigate } from 'react-router-dom';
 import useToken from '../../lib/useToken';
-
+import './UserDropdown.css'; // Eklediğimiz CSS dosyası
 
 export default function UserDropdown(props: { name?: string }) {
   const { token, decodedToken, clearToken } = useToken();
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
   const navigate = useNavigate();
   const open = Boolean(anchorEl);
+
   const handleClick = (event: React.MouseEvent<HTMLElement>) => {
     setAnchorEl(event.currentTarget);
   };
+
   const handleClose = () => {
     setAnchorEl(null);
   };
+
   const handleLogout = () => {
     // Logout tıklandığında clearToken fonksiyonunu çağır
     clearToken();
     window.location.reload();
     navigate("/");
-    //handleClose();
+    // handleClose();
   };
+
   return (
     <React.Fragment>
       <Box sx={{ display: 'flex', alignItems: 'center', textAlign: 'center' }}>
@@ -45,7 +48,7 @@ export default function UserDropdown(props: { name?: string }) {
             aria-haspopup="true"
             aria-expanded={open ? 'true' : undefined}
           >
-            <Avatar sx={{ width: 45, height: 44 }} style={{backgroundColor: "#38BDF2"}}>{props.name}</Avatar>
+            <Avatar sx={{ width: 45, height: 44 }} style={{ backgroundColor: "#38BDF2" }}>{props.name}</Avatar>
           </IconButton>
         </Tooltip>
       </Box>
@@ -62,8 +65,9 @@ export default function UserDropdown(props: { name?: string }) {
             filter: 'drop-shadow(0px 2px 8px rgba(0,0,0,0.32))',
             mt: 1.5,
             '& .MuiAvatar-root': {
-              width: 32,
-              height: 32,
+              width: 40,
+              backgroundColor: "#38BDF2",
+              height: 40,
               ml: -0.5,
               mr: 1,
             },
@@ -73,8 +77,8 @@ export default function UserDropdown(props: { name?: string }) {
               position: 'absolute',
               top: 0,
               right: 14,
-              width: 10,
-              height: 10,
+              width: 40,
+              height: 40,
               bgcolor: 'background.paper',
               transform: 'translateY(-50%) rotate(45deg)',
               zIndex: 0,
@@ -84,13 +88,10 @@ export default function UserDropdown(props: { name?: string }) {
         transformOrigin={{ horizontal: 'right', vertical: 'top' }}
         anchorOrigin={{ horizontal: 'right', vertical: 'bottom' }}
       >
-        
         <MenuItem onClick={handleClose}>
           <Avatar />
-          <Link to='/user'>
-              < i>
-              Hesabım
-              </i>
+          <Link to='/user' className="dropdown-link">
+            Hesabım
           </Link>
         </MenuItem>
         <Divider />
@@ -98,15 +99,17 @@ export default function UserDropdown(props: { name?: string }) {
           <ListItemIcon>
             <PersonAdd fontSize="small" />
           </ListItemIcon>
-          <Link to='/allMyRentals'>
-              Kiralama Geçmişim
+          <Link to='/allMyRentals' className="dropdown-link">
+            Kiralama Geçmişim
           </Link>
         </MenuItem>
         <MenuItem onClick={handleClose}>
           <ListItemIcon>
             <Settings fontSize="small" />
           </ListItemIcon>
-          Settings
+          <Link to='/settings' className="dropdown-link">
+            Settings
+          </Link>
         </MenuItem>
         <MenuItem onClick={handleLogout}>
           <ListItemIcon>

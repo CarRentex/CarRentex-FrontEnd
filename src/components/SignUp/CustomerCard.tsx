@@ -8,9 +8,10 @@ import {
   Col,
   Form,
 } from "reactstrap";
-import { FaEnvelope, FaKey } from "react-icons/fa";
+import { FaAddressCard, FaCity, FaEnvelope, FaFingerprint, FaFirstAid, FaInnosoft, FaKey, FaPhone } from "react-icons/fa";
 import { CreateRegister } from "../../models/Auth/CreateRegister";
 import { register } from "../../services/AuthService/auth";
+import { toast } from "react-toastify";
 
 const CustomerCard: React.FC = () => {
   const [formData, setFormData] = useState<CreateRegister>({
@@ -39,9 +40,9 @@ const CustomerCard: React.FC = () => {
 
     try {
       await register(formData);
-      console.log("Registration successful!");
+      toast.success("Kayıt Başarılı!");
     } catch (error) {
-      console.error("Error during registration:", error);
+      toast.error("Kayıt Başarısız!");
     }
   };
 
@@ -75,7 +76,7 @@ const CustomerCard: React.FC = () => {
         <Col md="6">
           <InputGroup className="mb-3">
             <InputGroupText>
-              <FaKey />
+              <FaPhone />
             </InputGroupText>
             <Input
               id="phoneNumber"
@@ -99,7 +100,7 @@ const CustomerCard: React.FC = () => {
         <Col md="6">
           <InputGroup className="mb-3">
             <InputGroupText>
-              <FaEnvelope />
+              <FaKey />
             </InputGroupText>
             <Input
               id="confirmPassword"
@@ -110,7 +111,7 @@ const CustomerCard: React.FC = () => {
           </InputGroup>
           <InputGroup className="mb-3">
             <InputGroupText>
-              <FaKey />
+              <FaCity />
             </InputGroupText>
             <Input
               id="cityId"
@@ -123,7 +124,7 @@ const CustomerCard: React.FC = () => {
         <Col md="6">
           <InputGroup className="mb-3">
             <InputGroupText>
-              <FaKey />
+              <FaEnvelope />
             </InputGroupText>
             <Input
               id="surname"
@@ -134,7 +135,7 @@ const CustomerCard: React.FC = () => {
           </InputGroup>
           <InputGroup className="mb-3">
             <InputGroupText>
-              <FaEnvelope />
+              <FaFingerprint />
             </InputGroupText>
             <Input
               id="nationality"
@@ -147,7 +148,7 @@ const CustomerCard: React.FC = () => {
         <Col md="6">
           <InputGroup className="mb-3">
             <InputGroupText>
-              <FaEnvelope />
+              <FaCity />
             </InputGroupText>
             <Input
               id="districtId"
@@ -158,7 +159,7 @@ const CustomerCard: React.FC = () => {
           </InputGroup>
           <InputGroup className="mb-3">
             <InputGroupText>
-              <FaKey />
+              <FaAddressCard />
             </InputGroupText>
             <Input
               id="address"

@@ -1,0 +1,17 @@
+/* UserDropdown.css */
+
+.dropdown-link {
+    color: #000; /* veya istediğiniz renk */
+    text-decoration: none;
+  }
+  
+  
+
+  
+
+/* UserDropdown.css */
+
+.dropdown-link:hover {
+  color: #38BDF2; /* veya istediğiniz metin rengini seçebilirsiniz */
+  text-decoration: none; /* varsayılan altı çizgiyi kaldırmak için */
+}

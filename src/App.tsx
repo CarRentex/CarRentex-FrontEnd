@@ -14,7 +14,8 @@ import Register from "./pages/Register/Register";
 import SignIn from "./components/SıgnIn/SıgnIn";
 import TestBrand from "./pages/test";
 import Model from "./pages/Model/Model";
-import ProfilePage from "./components/User/UserSettings";
+import ProfilePage from "./components/User/UserProfile";
+import Settings from "./components/User/deneme";
 function App() {
   return (
     // <Layout>
@@ -33,6 +34,7 @@ function App() {
             <Route path="/login" element={<SignIn/>}></Route>
             <Route path="/test" element={<TestBrand/>}></Route>
             <Route path="/user" element={<ProfilePage/>}></Route>
+            <Route path="/deneme" element={<Settings/>}></Route>
             {/* <Route path="/admin" element={<AdminLayout/>}></Route> */}
           </Routes>
         </div>

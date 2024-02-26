@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   Input,
   InputGroup,
@@ -6,56 +6,164 @@ import {
   Button,
   Row,
   Col,
+  Form,
 } from "reactstrap";
-import { FaBuilding, FaUser } from "react-icons/fa";
+import { FaAccessibleIcon, FaAddressBook, FaAddressCard, FaBuilding, FaCity, FaEnvelope, FaKey, FaPhone, FaTaxi } from "react-icons/fa";
+import { CreateRegister } from "../../models/Auth/CreateRegister";
+import { register } from "../../services/AuthService/auth";
+import { toast } from "react-toastify";
 
-// CorporateCustomerCard component
 const CorporateCustomerCard: React.FC = () => {
+  const [formData, setFormData] = useState<CreateRegister>({
+    companyName: "",
+    taxNo: "",
+    email: "",
+    password: "",
+    confirmPassword: "",
+    phoneNumber: "",
+    cityId: 0,
+    districtId: 0,
+    address: "",
+    role: "CORPORATE_CUSTOMER",
+  });
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
+    setFormData({
+      ...formData,
+      [e.target.id]: e.target.value,
+    });
+  };
+
+  const handleSubmit = async (e: any) => {
+    e.preventDefault();
+    console.log("Form data:", formData);
+
+    try {
+      await register(formData);
+      toast.success("Kayıt Başarılı!");
+    } catch (error) {
+      toast.error("Kayıt Başarısız!");
+    }
+  };
+
   return (
-    <>
+    <Form onSubmit={handleSubmit}>
       <Row>
         <Col md="6">
-          {/* First column for company name and contact person */}
+          <InputGroup className="mb-3">
+            <InputGroupText>
+              <FaEnvelope />
+            </InputGroupText>
+            <Input
+              id="email"
+              placeholder="Email..."
+              type="email"
+              onChange={handleChange}
+            />
+          </InputGroup>
+          <InputGroup className="mb-3">
+            <InputGroupText>
+              <FaKey />
+            </InputGroupText>
+            <Input
+              id="password"
+              placeholder="Şifre..."
+              type="password"
+              onChange={handleChange}
+            />
+          </InputGroup>
+        </Col>
+        <Col md="6">
+          <InputGroup className="mb-3">
+            <InputGroupText>
+              <FaPhone />
+            </InputGroupText>
+            <Input
+              id="phoneNumber"
+              placeholder="Telefon Numarası"
+              type="text"
+              onChange={handleChange}
+            />
+          </InputGroup>
+          <InputGroup className="mb-3">
+            <InputGroupText>
+              <FaCity />
+            </InputGroupText>
+            <Input
+              id="cityId"
+              placeholder="il"
+              type="text"
+              onChange={handleChange}
+            />
+          </InputGroup>
+        </Col>
+        <Col md="6">
+          <InputGroup className="mb-3">
+            <InputGroupText>
+              <FaKey />
+            </InputGroupText>
+            <Input
+              id="confirmPassword"
+              placeholder="Şifreyi Onayla"
+              type="password"
+              onChange={handleChange}
+            />
+          </InputGroup>
           <InputGroup className="mb-3">
             <InputGroupText>
               <FaBuilding />
             </InputGroupText>
-            <Input id="companyName" placeholder="Şirket Adı..." type="text" />
-          </InputGroup>
-          <InputGroup className="mb-3">
-            <InputGroupText>
-              <FaUser />
-            </InputGroupText>
-            <Input id="contactPerson" placeholder="İrtibat Kişisi..." type="text" />
+            <Input
+              id="companyName"
+              placeholder="Şirket Adı"
+              type="text"
+              onChange={handleChange}
+            />
           </InputGroup>
         </Col>
         <Col md="6">
-          {/* Second column for additional corporate information */}
           <InputGroup className="mb-3">
             <InputGroupText>
-              {/* Add additional icons or styling as needed */}
+              <FaCity />
             </InputGroupText>
-            <Input id="additionalField1" placeholder="Additional Field 1" type="text" />
+            <Input
+              id="districtId"
+              placeholder="İlçe"
+              type="text"
+              onChange={handleChange}
+            />
           </InputGroup>
           <InputGroup className="mb-3">
             <InputGroupText>
-              {/* Add additional icons or styling as needed */}
+              <FaAddressCard />
             </InputGroupText>
-            <Input id="additionalField2" placeholder="Additional Field 2" type="text" />
+            <Input
+              id="address"
+              placeholder="Adres"
+              type="text"
+              onChange={handleChange}
+            />
           </InputGroup>
-          {/* Add additional input fields for corporate information */}
         </Col>
+        <InputGroup className="mb-3">
+            <InputGroupText>
+              <FaAddressBook />
+            </InputGroupText>
+            <Input
+              id="taxNo"
+              placeholder="Vergi Numarası"
+              type="text"
+              onChange={handleChange}
+            />
+          </InputGroup>
       </Row>
-      {/* Submit button */}
       <div className="text-center">
         <Button className="btn-neutral btn-round" color="info" type="submit">
           Kayıt Ol
         </Button>
       </div>
-    </>
+    </Form>
   );
 };
-
-
 
 export default CorporateCustomerCard;

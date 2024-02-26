@@ -1,6 +1,6 @@
 export  interface CreateRegister{
-	name: string;
-	surname: string;
+	name?: string;
+	surname?: string;
 	companyName?: string;
 	taxNo?: string;
 	nationality?:string;
