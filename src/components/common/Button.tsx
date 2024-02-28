@@ -35,14 +35,14 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
         type="button"
         disabled={disabled}
         className={twMerge(
-          "flex cursor-pointer items-center justify-center gap-3 rounded-full px-4 py-2.5 text-sm",
+          "flex w-[280px] cursor-pointer items-center justify-center gap-3 rounded-full px-4 py-2.5 text-sm",
           "focus:outline-none focus-visible:ring focus-visible:ring-offset-1",
           "shadow-sm",
           "transition-colors duration-75",
           //#region  //*=========== Variants ===========
           [
             variant === "secondary" && [
-              "bg-red-600 text-black",
+              "bg-blue100 text-black", 
               "shadow-none",
               "hover:enabled:black/50 hover:enabled:bg-yellow500/90",
               "disabled:bg-black100",

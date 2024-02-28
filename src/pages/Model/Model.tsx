@@ -4,12 +4,12 @@ import { useEffect, useState } from "react";
 import CarFilterLink from "../../components/VehliceCard/CarFilterLink";
 import HeroPages from "../../components/HeroPages/HeroPages";
 import VehliceCard from "../../components/VehliceCard/VehliceCard";
-import BaseFetcher from "../../lib/BaseFetcher";
 import BookingSection from "../../components/FilterCars/FilterCar";
 import FilterSection from "../../components/FilterCars/FilterCar";
 import { useSelector } from "react-redux";
-import FetchFilterCars from "../../lib/FetchFilter";
+import FetchFilterCars from "../../lib/fetchFilter";
 import { RootState } from "../../store/store";
+import BaseFetcher from "../../lib/BaseFetcher";
 
 const Model = () => {
   const [cars, setCars] = useState<any[]>([]);

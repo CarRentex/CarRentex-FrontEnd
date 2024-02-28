@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from 'react';
 import { useDispatch } from 'react-redux';
-import { loginSuccess } from '../store/signInSlice';
+import { loginSuccess, logoutSuccess } from '../store/signInSlice';
 import { AppDispatch } from '../store/store';
 interface TokenModel {
     emailAddress: string;
@@ -41,6 +41,7 @@ const useToken = () => {
 
   const clearToken = () => {
     localStorage.removeItem('token');
+    dispatch(logoutSuccess());
     setToken('');
     setDecodedToken(null);
   };

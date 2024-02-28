@@ -39,10 +39,10 @@ const SignIn: React.FC = () => {
       if ("error" in response) {
         toast.error("Giriş başarısız. Lütfen tekrar deneyin.");
       }
-
+   
       else {
         toast.success("Hoşgeldiniz! Giriş başarılı.");
-        navigate("/");
+        navigate("/admin/add-car");
         window.location.reload();
       }
     } catch (error) {

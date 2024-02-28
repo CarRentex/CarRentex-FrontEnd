@@ -3,13 +3,16 @@ import AdminAsideBar from './AdminAsideBar'
 
 const AdminLayout = ({children}:{children:React.ReactNode}) => {
   return (
+    <div>
     <div className='flex flex-row'>
     <AdminAsideBar/>
-    <main>
+    <main className='flex-1'>
         {children}
     </main>
     </div>
+    </div>
+
   )
 }
 
-export default AdminLayout
+export default AdminLayout;

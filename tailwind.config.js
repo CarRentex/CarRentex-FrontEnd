@@ -7,6 +7,7 @@ module.exports = {
         "primary-color": "#38BDF2",
         "secondary-color": "#2d3748",
         "tertiary-color": "#4a5568",
+        "blue100":"#38BDF2"
       },
       keyframes: {
         "contact-input": {

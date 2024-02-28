@@ -3,7 +3,7 @@ import "./FilterCar.scss";
 import CarService from "../../services/CarService";
 import BrandService from "../../services/BrandService";
 import ModelService from "../../services/ModelService";
-import FetchFilterCars from "../../lib/FetchFilter";
+import FetchFilterCars from "../../lib/fetchFilter";
 import { useDispatch } from "react-redux";
 import { filterSuccess } from "../../store/filterCarSlice";
 import { on } from "events";
