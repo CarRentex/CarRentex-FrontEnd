@@ -1,0 +1,160 @@
+.dashboard {
+    margin-left: auto;
+    padding: 0px 30px;
+    padding-bottom: 50px;
+  }
+  
+  .single__card {
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .single__card:nth-child(1) {
+    background: linear-gradient(#ef621c, #e1424e)
+  }
+  
+  .single__card:nth-child(2) {
+    background: linear-gradient(#01d293, #56c57a)
+  }
+  
+  .single__card:nth-child(3) {
+    background: #725cff;
+  }
+  
+  .single__card:nth-child(4) {
+    background:#2884ff;
+  }
+  
+  .card__content h4 {
+    color: #fff;
+    font-size: 1rem;
+    font-weight: 400;
+  }
+  
+  .card__content span {
+    color: #fff;
+    font-size: 2rem;
+  }
+  
+  .card__icon {
+    font-size: 2rem;
+    font-weight: 400 !important;
+    color: rgba(255, 255, 255, 0.845);
+  }
+  
+
+  
+  .statics {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: 2rem;
+    margin-top: 2rem;
+  }
+  
+  .stats {
+    background: #181b3a;
+    padding: 30px;
+    border-radius: 5px;
+    height: 320px;
+    padding-bottom: 50px;
+  }
+  
+  .tooltip__style {
+    background: #0b0c28;
+    color: #fff;
+  }
+  
+  .stats__title {
+    color: #fff;
+    font-size: 1.2rem;
+    font-weight: 500;
+    margin-bottom: 20px;
+  }
+  
+  .recommend__cars-wrapper {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    margin-top: 2rem;
+    column-gap: 2rem;
+  }
+  
+  .recommend__car-card {
+    padding: 20px;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .recommend__car-card:nth-child(1) {
+    background: #e1dfa4;
+  }
+  .recommend__car-card:nth-child(2) {
+    background: #e3ecf1;
+  }
+  .recommend__car-card:nth-child(3) {
+    background: #f4e3e5;
+  }
+  
+  .recommend__car-top h5 {
+    display: flex;
+    align-items: center;
+    column-gap: 1rem;
+    color: #0b0c28;
+    margin-bottom: 10px;
+  }
+  
+  .recommend__car-top h5 span i {
+    font-size: 1.2rem;
+  }
+  
+  .recommend__car-bottom h4 {
+    font-size: 1.3rem;
+    margin: 10px 0px;
+  }
+  
+  .recommend__car-other {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  
+  .recommend__icons {
+    display: flex;
+    align-items: center;
+    column-gap: 1rem;
+  }
+  
+  .recommend__icons p:nth-child(1) {
+    display: flex;
+    align-items: center;
+    column-gap: 1rem;
+  }
+  
+
+.dashboard__cards {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    column-gap: 2rem;
+}
+
+/* Ekran boyutu 768px'nin altına düştüğünde kartları tek sütun halinde göster */
+@media screen and (max-width: 768px) {
+    .dashboard__cards {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 768px) { /* Örnek bir breakpoint (telefon boyutu) */
+  .stats {
+    margin-top: 20px; /* Grafikler arasına biraz boşluk bırakır */
+  }
+
+  .stats--mile-chart,
+  .stats--car-stats-chart {
+    width: 100%; /* Grafiklerin genişliğini doldurur */
+  }
+}
+

@@ -1,18 +1,20 @@
-import React from 'react'
-import AdminAsideBar from './AdminAsideBar'
+import React from 'react';
+import AdminAsideBar from './SideBar/Sidebar';
+import AdminNavbar from './Navbar/AdminNavbar';
+import './AdminLayout.css';
 
-const AdminLayout = ({children}:{children:React.ReactNode}) => {
+const AdminLayout = ({ children }: { children: React.ReactNode }) => {
   return (
-    <div>
-    <div className='flex flex-row'>
-    <AdminAsideBar/>
-    <main className='flex-1'>
-        {children}
-    </main>
+    <div className="layout">
+      <AdminAsideBar />
+      <div className='content'>
+        {/* <AdminNavbar /> */}
+        <main className='main-content'>
+          {children}
+        </main>
+      </div>
     </div>
-    </div>
-
-  )
-}
+  );
+};
 
 export default AdminLayout;

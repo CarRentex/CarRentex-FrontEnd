@@ -21,10 +21,11 @@ import { useSelector } from "react-redux";
 import AdminLayout from "./components/admin/AdminLayout";
 import AddCar from "./pages/admin/AddCar";
 import useToken from "./lib/useToken";
+import Dashboard from "./pages/admin/Dashboard/Dashboard";
 function App() {
   const isOnAdminPage = window.location.pathname.indexOf('/admin') === 0;
   const location = useLocation();
-  
+
   return (
     // <Layout>
     <div>
@@ -35,7 +36,7 @@ function App() {
         {isOnAdminPage  ? (
             <AdminLayout>
               <Routes>
-                <Route path="/admin/add-car" element={<AddCar />}></Route>
+                <Route path="/admin/dashboard" element={<Dashboard />}></Route>
               </Routes>
             </AdminLayout>
           ):(

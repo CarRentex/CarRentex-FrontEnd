@@ -21,7 +21,7 @@ export const axiosInstance = axios.create({
       console.error("Request Interceptor Error", error);
       return Promise.reject(error);
     }
-    );2
+    );
 
 
   axiosInstance.interceptors.response.use(
