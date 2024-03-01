@@ -42,7 +42,7 @@ const SignIn: React.FC = () => {
    
       else {
         toast.success("Hoşgeldiniz! Giriş başarılı.");
-        navigate("/admin/add-car");
+        navigate("/");
         window.location.reload();
       }
     } catch (error) {

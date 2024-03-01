@@ -36,7 +36,7 @@ function App() {
         {isOnAdminPage  ? (
             <AdminLayout>
               <Routes>
-                <Route path="/admin/dashboard" element={<Dashboard />}></Route>
+                <Route path="/admin" element={<Dashboard />}></Route>
               </Routes>
             </AdminLayout>
           ):(
