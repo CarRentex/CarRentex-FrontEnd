@@ -4,7 +4,6 @@ import "bootstrap/dist/css/bootstrap.css";
 import About from "./pages/About/About";
 import Footer from "./components/Footer/Footer";
 import IndexNavbar from "./components/Navbar/Navbar";
-import Payment from "./pages/Payment/Payment";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Contact from "./pages/Contact/Contact";
@@ -22,6 +21,9 @@ import AdminLayout from "./components/admin/AdminLayout";
 import AddCar from "./pages/admin/AddCar";
 import useToken from "./lib/useToken";
 import Dashboard from "./pages/admin/Dashboard/Dashboard";
+import RentalInfo from "./pages/Rental/Rental";
+import Payment from "./components/Payment/Payment";
+import RentalForm from "./components/Rental/RentalForm";
 function App() {
   const isOnAdminPage = window.location.pathname.indexOf('/admin') === 0;
   const location = useLocation();
@@ -45,12 +47,14 @@ function App() {
             <Route path="/about" element={<About />}></Route>
             <Route path="/contact" element={<Contact />}></Route>
             <Route path="/model" element={<Model />}></Route>
-            <Route path="/payment" element={<Payment />}></Route>
             <Route path="/register" element={<Register />}></Route>
             <Route path="/login" element={<SignIn />}></Route>
             <Route path="/test" element={<TestBrand />}></Route>
             <Route path="/user" element={<ProfilePage />}></Route>
             <Route path="/deneme" element={<Settings  />}></Route>
+            <Route path="/rental" element={<RentalInfo  />}></Route>
+            <Route path="/payment" element={<Payment  />}></Route>
+            <Route path="/form" element={<RentalForm  />}></Route>
           </Routes>
 
           )}

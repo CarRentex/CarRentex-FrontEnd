@@ -1,0 +1,78 @@
+/* Styles for the modal container and overall layout */
+.modal-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black background */
+    z-index: 100; /* Ensures the modal appears above other elements */
+    display: none; /* Initially hide the modal */
+  }
+  
+  /* Styles for the modal itself */
+  .modal {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); /* Center the modal on the screen */
+    width: 500px; /* Adjust width as needed */
+    background-color: #fff;
+    border-radius: 10px; /* Rounded corners */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); /* Subtle shadow effect */
+  }
+  
+  /* Styles for the modal header */
+  .modal-header {
+    padding: 20px;
+    border-bottom: 1px solid #ddd; /* Light border at the bottom */
+  }
+  
+  .modal-title {
+    margin: 0;
+    font-size: 18px;
+  }
+  
+  .modal-close-button {
+    float: right; /* Position close button on the right */
+    font-size: 16px;
+    cursor: pointer; /* Indicate clickable action */
+  }
+  
+  /* Styles for the modal body */
+  .modal-body {
+    padding: 20px;
+  }
+  
+  /* Styles for form groups */
+  .form-group {
+    margin-bottom: 10px;
+  }
+  
+  .form-group label {
+    display: block;
+    margin-bottom: 5px;
+  }
+  
+  /* Styles for form inputs */
+  .form-group input {
+    width: 100%;
+    padding: 5px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+  }
+  
+  /* Styles for buttons */
+  .btn {
+    margin-top: 10px;
+    padding: 5px 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    cursor: pointer; /* Indicate clickable action */
+  }
+  
+  .btn-primary {
+    background-color: #007bff; /* Blue color for primary button */
+    color: #fff; /* White text for primary button */
+  }
+  

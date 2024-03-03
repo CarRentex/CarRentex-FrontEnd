@@ -5,6 +5,7 @@ import Campaign from '../../components/Campaign/Campaign'
 import SignIn from '../../components/SıgnIn/SıgnIn'
 import BookingSection from '../../components/FilterCars/FilterCar'
 import FilterReservation from '../../components/FilterReservation/FilterReservation'
+import Payment from '../../components/Payment/Payment'
 
 type Props = {}
 
@@ -13,9 +14,7 @@ const Home = (props: Props) => {
     <>
     <Hero />
     <FilterReservation />
-
     <Campaign />
-    {/* <SignIn /> */}
     <Banner />
     <RentalConditions />
     </>

@@ -1,0 +1,77 @@
+.car__info{
+    background-color: #fff;
+    width: 100%;
+    padding: 4rem 4.5rem 5rem 5.5rem;
+    box-shadow: 0 10px 20px 0 rgb(0 0 0 / 10%);
+    height: auto;
+    position: relative;
+    z-index: 4;
+    color: white;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    color: #000d6b;
+}
+
+
+.booking__form {
+    width: 40.5%;
+  }
+  
+  .booking__form input {
+    padding: 8px 15px;
+    border: 1px solid #7c8a972a;
+    color: #7c8a97;
+    width: 100%;
+  }
+  
+  .booking__form select,
+  .textarea {
+    width: 100%;
+    padding: 10px 15px;
+    color: #7c8a97;
+    border: 1px solid #7c8a972a;
+    border-radius: 4px;
+  }
+  
+  .time__picker::before {
+    content: "Journey Time";
+    color: #7c8a97;
+    margin-right: 0.5rem;
+  }
+  
+  .textarea:focus,
+  .booking__form input:focus,
+  .booking__form select:focus {
+    outline: none;
+  }
+  
+  @media only screen and (max-width: 768px) {
+    .booking__form {
+      width: 100%;
+    }
+  
+    .booking__form input,
+    .textarea,
+    .booking__form select {
+      font-size: 0.8rem;
+    }
+  }
+
+  .payment label {
+    font-weight: 600;
+    color: #000d6b;
+  }
+  
+  .payment button {
+    padding: 8px 15px;
+    border-radius: 5px;
+    background: #000d6b;
+    color: #fff;
+    border: none;
+    outline: none;
+  }
+
+
+  
+  

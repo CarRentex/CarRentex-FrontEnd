@@ -7,13 +7,9 @@ import { AppDispatch } from "../../store/store";
 type Props = {};
 
 const RentalForm = (props: Props) => {
-  const dispatch = useDispatch<AppDispatch>();
 
   const [selectedValue, setSelectedValue] = useState({});
 
-  const modelState = useSelector((state: any) => state.model);
-  const colorState = useSelector((state: any) => state.color);
-  const branchState = useSelector((state: any) => state.branch);
 
 /*   useEffect(() => {
     dispatch(modelLis());
