@@ -1,7 +1,8 @@
 import React from "react";
 
-const SingleCard = (props: any) => {
-  const { title, totalNumber, icon } = props.item;
+const SingleCard = (props:any) => {
+const {title, totalNumber} = props.item;
+  
   return (
     <div className="single__card">
       <div className="card__content">
@@ -10,7 +11,6 @@ const SingleCard = (props: any) => {
       </div>
 
       <span className="card__icon">
-        <i className={icon}></i>
       </span>
     </div>
   );

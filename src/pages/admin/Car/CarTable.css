@@ -1,0 +1,77 @@
+.table-container {
+    margin-top: 20px;
+}
+
+.table-container table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.table-container th,
+.table-container td {
+    padding: 6px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+
+
+.button-group {
+    margin-top: 20px;
+}
+
+.button-group button {
+    margin-right: 20px;
+}
+
+
+.even-row {
+    background-color: #f2f2f2; /* Gri /
+  }
+
+  .odd-row {
+    background-color: #ffffff; / Beyaz */
+  }
+
+  .table-container {
+    overflow-x: auto;
+  }
+
+  .table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+
+
+
+  @media screen and (max-width: 600px) {
+    .table {
+      overflow-x: auto;
+      display: block;
+    }
+
+    .th,
+    .td {
+      display: block;
+      text-align: left;
+    }
+
+    .thead {
+      display: none;
+    }
+
+    .tr {
+      margin-bottom: 16px;
+      border: none;
+    }
+
+    .th {
+      border-bottom: 1px solid #ddd;
+    }
+  }
+
+  .Car, .Brand{
+    margin-left: auto;
+    padding: 0px 30px;
+    padding-bottom: 50px;
+  }

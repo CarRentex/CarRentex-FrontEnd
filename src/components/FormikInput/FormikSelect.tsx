@@ -1,4 +1,4 @@
-import { ErrorMessage, Field } from 'formik';
+import { ErrorMessage, Field } from "formik";
 
 type Option = {
   id: string;
@@ -18,14 +18,14 @@ type Props = {
 const FormikSelect = ({ label, name, options, placeholder, }: Props) => {
   return (
     <div className="mb-3">
-      <label className='container form-label' style={{ width: '100%' }} >
+      <label className='form-label w-100'>
         {label}
         <Field as="select" className="form-control" name={name}>
           <option value="" disabled>
             {placeholder}
           </option>
-          {options.map((option) => (
-            <option key={option.id} value={option.id}>
+          {options.map((option, index) => (
+            <option key={option.id || index} value={option.id}>
               {option.name}
             </option>
           ))}

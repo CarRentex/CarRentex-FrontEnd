@@ -4,11 +4,11 @@ const navLinks = [
       display: "Dashboard",
     },
     {
-      path: "/admin/admincar",
+      path: "/admin/car",
       display: "Araç",
     },
     {
-      path: "/admin/addBrand",
+      path: "/admin/brand",
       display: "Marka",
     },
   ];

@@ -11,7 +11,6 @@ import "./index.css";
 import ReduxProvider from "./store/providers/ReduxProvider";
 import Register from "./pages/Register/Register";
 import SignIn from "./components/SıgnIn/SıgnIn";
-import TestBrand from "./pages/test";
 import Model from "./pages/Model/Model";
 import ProfilePage from "./components/User/UserProfile";
 import Settings from "./components/User/deneme";
@@ -24,6 +23,8 @@ import Dashboard from "./pages/admin/Dashboard/Dashboard";
 import RentalInfo from "./pages/Rental/Rental";
 import Payment from "./components/Payment/Payment";
 import RentalForm from "./components/Rental/RentalForm";
+import Car from "./pages/admin/Car/Car";
+import Brand from "./pages/admin/Brand/Brand";
 function App() {
   const isOnAdminPage = window.location.pathname.indexOf('/admin') === 0;
   const location = useLocation();
@@ -39,6 +40,8 @@ function App() {
             <AdminLayout>
               <Routes>
                 <Route path="/admin" element={<Dashboard />}></Route>
+                <Route path="/admin/car" element={<Car />}></Route>
+                <Route path="/admin/brand" element={<Brand />}></Route>
               </Routes>
             </AdminLayout>
           ):(
@@ -49,7 +52,6 @@ function App() {
             <Route path="/model" element={<Model />}></Route>
             <Route path="/register" element={<Register />}></Route>
             <Route path="/login" element={<SignIn />}></Route>
-            <Route path="/test" element={<TestBrand />}></Route>
             <Route path="/user" element={<ProfilePage />}></Route>
             <Route path="/deneme" element={<Settings  />}></Route>
             <Route path="/rental" element={<RentalInfo  />}></Route>

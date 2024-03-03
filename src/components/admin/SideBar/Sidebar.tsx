@@ -1,7 +1,7 @@
 import React from "react";
 import { NavLink, Link } from "react-router-dom";
 import "./Sidebar.css";
-import navLinks from "../TestData";
+import navLinks from "../NavLink";
 import { Col } from "react-bootstrap";
 
 const Sidebar = () => {

@@ -35,6 +35,10 @@ class UserService {
     delete(id: number) {
         return axiosInstance.delete(this.apiUrl + "/" + id);
     }
+    getTotalUsers(): Promise<AxiosResponse<any, any>> {
+        return axiosInstance.get<any>(this.apiUrl + `/totalUsers`);
+    }
+    
 }
 
 export default new UserService();

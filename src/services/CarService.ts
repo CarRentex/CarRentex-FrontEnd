@@ -59,6 +59,17 @@ UpdateCarResponseType
         }
       }
 
+      async getTotalCars(): Promise<AxiosResponse<any>> {
+        try {
+          const response =  await axiosInstance.get('/cars/totalCars');
+          return response;
+        } catch (error) {
+          console.error('An error occurred while fetching cars by category.', error);
+          throw new Error('An error occurred while fetching cars by category.');
+        }
+      }
+
+
 }
 
 export default new CarService();

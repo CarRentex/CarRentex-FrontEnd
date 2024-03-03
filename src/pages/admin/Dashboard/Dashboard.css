@@ -31,7 +31,7 @@
   
   .card__content h4 {
     color: #fff;
-    font-size: 1rem;
+    font-size: 1.6rem;
     font-weight: 400;
   }
   
@@ -89,13 +89,13 @@
   }
   
   .recommend__car-card:nth-child(1) {
-    background: #e1dfa4;
+    background: #38BDF2;
   }
   .recommend__car-card:nth-child(2) {
-    background: #e3ecf1;
+    background: #38BDF2;
   }
   .recommend__car-card:nth-child(3) {
-    background: #f4e3e5;
+    background: #38BDF2;
   }
   
   .recommend__car-top h5 {

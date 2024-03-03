@@ -8,24 +8,15 @@
     background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black background */
     z-index: 100; /* Ensures the modal appears above other elements */
     display: none; /* Initially hide the modal */
+    
   }
   
-  /* Styles for the modal itself */
-  .modal {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%); /* Center the modal on the screen */
-    width: 500px; /* Adjust width as needed */
-    background-color: #fff;
-    border-radius: 10px; /* Rounded corners */
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); /* Subtle shadow effect */
-  }
-  
+
   /* Styles for the modal header */
   .modal-header {
     padding: 20px;
     border-bottom: 1px solid #ddd; /* Light border at the bottom */
+    
   }
   
   .modal-title {
@@ -42,11 +33,13 @@
   /* Styles for the modal body */
   .modal-body {
     padding: 20px;
+    
   }
   
   /* Styles for form groups */
   .form-group {
     margin-bottom: 10px;
+
   }
   
   .form-group label {
@@ -76,3 +69,6 @@
     color: #fff; /* White text for primary button */
   }
   
+  .btn-pay{
+    background-color: #007bff;
+  }

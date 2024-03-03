@@ -4,10 +4,12 @@ import './FilterReservation.scss';
 import LocationService from '../../services/LocationService';
 import { RootState } from '../../store/store';
 import { handleDropLocationId, handleEndDate, handlePickLocationId, handleStartDate } from '../../store/rentalSlice';
+import { useNavigate } from 'react-router-dom';
 
 const FilterReservation = () => {
   const dispatch = useDispatch();
   const rentalState = useSelector((state: RootState) => state.rental); // Replace with the correct slice name
+  const navigate = useNavigate();
 
   const [locOne, setLocOne] = useState<any>('');
   const [locTwo, setLocTwo] = useState<any>('');
@@ -55,6 +57,8 @@ const FilterReservation = () => {
     dispatch(handleEndDate(dropTime));
     dispatch(handlePickLocationId(locOne));
     dispatch(handleDropLocationId(locTwo));
+
+    navigate('/model');
   };
 
   return (

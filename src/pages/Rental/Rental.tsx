@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Container, Row, Col } from "reactstrap";
+import { Container, Row, Col, Button } from "reactstrap";
 import CarService from "../../services/CarService";
 import BookingForm from "./BookingForm";
 import PaymentMethod from "./payment-method";
@@ -10,6 +10,7 @@ import { GetByIdBrandResponse } from "../../models/Brand/Response/GetByIdRespons
 import { GetByIdCarResponse } from "../../models/Car/Response/GetByIdResponse";
 import { Image } from "react-bootstrap";
 import translate from "../../lib/translate";
+import Payment from "../../components/Payment/Payment";
 
 const CarDetails = () => {
   const [carData, setCarData] = useState<GetByIdCarResponse>(); // boş obje ile başlatıldı
@@ -26,6 +27,10 @@ const CarDetails = () => {
 
     fetchCar();
   }, []); // eslint-disable-line react-hooks/exhaustive-deps
+
+    const handlePayment = () => {
+        
+    };
 
   return (
     <div style={{paddingTop:76}}>
@@ -120,16 +125,18 @@ const CarDetails = () => {
                     ></i>{" "}
                     Renk:  {carData?.color?.name}
                   </span>
+                  <span style={{color:"red"}}>
+                Ödenecen Tutar : {carData?.dailyPrice}
+
+                  </span>
                 </div>
               </div>
+
             </Col>
 
             <Col lg="5" style={{paddingLeft:30, marginLeft:150}}>
             <img src={carData?.imagePath} alt="" className="w-100" />
 
-            </Col>
-            <Col lg="7" className="">
-                   
             </Col>
             <Col lg="6" className="">
 
@@ -138,7 +145,13 @@ const CarDetails = () => {
                 <BookingForm />
               </div>
             </Col>
-
+            
+            <Col lg="5" className="">
+            <img src="/images/kredi.png" alt="" className="w-100" />
+            {/* <Button className="btn-rezerv   mt-5" onSubmit={handlePayment} onClick={Payment} style={{marginLeft:200, width:250, height:80, backgroundColor:"#38BDF2", fontSize:20}}>Ödeme Yap</Button> */}
+            <Payment/>
+                   
+            </Col>
 
           </Row>
         </Container>
