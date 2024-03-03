@@ -10,6 +10,14 @@ Burak Karlıdağ  -->  [GitHub/bkarlida](https://github.com/bkarlida)
 
 The Rent A Car Project is a web application designed to manage car rental processes. This project provides users with features such as renting cars, listing cars, making reservations, and updating car information.
 
+## Project Demo
+
+<img src="https://github.com/CarRentex/CarRentex-FrontEnd/blob/main/public/readmeMain.png" width="500">
+
+
+
+
+
 ## Project Database ER Diagram
 
 ![ER Diagram](http://res.cloudinary.com/dca32coar/image/upload/v1709499642/carRentex/655726ce-3390-4af4-9417-3e48ba7219a2_Screenshot%202024-03-03%20at%2023.59.45.png.png)
