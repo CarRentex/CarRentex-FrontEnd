@@ -56,7 +56,7 @@ const navigate = useNavigate();
           {translate(item.gearType)}
         </h1>
         <button
-          onClick={()=>navigate("/")}
+          onClick={()=>navigate("/rental")}
           className="s-full h-full bg-primary-color text-center text-[10px] font-bold text-white max-md:font-medium md:text-lg"
           style={{ borderRadius: "0 0 10px 10px" }}
         >

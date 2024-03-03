@@ -33,12 +33,8 @@ const CarDetails = () => {
       <section>
         <Container>
           <Row>
-            <Col lg="6">
-              <img src={carData?.imagePath} alt="" className="w-100" />
-            </Col>
-
-            <Col lg="6">
-              <div className="car__info">
+            <Col lg="5">
+            <div className="car__info">
                 <h2 className="section__title">{carData?.model.brand?.name} {carData?.model?.name}</h2>
 
                 <div className=" d-flex align-items-center gap-5 mb-4 mt-3">
@@ -128,19 +124,22 @@ const CarDetails = () => {
               </div>
             </Col>
 
-            <Col lg="7" className="mt-5">
-              <div className="booking-info mt-5">
+            <Col lg="5" style={{paddingLeft:30, marginLeft:150}}>
+            <img src={carData?.imagePath} alt="" className="w-100" />
+
+            </Col>
+            <Col lg="7" className="">
+                   
+            </Col>
+            <Col lg="6" className="">
+
+            <div className="booking-info mt-5">
                 <h5 className="mb-4 fw-bold ">Bilgilerim</h5>
                 <BookingForm />
               </div>
             </Col>
 
-            <Col lg="5" className="mt-5">
-              <div className="payment__info mt-5">
-                <h5 className="mb-4 fw-bold ">Payment Information</h5>
-                <PaymentMethod />
-              </div>
-            </Col>
+
           </Row>
         </Container>
       </section>
