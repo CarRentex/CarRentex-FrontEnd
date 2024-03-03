@@ -11,14 +11,17 @@ import { GetByIdCarResponse } from "../../models/Car/Response/GetByIdResponse";
 import { Image } from "react-bootstrap";
 import translate from "../../lib/translate";
 import Payment from "../../components/Payment/Payment";
+import { useSelector } from "react-redux";
+import { RootState } from "../../store/store";
 
 const CarDetails = () => {
   const [carData, setCarData] = useState<GetByIdCarResponse>(); // boş obje ile başlatıldı
+  const carId = useSelector((state: RootState) => state.rental.carId);
 
   useEffect(() => {
     const fetchCar = async () => {
       try {
-        const carResponse = await CarService.getById(40);
+        const carResponse = await CarService.getById(carId);
         setCarData(carResponse.data); // Varsayılan olarak ilk aracı kullanıyoruz, siz bu kısmı kendi mantığınıza göre güncelleyebilirsiniz.
       } catch (error) {
         console.error('Error fetching car:', error);

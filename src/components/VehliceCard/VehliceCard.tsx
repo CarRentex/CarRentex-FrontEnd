@@ -8,10 +8,22 @@ import { useNavigate } from "react-router-dom";
 import { GetAllCarResponse } from "../../models/Car/Response/GetAllCarResponse";
 import "./VehliceCard.css";
 import translate from "../../lib/translate";
+import { useDispatch } from "react-redux";
+import { handleCarId } from "../../store/rentalSlice";
+import { useState } from "react";
+import { AppDispatch } from "../../store/store";
 
 
 const VehliceCard = (  {item}: {item: GetAllCarResponse}) => {
+const dispatch = useDispatch<AppDispatch>();
 const navigate = useNavigate();
+const [carId, setCarId] = useState<any>();
+
+
+const handleRentNowClick = (item: any) => {
+  dispatch(handleCarId(item));
+  navigate("/rental");
+}
 
 
 
@@ -56,7 +68,7 @@ const navigate = useNavigate();
           {translate(item.gearType)}
         </h1>
         <button
-          onClick={()=>navigate("/rental")}
+          onClick={() => handleRentNowClick(item.id)}
           className="s-full h-full bg-primary-color text-center text-[10px] font-bold text-white max-md:font-medium md:text-lg"
           style={{ borderRadius: "0 0 10px 10px" }}
         >
