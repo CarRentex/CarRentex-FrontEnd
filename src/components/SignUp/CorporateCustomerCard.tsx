@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import {
   Input,
   InputGroup,
@@ -12,8 +12,12 @@ import { FaAccessibleIcon, FaAddressBook, FaAddressCard, FaBuilding, FaCity, FaE
 import { CreateRegister } from "../../models/Auth/CreateRegister";
 import { register } from "../../services/AuthService/auth";
 import { toast } from "react-toastify";
+import CityService from "../../services/CityService";
 
 const CorporateCustomerCard: React.FC = () => {
+  const [cities, setCities] = useState<any[]>([]);
+  const [districts, setDistricts] = useState<any[]>([]);
+  const [selectedCityId, setSelectedCityId] = useState<number>(0);
   const [formData, setFormData] = useState<CreateRegister>({
     companyName: "",
     taxNo: "",
@@ -27,17 +31,40 @@ const CorporateCustomerCard: React.FC = () => {
     role: "CORPORATE_CUSTOMER",
   });
 
+  useEffect(() => {
+    const fetchCities = async () => {
+      try {
+        const response = await CityService.getAll();
+        setCities(response.data as any);
+      } catch (error) {
+        console.error("Error fetching cities:", error);
+      }
+    };
+
+    fetchCities();
+  }, []);
+
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
-    setFormData({
-      ...formData,
-      [e.target.id]: e.target.value,
-    });
+    setFormData({ ...formData, [e.target.id]: e.target.value });
   };
 
-  const handleSubmit = async (e: any) => {
-    e.preventDefault();
-    console.log("Form data:", formData);
+  const handleCityChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
+    const newCityId = parseInt(e.target.value);
+    setSelectedCityId(newCityId);
 
+    const selectedCity = cities.find((city) => city.id === newCityId);
+    if (selectedCity) {
+      setDistricts(selectedCity.districts);
+      setFormData({ ...formData, cityId: newCityId, districtId: 0 });
+    }
+  };
+
+  const handleDistrictChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
+    setFormData({ ...formData, districtId: parseInt(e.target.value) });
+  };
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
     try {
       await register(formData);
       toast.success("Kayıt Başarılı!");
@@ -91,10 +118,16 @@ const CorporateCustomerCard: React.FC = () => {
             </InputGroupText>
             <Input
               id="cityId"
-              placeholder="il"
-              type="text"
-              onChange={handleChange}
-            />
+              placeholder="İl"
+              type="select"
+              onChange={handleCityChange as any}
+              value={selectedCityId}
+            >
+              <option value={0}>İl Seçiniz</option>
+              {cities.map((city) => (
+                <option key={city.id} value={city.id}>{city.name}</option>
+              ))}
+            </Input>
           </InputGroup>
         </Col>
         <Col md="6">
@@ -122,16 +155,22 @@ const CorporateCustomerCard: React.FC = () => {
           </InputGroup>
         </Col>
         <Col md="6">
-          <InputGroup className="mb-3">
+        <InputGroup className="mb-3">
             <InputGroupText>
               <FaCity />
             </InputGroupText>
             <Input
               id="districtId"
               placeholder="İlçe"
-              type="text"
-              onChange={handleChange}
-            />
+              type="select"
+              onChange={handleDistrictChange as any}
+              value={formData.districtId}
+            >
+              <option value={0}>İlçe Seçiniz</option>
+              {districts.map((district) => (
+                <option key={district.id} value={district.id}>{district.name}</option>
+              ))}
+            </Input>
           </InputGroup>
           <InputGroup className="mb-3">
             <InputGroupText>

@@ -11,7 +11,6 @@ import ImageDataService from '../../services/ImageDataService';
 import CarService from '../../services/CarService';
 import ColorService from '../../services/ColorService';
 import ModelService from '../../services/ModelService';
-import BaseFetcher from '../../lib/BaseFetcher';
 import FormikInput from '../../components/FormikInput/FormikInput';
 import FormikSelect from '../../components/FormikInput/FormikSelect';
 import BaseFetcherV3 from '../../lib/BaseFetcherV3';
@@ -33,14 +32,15 @@ const AddCar: React.FC = () => {
     }
 
     const response = await ImageDataService.image(formData);
+    console.log("resim", response);
     setImagePath(response.data);
   };
 
   const handleSubmit = async (values: CreateCarRequest, { resetForm }: FormikHelpers<CreateCarRequest>) => {
-    // if (!imagePath) {
-    //   toast.error('Lütfen önce bir resim ekleyin!');
-    //   return;
-    // }
+    if (!imagePath) {
+      toast.error('Lütfen önce bir resim ekleyin!');
+      return;
+    }
 
     try {
       const carDataWithImage = { ...values, imagePath };
@@ -52,10 +52,10 @@ const AddCar: React.FC = () => {
   };
 
   const handleFormSubmit = (formikSubmit: (values?: CreateCarRequest) => void) => {
-    // if (!imagePath) {
-    //   toast.error('Lütfen önce bir resim ekleyin!');
-    //   return;
-    // }
+    if (!imagePath) {
+      toast.error('Lütfen önce bir resim ekleyin!');
+      return;
+    }
 
     formikSubmit();
   };

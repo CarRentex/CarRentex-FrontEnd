@@ -13,9 +13,9 @@ const Sidebar = () => {
         <div className="sidebar__top">
           <img
             src="/carlogo.png"
-            className="mt-1 ml-10"
+            className="mt-1 ml-9 pb-2 pr-3"
             alt="logo"
-            style={{ width: "160px", height: "60px" }}
+            style={{ width: "170px", height: "60px" }}
           />
         </div>
 

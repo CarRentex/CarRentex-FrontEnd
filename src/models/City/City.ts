@@ -9,6 +9,7 @@ export interface GetAllCityResponse {
 
 // şehirler ve ona ait olan ilçeleri getirir
 export interface GetAllCityAndDistrictResponse {
+    id: number;
     name: string;
     district: GetAllDistrictResponse;
 }

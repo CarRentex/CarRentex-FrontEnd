@@ -71,10 +71,8 @@ const BaseAdmin: React.FC<Props> = ({ service, Table, AddData, UpdateData, Delet
   };
 
   const handleSaveChanges = () => {
-    setIsAddingData(false);
-    setIsDeletingData(false);
     setShowModal(false);
-    fetchData();
+    window.location.reload();
   };
 
   return (
