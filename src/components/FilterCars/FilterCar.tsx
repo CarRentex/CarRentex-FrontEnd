@@ -21,7 +21,6 @@ const FilterSection: React.FC<BookingSectionProps> = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    // Markaları getir
     fetchBrands();
   }, []);
 
@@ -58,7 +57,6 @@ const FilterSection: React.FC<BookingSectionProps> = () => {
     if (selectedBrand) {
       setDropOff(String(selectedBrandId));
       setCarType("");
-      // Marka değiştiğinde modelleri getir
       fetchModels(selectedBrandId);
     }
   };

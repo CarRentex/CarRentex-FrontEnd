@@ -8,7 +8,7 @@ import { useNavigate } from 'react-router-dom';
 
 const FilterReservation = () => {
   const dispatch = useDispatch();
-  const rentalState = useSelector((state: RootState) => state.rental); // Replace with the correct slice name
+  const rentalState = useSelector((state: RootState) => state.rental);
   const navigate = useNavigate();
 
   const [locOne, setLocOne] = useState<any>('');
@@ -18,7 +18,6 @@ const FilterReservation = () => {
   const [locations, setLocations] = useState<any[]>([]);
 
   useEffect(() => {
-    // Markaları getir
     fetchLocations();
   }, []);
 
@@ -52,7 +51,6 @@ const FilterReservation = () => {
   const handleSubmit = (e: any) => {
     e.preventDefault();
 
-    // Redux state'e filtreleme değerlerini dispatch et
     dispatch(handleStartDate(pickTime));
     dispatch(handleEndDate(dropTime));
     dispatch(handlePickLocationId(locOne));

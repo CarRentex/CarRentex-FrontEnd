@@ -66,7 +66,7 @@
 
 .sidebar__content {
   display: flex;
-
+padding-right: 20px;
   justify-content: space-between;
   flex-direction: column;
   height: calc(100% - 5%);

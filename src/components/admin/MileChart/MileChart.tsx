@@ -22,13 +22,11 @@ const MileChart: React.FC = () => {
           "Tem", "Ağu", "Eyl", "Eki", "Kas", "Ara",
         ];
 
-        // Default data for all months
         for (let i = 1; i <= 12; i++) {
           const monthName = monthNames[i - 1];
           monthlyData.push({ name: monthName, mileStats: 0 });
         }
 
-        // Fill the fetched data
         response.data.forEach(([month, income]: [number, number]) => {
           const monthName = monthNames[month - 1];
           monthlyData[month - 1] = { name: monthName, mileStats: income };

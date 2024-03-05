@@ -11,6 +11,11 @@
     display: flex;
     flex-direction: column;
     color: #000d6b;
+   
+}
+.top{
+ padding-top: 100px;
+ padding-bottom: 100px;
 }
 .booking-info{
     background-color:#e9eaeb;

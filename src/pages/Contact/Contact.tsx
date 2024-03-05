@@ -1,7 +1,24 @@
+import { toast } from "react-toastify";
 import HeroPages from "../../components/HeroPages/HeroPages";
 import "./Contact.scss";
+import { useForm, SubmitHandler } from "react-hook-form";
+
+type InputType = {
+  name: string;
+  surname: string;
+  email: string;
+  subject: string;
+  message: string;
+};
 
 function Contact() {
+  const { register, handleSubmit, reset } = useForm<InputType>();
+
+  const onSubmit: SubmitHandler<InputType> = (formData) => {
+    window.location.href = `mailto: burakkarlidag23@gmail.com.com?subject=${formData.subject}&body=Hi, my name is ${formData.name}. ${formData.message}. This is my email address: ${formData.email}`;
+    reset();
+    toast.success("Mesajınız başarıyla gönderildi.");
+  };
   return (
     <>
       <section className="contact-page">
@@ -25,23 +42,26 @@ function Contact() {
               </a>
             </div>
             <div className="contact-div__form">
-              <form>
+              <form onSubmit={handleSubmit(onSubmit)}>
                 <label>
                   İsim Soyisim <b>*</b>
                 </label>
-                <input type="text" placeholder='"İsim Soyisim"' />
+                <input type="text" placeholder='"İsim Soyisim"' {...register("name")} />
 
                 <label>
                   Email <b>*</b>
                 </label>
-                <input type="email" placeholder="carRentex@gmail.com" />
-
+                <input type="email" placeholder="carRentex@gmail.com" {...register("email")} />
+                <label>
+                  Konu <b>*</b>
+                </label>
+                <input type="text" placeholder="Konu" {...register("subject")}/>
                 <label>
                   Açıklama <b>*</b>
                 </label>
-                <textarea placeholder="Yazınız..."></textarea>
+                <textarea placeholder="Yazınız..." {...register("message")}></textarea>
 
-                <button type="submit">
+                <button type="submit" >
                   <i className="fa-solid fa-envelope-open-text"></i>&nbsp; Mesaj
                   Gönder
                 </button>

@@ -112,7 +112,7 @@ const BaseAdmin: React.FC<Props> = ({ service, Table, AddData, UpdateData, Delet
           </Button>
           <Button
             variant='primary'
-            onClick={handleSaveChanges} // Save Changes'e tıklandığında yeni verileri getir
+            onClick={handleSaveChanges}
           >
             Save Changes
           </Button>

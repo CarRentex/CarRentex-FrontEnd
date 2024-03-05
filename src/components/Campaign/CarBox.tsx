@@ -12,7 +12,6 @@ interface CarBoxProps {
 const CarBox: React.FC<CarBoxProps> = ({ data }: CarBoxProps): JSX.Element => {
   const [carLoad, setCarLoad] = useState(true);
 
-  // data undefined değilse devam et, aksi halde boş bir dizi kullan
   const carsArray = Array.isArray(data) ? data : [data];
 
   return (

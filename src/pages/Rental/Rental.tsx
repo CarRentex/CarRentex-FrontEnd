@@ -36,7 +36,7 @@ const CarDetails = () => {
     };
 
   return (
-    <div style={{paddingTop:76}}>
+    <div className="top">
        <Helmet title={carData?.model?.brand?.name}>
       <section>
         <Container>

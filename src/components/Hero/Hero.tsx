@@ -36,21 +36,23 @@ const Hero = (props: Props) => {
       <>
               <section
         id="home"
-        className="hero-section"
+        className="hero-section clear-filter"
         style={{
           background: `url("/images/car/car4.jpeg") center/cover no-repeat`,
           height: "100vh",
         }}
-      >
+        filter-color="blue"
+        
+        >
       <AnimateReveal direction="from-left" delay={100}>
-          <div className="container">
-            <div className="hero-content">
+          <div className="container " >
+            <div className="hero-content " >
               <div className="hero-content__text">
                 <h4>Seyahatinizi Şimdi Planlayın</h4>
                 <h1>
                   Hey! <span>CarRentex</span> ile eşsiz bir yolculuğa hazır mısın?
                 </h1>
-                <p >
+                <p>
                 Hayalinizdeki arabayı kiralayın. Rakipsiz fiyatlar, sınırsız mil, esnek teslim alma seçenekleri ve çok daha fazlası.
                 </p>
                 <div className="hero-content__text__btns">
